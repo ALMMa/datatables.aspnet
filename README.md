@@ -17,14 +17,11 @@
 <p>
 	It's as simple as it gets:
 </p>
-<blockquote>
-	<pre>
-public ActionResult MyActionResult([Bind(typeof(DataTables.Mvc.DataTablesBinder)] DataTables.Mvc.IDataTablesRequest requestModel) { ... }
-	</pre>
-</blockquote>
 
-<blockquote>
-	<pre>
+<pre>
+public ActionResult MyActionResult([Bind(typeof(DataTables.Mvc.DataTablesBinder)] DataTables.Mvc.IDataTablesRequest requestModel) { ... }
+</pre>
+
+<pre>
 return new DataTables.Mvc.DataTablesResponse(requestModel.Draw, myFilteredData.Skip(requestModel.Start).Take(requestModel.Length), myFilteredData.Count(), myOriginalDataSet.Count());
-	</pre>
-</blockquote>
+</pre>
