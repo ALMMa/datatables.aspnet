@@ -1,5 +1,4 @@
 <h1>Datatables.Mvc</h1>
-==============
 <p>
 	ASP.NET MVC 5 classes to bind your DataTables (1.10 and above with the new camelCaseApi) with your controllers.
 </p>
