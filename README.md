@@ -21,7 +21,7 @@
 </p>
 
 <pre>
-public ActionResult MyActionResult([Bind(typeof(DataTables.Mvc.DataTablesBinder)] DataTables.Mvc.IDataTablesRequest requestModel) { ... }
+public ActionResult MyActionResult([ModelBinder(typeof(DataTables.Mvc.DataTablesBinder)] DataTables.Mvc.IDataTablesRequest requestModel) { ... }
 </pre>
 
 <pre>
