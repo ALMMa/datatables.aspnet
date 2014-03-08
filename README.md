@@ -48,7 +48,7 @@ return new DataTables.Mvc.DataTablesResponse(requestModel.Draw, myFilteredData.S
 	Tips:
 </p>
 <pre>
-var columns = requestParameters.Columns.Where(_column => _column.IsOrdered);
+var columns = requestParameters.Columns.Where(_column => _column.IsOrdered && !String.IsNullOrWhiteSpace(_column.Data));
 if (columns.Any())
 {
     var sortedColumns = columns.OrderBy(_column => _column.OrderNumber);
@@ -59,7 +59,4 @@ if (columns.Any())
         else { SortAgain(column.Data, column.SortDirection); }
     }
 }
-</pre>
-<pre>
-foreach(var order in ordering)
 </pre>
