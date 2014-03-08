@@ -42,7 +42,7 @@ public ActionResult MyActionResult([ModelBinder(typeof(DataTables.Mvc.DataTables
 	Also, consider that you have an unbound column (model: null). You won't find a way to order that column on server-side (but you might want to order through other columns).
 </p>
 <p>
-	So, you'll have work with 3 elements: `Column.IsOrdered`, `Column.OrderNumber` and `Column.SortDirection`.
+	So, you'll have work with 3 elements: <code>Column.IsOrdered</code>, <code>Column.OrderNumber</code> and <code>Column.SortDirection</code>.
 </p>
 <p>
 	Tips:
