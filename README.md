@@ -20,13 +20,13 @@
 	It's as simple as it gets:
 </p>
 
-<pre>
-public ActionResult MyActionResult([ModelBinder(typeof(DataTables.Mvc.DataTablesBinder)] DataTables.Mvc.IDataTablesRequest requestModel) { ... }
-</pre>
-
-<pre>
-return new DataTables.Mvc.DataTablesResponse(requestModel.Draw, myFilteredData.Skip(requestModel.Start).Take(requestModel.Length), myFilteredData.Count(), myOriginalDataSet.Count());
-</pre>
+```C#
+public ActionResult MyActionResult([ModelBinder(typeof(DataTables.Mvc.DataTablesBinder)] DataTables.Mvc.IDataTablesRequest requestModel)
+{
+    // do your stuff...
+    return new DataTables.Mvc.DataTablesResponse(requestModel.Draw, myFilteredData.Skip(requestModel.Start).Take(requestModel.Length), myFilteredData.Count(), myOriginalDataSet.Count());
+}
+```
 <h3>Any gotchas?</h3>
 <p>
 	There is one. Simple but tricky.
@@ -47,7 +47,7 @@ return new DataTables.Mvc.DataTablesResponse(requestModel.Draw, myFilteredData.S
 <p>
 	Tips:
 </p>
-<pre>
+```C#
 var columns = requestParameters.Columns.Where(_column => _column.IsOrdered && !String.IsNullOrWhiteSpace(_column.Data));
 if (columns.Any())
 {
@@ -59,4 +59,4 @@ if (columns.Any())
         else { SortAgain(column.Data, column.SortDirection); }
     }
 }
-</pre>
+```
