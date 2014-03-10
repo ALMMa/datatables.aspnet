@@ -1,48 +1,27 @@
-﻿#region COPYRIGHT(C) 2014 NACIONAL SOFT LTDA
-/*****************************************************************************
-{                                                                            }
-{    COPYRIGHT (C) 2013-2014 NACIONAL SOFT LTDA (CNPJ: 23.303.829/0001-69)   }
-{    TODOS OS DIREITOS RESERVADOS.                                           }
-{    +55 31 35050151  |  infra@nacionalsoft.com.br  |  BRASIL/BRAZIL         }
-{                                                                            }
-{ ========================================================================== }
-{           ESTE TEXTO FOI ESCRITO SEM ACENTUACAO PROPOSITALMENTE            }
-{ ========================================================================== }
-{                                                                            }
-{ TODO O CONTEUDO DESTE ARQUIVO E DE ARQUIVOS RELACIONADOS EH PROTEGIDO POR  }
-{ LEIS BRASILEIRAS E INTERNACIONAIS DE DIREITOS AUTORAIS, SENDO VETADA SUA   }
-{ DISTRIBUICAO, COMERCIALIZACAO, DIVULGACAO, ENGENHARIA-REVERSA OU QUALQUER  }
-{ OUTRA FORMA DE DISPONIBILIZACAO, PARA QUAISQUER FINALIDADES, SEJA EM SUA   }
-{ TOTALIDADE OU EM QUALQUER PARTE DE SEU CONTEUDO.                           }
-{                                                                            }
-{ AVISO DE DIREITOS AUTORAIS                                                 }
-{ ==========================                                                 }
-{                                                                            }
-{ ESTE CODIGO FONTE E TODOS OS ARQUIVOS INTERMEDIARIOS DELE RESULTANTES SAO  }
-{ INTEIRAMENTE CONFIDENCIAIS E REPRESENTAM SEGREDO INDUSTRIAL E COMERCIAL DE }
-{ SUA PRODUTORA (NACIONAL SOFT LTDA).                                        }
-{                                                                            }
-{ O CONTEUDO DESTE ARQUIVO E DE TODOS OS ARQUIVOS RELACIONADOS, EM TODO OU   }
-{ EM PARTE, NAO PODERA SER COPIADO, TRANSFERIDO, COMERCIALIZADO, DISTRIBUIDO }
-{ OU DISPONIBILIZADO SOB QUALQUER FORMA SEM O PREVIO CONSENTIMENTO, POR      }
-{ ESCRITO, DA NACIONAL SOFT LTDA, CONCEDENDO TODAS AS PERMISSOES NECESSARIAS }
-{ PARA TAL.                                                                  }
-{                                                                            }
-{ O DESCUMPRIMENTO DESTE PODERA ACARRETAR AO INFRATOR OU EMPRESA RESPONSAVEL }
-{ PELA VIOLACAO OU AMBOS EM PROCESSOS CIVIS, CRIMINAIS, ADMINISTRATIVOS E DE }
-{ PERDAS FINANCEIRAS, TODOS EM SUA MAXIMA PENALIDADE, POR SER CONSIDERADO UM }
-{ CRIME DE VIOLACAO DE SEGREDO COMPETITIVO E FINANCEIRO DA PRODUTORA.        }
-{                                                                            }
-{ AVISO AOS DESENVOLVEDORES DA NACIONAL SOFT                                 }
-{ ==========================================                                 }
-{                                                                            }
-{ MANTENHA-SE INFORMADO SOBRE AS RESTRICOES DE USO E POLITICAS DE SEGURANCA  }
-{ DA EMPRESA. NAO REPASSE ESTE ARQUIVO A OUTROS, MESMO QUE SEJAM FUNCIONARI- }
-{ OS ATIVOS DA NACIONAL SOFT. NEM TODOS OS FUNCIONARIOS POSSUEM PERMISSAO DE }
-{ ACESSO AOS CODIGOS FONTES DE NOSSOS SISTEMAS.                              }
-{                                                                            }
-*****************************************************************************/
-#endregion COPYRIGHT(C) 2014 NACIONAL SOFT LTDA
+﻿#region Copyright
+/* The MIT License (MIT)
+
+Copyright (c) 2014 Anderson Luiz Mendes Matos
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+#endregion Copyright
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
