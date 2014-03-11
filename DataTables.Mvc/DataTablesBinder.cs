@@ -95,7 +95,7 @@ namespace DataTables.Mvc
                         columnSearchValue,
                         columnSearchRegex);
 
-                    model.Columns.Add(column);
+                    model.AddColumn(column);
                 }
                 else break; // Stops iterating because there's no more columns.
             }

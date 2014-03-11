@@ -55,9 +55,9 @@ namespace DataTables.Mvc
         /// </summary>
         Search Search { get; }
         /// <summary>
-        /// Gets the collection of client-side columns with their options and configs.
+        /// Gets the read-only collection of client-side columns with their options and configs.
         /// </summary>
-        ICollection<Column> Columns { get; set; }
+        IReadOnlyCollection<Column> Columns { get; }
     }
     /// <summary>
     /// For internal use only.
@@ -69,7 +69,9 @@ namespace DataTables.Mvc
         public int Start { get; set; }
         public int Length { get; set; }
         public Search Search { get; set; }
-        public ICollection<Column> Columns { get; set; }
-        public DataTablesRequest() { Columns = new List<Column>(); }
+        private List<Column> _Columns { get; set; }
+        public IReadOnlyCollection<Column> Columns { get { return _Columns.AsReadOnly(); } }
+        public DataTablesRequest() { _Columns = new List<Column>(); }
+        public void AddColumn(Column column) { _Columns.Add(column); }
     }
 }
