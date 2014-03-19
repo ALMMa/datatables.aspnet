@@ -21,10 +21,10 @@
 </p>
 
 ```C#
-public ActionResult MyActionResult([ModelBinder(typeof(DataTables.Mvc.DataTablesBinder)] DataTables.Mvc.IDataTablesRequest requestModel)
+public ActionResult MyActionResult([ModelBinder(typeof(DataTables.Mvc.DataTablesBinder)] IDataTablesRequest requestModel)
 {
     // do your stuff...
-    return new DataTables.Mvc.DataTablesResponse(requestModel.Draw, myFilteredData.Skip(requestModel.Start).Take(requestModel.Length), myFilteredData.Count(), myOriginalDataSet.Count());
+    return new DataTablesResponse(requestModel.Draw, myFilteredData.Skip(requestModel.Start).Take(requestModel.Length), myFilteredData.Count(), myOriginalDataSet.Count());
 }
 ```
 <h3>Any gotchas?</h3>

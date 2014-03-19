@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 
 namespace DataTables.Mvc
@@ -36,14 +37,38 @@ namespace DataTables.Mvc
     /// </summary>
     public class DataTablesBinder : IModelBinder
     {
-        const string COLUMN_DATA_FORMATTING = "columns[{0}][data]";
-        const string COLUMN_NAME_FORMATTING = "columns[{0}][name]";
-        const string COLUMN_SEARCHABLE_FORMATTING = "columns[{0}][searchable]";
-        const string COLUMN_ORDERABLE_FORMATTING = "columns[{0}][orderable]";
-        const string COLUMN_SEARCH_VALUE_FORMATTING = "columns[{0}][search][value]";
-        const string COLUMN_SEARCH_REGEX_FORMATTING = "columns[{0}][search][regex]";
-        const string ORDER_COLUMN_FORMATTING = "order[{0}][column]";
-        const string ORDER_DIRECTION_FORMATTING = "order[{0}][dir]";
+        /// <summary>
+        /// Formatting to retrieve data for each column.
+        /// </summary>
+        protected readonly string COLUMN_DATA_FORMATTING = "columns[{0}][data]";
+        /// <summary>
+        /// Formatting to retrieve name for each column.
+        /// </summary>
+        protected readonly string COLUMN_NAME_FORMATTING = "columns[{0}][name]";
+        /// <summary>
+        /// Formatting to retrieve searchable indicator for each column.
+        /// </summary>
+        protected readonly string COLUMN_SEARCHABLE_FORMATTING = "columns[{0}][searchable]";
+        /// <summary>
+        /// Formatting to retrieve orderable indicator for each column.
+        /// </summary>
+        protected readonly string COLUMN_ORDERABLE_FORMATTING = "columns[{0}][orderable]";
+        /// <summary>
+        /// Formatting to retrieve search value for each column.
+        /// </summary>
+        protected readonly string COLUMN_SEARCH_VALUE_FORMATTING = "columns[{0}][search][value]";
+        /// <summary>
+        /// Formatting to retrieve search regex indicator for each column.
+        /// </summary>
+        protected readonly string COLUMN_SEARCH_REGEX_FORMATTING = "columns[{0}][search][regex]";
+        /// <summary>
+        /// Formatting to retrieve ordered columns.
+        /// </summary>
+        protected readonly string ORDER_COLUMN_FORMATTING = "order[{0}][column]";
+        /// <summary>
+        /// Formatting to retrieve columns order direction.
+        /// </summary>
+        protected readonly string ORDER_DIRECTION_FORMATTING = "order[{0}][dir]";
         /// <summary>
         /// Binds a new model with the DataTables request parameters.
         /// </summary>
@@ -52,66 +77,128 @@ namespace DataTables.Mvc
         /// <returns></returns>
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
-            var model = new DataTablesRequest();
-
             var request = controllerContext.RequestContext.HttpContext.Request;
             var requestMethod = request.HttpMethod.ToLower();
-            
-            NameValueCollection requestParameters = null;
-            if (requestMethod.Equals("post")) requestParameters = request.Form;
-            else if (requestMethod.Equals("get")) requestParameters = request.QueryString;
-            else throw new ArgumentException(String.Format("The provided HTTP method ({0}) is not a valid method to use with DataTablesBinder. Please, use HTTP GET or POST methods only.", requestMethod), "method");
+
+            var model = new DataTablesRequest();
+
+            // We could use the `bindingContext.ValueProvider.GetValue("key")` approach but
+            // directly accessing the HttpValueCollection will improve performance if you have
+            // more than 2 registered value providers.
+            NameValueCollection requestParameters = ResolveNameValueCollection(request);
 
             // Populates the model with the draw count from DataTables.
-            model.Draw = requestParameters.G<int>("draw");
-            
+            model.Draw = Get<int>(requestParameters, "draw");
+
             // Populates the model with page info (server-side paging).
-            model.Start = requestParameters.G<int>("start");
-            model.Length = requestParameters.G<int>("length");
+            model.Start = Get<int>(requestParameters, "start");
+            model.Length = Get<int>(requestParameters, "length");
 
             // Populates the model with search (global search).
-            var searchValue = requestParameters.G<string>("search[value]");
-            var searchRegex = requestParameters.G<bool>("search[regex]");
+            var searchValue = Get<string>(requestParameters, "search[value]");
+            var searchRegex = Get<bool>(requestParameters, "search[regex]");
             model.Search = new Search(searchValue, searchRegex);
 
-            // Loop through every request parameter to avoid missing any DataTable column.
-            for (int i = 0; i < requestParameters.Count; i++)
-            {
-                var columnData = requestParameters.G<string>(String.Format(COLUMN_DATA_FORMATTING, i));
-                var columnName = requestParameters.G<string>(String.Format(COLUMN_NAME_FORMATTING, i));
+            // Get's the column collection from the request parameters.
+            var columns = GetColumns(requestParameters);
 
-                if (columnData != null && columnName != null)
+            // Parse column ordering.
+            ParseColumnOrdering(requestParameters, columns);
+
+            // Attach columns into the model.
+            model.AddColumns(columns);
+
+            // Returns the filled model.
+            return model;
+        }
+        /// <summary>
+        /// Resolves the NameValueCollection from the request.
+        /// Default implementation supports only GET and POST methods.
+        /// You may override this method to support other HTTP verbs.
+        /// </summary>
+        /// <param name="request">The HttpRequestBase object that represents the MVC request.</param>
+        /// <returns>The NameValueCollection with request variables.</returns>
+        protected virtual NameValueCollection ResolveNameValueCollection(HttpRequestBase request)
+        {
+            if (request.HttpMethod.ToLower().Equals("get")) return request.QueryString;
+            else if (request.HttpMethod.ToLower().Equals("post")) return request.Form;
+            else throw new ArgumentException(String.Format("The provided HTTP method ({0}) is not a valid method to use with DataTablesBinder. Please, use HTTP GET or POST methods only.", request.HttpMethod), "method");
+        }
+        /// <summary>
+        /// Get's a typed value from the collection using the provided key.
+        /// This method is provided as an option for you to override the default behavior and add aditional
+        /// check or change the returned value.
+        /// </summary>
+        /// <typeparam name="T">The type of the object to be returned.</typeparam>
+        /// <param name="collection">The collection.</param>
+        /// <param name="key">The key to access the collection item.</param>
+        /// <returns>The stringly-typed object.</returns>
+        protected virtual T Get<T>(NameValueCollection collection, string key)
+        {
+            return collection.G<T>(key);
+        }
+        /// <summary>
+        /// Return's the column collection from the request values.
+        /// This method is provided as an option for you to override the default behavior and add aditional
+        /// check or change the returned value.
+        /// </summary>
+        /// <param name="collection">The request value collection.</param>
+        /// <returns>The collumn collection or an empty list. For default behavior, do not return null!</returns>
+        protected virtual List<Column> GetColumns(NameValueCollection collection)
+        {
+            try
+            {
+                var returnCollection = new List<Column>();
+
+                // Loop through every request parameter to avoid missing any DataTable column.
+                for (int i = 0; i < collection.Count; i++)
                 {
-                    var columnSearchable = requestParameters.G<bool>(String.Format(COLUMN_SEARCHABLE_FORMATTING, i));
-                    var columnOrderable = requestParameters.G<bool>(String.Format(COLUMN_ORDERABLE_FORMATTING, i));
-                    var columnSearchValue = requestParameters.G<string>(String.Format(COLUMN_SEARCH_VALUE_FORMATTING, i));
-                    var columnSearchRegex = requestParameters.G<bool>(String.Format(COLUMN_SEARCH_REGEX_FORMATTING, i));
+                    var columnData = Get<string>(collection, String.Format(COLUMN_DATA_FORMATTING, i));
+                    var columnName = Get<string>(collection, String.Format(COLUMN_NAME_FORMATTING, i));
 
-                    var column = new Column(
-                        columnData,
-                        columnName,
-                        columnSearchable,
-                        columnOrderable,
-                        columnSearchValue,
-                        columnSearchRegex);
+                    if (columnData != null && columnName != null)
+                    {
+                        var columnSearchable = Get<bool>(collection, String.Format(COLUMN_SEARCHABLE_FORMATTING, i));
+                        var columnOrderable = Get<bool>(collection, String.Format(COLUMN_ORDERABLE_FORMATTING, i));
+                        var columnSearchValue = Get<string>(collection, String.Format(COLUMN_SEARCH_VALUE_FORMATTING, i));
+                        var columnSearchRegex = Get<bool>(collection, String.Format(COLUMN_SEARCH_REGEX_FORMATTING, i));
 
-                    model.AddColumn(column);
+                        var column = new Column(
+                            columnData,
+                            columnName,
+                            columnSearchable,
+                            columnOrderable,
+                            columnSearchValue,
+                            columnSearchRegex);
+
+                        returnCollection.Add(column);
+                    }
+                    else break; // Stops iterating because there's no more columns.
                 }
-                else break; // Stops iterating because there's no more columns.
-            }
 
-            // Configure column's ordering.
-            for (int i = 0; i < requestParameters.Count; i++)
+                return returnCollection;
+            }
+            catch
             {
-                var orderColumn = requestParameters.G<int>(String.Format(ORDER_COLUMN_FORMATTING, i));
-                var orderDirection = requestParameters.G<string>(String.Format(ORDER_DIRECTION_FORMATTING, i));
-
-                if (orderColumn != null && orderDirection != null)
-                    model.Columns.ElementAt(orderColumn).SetColumnOrdering(i, orderDirection);
+                return new List<Column>();
             }
+        }
+        /// <summary>
+        /// Configure column's ordering.
+        /// This method is provided as an option for you to override the default behavior.
+        /// </summary>
+        /// <param name="collection">The request value collection.</param>
+        /// <param name="columns">The column collection as returned from GetColumns method.</param>
+        protected virtual void ParseColumnOrdering(NameValueCollection collection, IEnumerable<Column> columns)
+        {
+            for (int i = 0; i < collection.Count; i++)
+            {
+                var orderColumn = Get<int>(collection, String.Format(ORDER_COLUMN_FORMATTING, i));
+                var orderDirection = Get<string>(collection, String.Format(ORDER_DIRECTION_FORMATTING, i));
 
-            // Casts the model into it's interface to protect against changes.
-            return (IDataTablesRequest)model;
+                if (orderColumn > -1 && orderDirection != null)
+                    columns.ElementAt(orderColumn).SetColumnOrdering(i, orderDirection);
+            }
         }
     }
 }

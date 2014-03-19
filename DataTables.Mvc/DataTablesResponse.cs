@@ -59,8 +59,8 @@ namespace DataTables.Mvc
         /// </summary>
         /// <param name="draw">The draw counter as received from the DataTablesRequest.</param>
         /// <param name="data">The data collection (data page).</param>
-        /// <param name="filtered">The resulting number of records after filtering.</param>
-        /// <param name="total">The total number of records (total dataset).</param>
+        /// <param name="recordsFiltered">The resulting number of records after filtering.</param>
+        /// <param name="recordsTotal">The total number of records (total dataset).</param>
         public DataTablesResponse(int draw, IEnumerable data, int recordsFiltered, int recordsTotal)
         {
             this.draw = draw;

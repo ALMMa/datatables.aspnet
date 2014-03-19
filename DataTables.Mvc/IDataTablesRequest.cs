@@ -73,5 +73,6 @@ namespace DataTables.Mvc
         public IReadOnlyCollection<Column> Columns { get { return _Columns.AsReadOnly(); } }
         public DataTablesRequest() { _Columns = new List<Column>(); }
         public void AddColumn(Column column) { _Columns.Add(column); }
+        public void AddColumns(IEnumerable<Column> columns) { _Columns.AddRange(columns); }
     }
 }
