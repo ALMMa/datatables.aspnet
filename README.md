@@ -25,7 +25,7 @@ public ActionResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataT
 {
     // do your stuff...
 	var paged = myFilteredData.Skip(requestModel.Start).Take(requestModel.Length);
-    return new DataTablesResponse(requestModel.Draw, paged, myFilteredData.Count(), myOriginalDataSet.Count());
+    return View(new DataTablesResponse(requestModel.Draw, paged, myFilteredData.Count(), myOriginalDataSet.Count()));
 }
 
 // Or if you'd like to return a JsonResult, try this:
