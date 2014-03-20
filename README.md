@@ -21,10 +21,20 @@
 </p>
 
 ```C#
-public ActionResult MyActionResult([ModelBinder(typeof(DataTables.Mvc.DataTablesBinder)] IDataTablesRequest requestModel)
+public ActionResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataTablesRequest requestModel)
 {
     // do your stuff...
-    return new DataTablesResponse(requestModel.Draw, myFilteredData.Skip(requestModel.Start).Take(requestModel.Length), myFilteredData.Count(), myOriginalDataSet.Count());
+	var paged = myFilteredData.Skip(requestModel.Start).Take(requestModel.Length);
+    return new DataTablesResponse(requestModel.Draw, paged, myFilteredData.Count(), myOriginalDataSet.Count());
+}
+
+// Or if you'd like to return a JsonResult, try this:
+
+public JsonResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataTablesRequest requestModel)
+{
+    // do your stuff...
+	var paged = myFilteredData.Skip(requestModel.Start).Take(requestModel.Length);
+	return Json(new DataTablesResponse(requestModel.Draw, paged, myFilteredData.Count(), myOriginalDataSet.Count()));
 }
 ```
 <h3>Any gotchas?</h3>
