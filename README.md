@@ -37,7 +37,7 @@ public JsonResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataTab
 	return Json(new DataTablesResponse(requestModel.Draw, paged, myFilteredData.Count(), myOriginalDataSet.Count()));
 }
 ```
-<h3>What about ordering?</h3>
+<h3>What about filtering/ordering?</h3>
 <p>
 	It's a no brainer too.
 </p>
@@ -45,17 +45,22 @@ public JsonResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataTab
 	Filter/sort info from each column is, well, included on each column.
 </p>
 <p>
-	To help you out, get only the columns which were ordered on client-side with <code>IDataTablesRequest.GetSortedColumns()</code>.
-	Than, iterate through then and use <code>Column.SortDirection</code> to sort your dataset.
+	To help you out, there are two methods on <code>ColumnCollection</code> to help you out:<br />
+	<code>IDataTablesRequest.Columns.GetSortedColumns()</code> will return an ordered enumeration of sorted columns.<br />
+	<code>IDataTablesRequest.Columns.GetFilteredColumns()</code> will return an enumeration of columns which were actually filtered on client-side.
 </p>
 <p>
 	Sample:
 </p>
 ```C#
+// Apply filter to your dataset based only on the columns that actually have a search value.
 var filteredColumns = requestParameters.Columns.GetFilteredColumns();
 foreach(var column in filteredColumns)
     Filter(column.Data, column.Search.Value, column.Search.IsRegexValue);
 
+	
+// Set your dataset on the same order as requested from client-side either directly on your SQL code or easily
+// into any type or enumeration.
 var sortedColumns = requestParameters.Columns.GetSortedColumns();
 var isSorted = false;
 foreach(var column in sortedColumns)
@@ -64,3 +69,8 @@ foreach(var column in sortedColumns)
     else { SortAgain(column.Data, column.SortDirection); }
 }
 ```
+
+<h3>Any issues?</h3>
+<p>
+	If you do find any issues, please, submit then and I'll fix it ASAP.
+</p>
