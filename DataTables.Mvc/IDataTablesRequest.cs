@@ -57,7 +57,7 @@ namespace DataTables.Mvc
         /// <summary>
         /// Gets the read-only collection of client-side columns with their options and configs.
         /// </summary>
-        IReadOnlyCollection<Column> Columns { get; }
+        ColumnCollection Columns { get; }
     }
     /// <summary>
     /// For internal use only.
@@ -65,14 +65,36 @@ namespace DataTables.Mvc
     /// </summary>
     class DataTablesRequest : IDataTablesRequest
     {
+        /// <summary>
+        /// For internal use only.
+        /// Gets/Sets the draw counter from DataTables.
+        /// </summary>
         public int Draw { get; set; }
+        /// <summary>
+        /// For internal use only.
+        /// Gets/Sets the start record number (jump) for paging.
+        /// </summary>
         public int Start { get; set; }
+        /// <summary>
+        /// For internal use only.
+        /// Gets/Sets the length of the page (paging).
+        /// </summary>
         public int Length { get; set; }
+        /// <summary>
+        /// For internal use only.
+        /// Gets/Sets the global search term.
+        /// </summary>
         public Search Search { get; set; }
-        private List<Column> _Columns { get; set; }
-        public IReadOnlyCollection<Column> Columns { get { return _Columns.AsReadOnly(); } }
-        public DataTablesRequest() { _Columns = new List<Column>(); }
-        public void AddColumn(Column column) { _Columns.Add(column); }
-        public void AddColumns(IEnumerable<Column> columns) { _Columns.AddRange(columns); }
+        /// <summary>
+        /// For internal use only.
+        /// Gets/Sets the column collection.
+        /// </summary>
+        public ColumnCollection Columns { get; private set; }
+        /// <summary>
+        /// For internal use only.
+        /// Set the new columns on the mechanism.
+        /// </summary>
+        /// <param name="columns">The columns to be set.</param>
+        public void SetColumns(IEnumerable<Column> columns) { Columns = new ColumnCollection(columns); }
     }
 }

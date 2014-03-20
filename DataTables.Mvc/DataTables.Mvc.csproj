@@ -82,6 +82,7 @@
     <Compile Include="IDataTablesRequest.cs" />
     <Compile Include="NameValueCollectionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ColumnCollection.cs" />
     <Compile Include="Search.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -37,36 +37,30 @@ public JsonResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataTab
 	return Json(new DataTablesResponse(requestModel.Draw, paged, myFilteredData.Count(), myOriginalDataSet.Count()));
 }
 ```
-<h3>Any gotchas?</h3>
+<h3>What about ordering?</h3>
 <p>
-	There is one. Simple but tricky.
+	It's a no brainer too.
 </p>
 <p>
-	When sorting on client-side, DataTables send a request to your server to order by the selected columns. It defaults to the first column but you can change that.<br />
+	Filter/sort info from each column is, well, included on each column.
 </p>
 <p>
-	The problem comes on the server-side when dealing with IQueryable, IEnumerable and IList elements.
-	DataTables provides you with the sorting column indexes and directions but we don't have a method to order an IQueryable, IEnumerable or IList using the index of the field.
+	To help you out, get only the columns which were ordered on client-side with <code>IDataTablesRequest.GetSortedColumns()</code>.
+	Than, iterate through then and use <code>Column.SortDirection</code> to sort your dataset.
 </p>
 <p>
-	Also, consider that you have an unbound column (model: null). You won't find a way to order that column on server-side (but you might want to order through other columns).
-</p>
-<p>
-	So, you'll have work with 3 elements: <code>Column.IsOrdered</code>, <code>Column.OrderNumber</code> and <code>Column.SortDirection</code>.
-</p>
-<p>
-	Tips:
+	Sample:
 </p>
 ```C#
-var columns = requestParameters.Columns.Where(_column => _column.IsOrdered && !String.IsNullOrWhiteSpace(_column.Data));
-if (columns.Any())
+var filteredColumns = requestParameters.Columns.GetFilteredColumns();
+foreach(var column in filteredColumns)
+    Filter(column.Data, column.Search.Value, column.Search.IsRegexValue);
+
+var sortedColumns = requestParameters.Columns.GetSortedColumns();
+var isSorted = false;
+foreach(var column in sortedColumns)
 {
-    var sortedColumns = columns.OrderBy(_column => _column.OrderNumber);
-    var isSorted = false;
-    foreach(var column in sortedColumns)
-    {
-        if (!isSorted) { Sort(column.Data, column.SortDirection); isSorted = true; }
-        else { SortAgain(column.Data, column.SortDirection); }
-    }
+    if (!isSorted) { Sort(column.Data, column.SortDirection); isSorted = true; }
+    else { SortAgain(column.Data, column.SortDirection); }
 }
 ```

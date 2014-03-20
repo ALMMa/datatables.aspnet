@@ -106,10 +106,10 @@ namespace DataTables.Mvc
             ParseColumnOrdering(requestParameters, columns);
 
             // Attach columns into the model.
-            model.AddColumns(columns);
+            model.SetColumns(columns);
 
             // Returns the filled model.
-            return model;
+            return (IDataTablesRequest)model;
         }
         /// <summary>
         /// Resolves the NameValueCollection from the request.
@@ -148,7 +148,7 @@ namespace DataTables.Mvc
         {
             try
             {
-                var returnCollection = new List<Column>();
+                var columns = new List<Column>();
 
                 // Loop through every request parameter to avoid missing any DataTable column.
                 for (int i = 0; i < collection.Count; i++)
@@ -163,23 +163,16 @@ namespace DataTables.Mvc
                         var columnSearchValue = Get<string>(collection, String.Format(COLUMN_SEARCH_VALUE_FORMATTING, i));
                         var columnSearchRegex = Get<bool>(collection, String.Format(COLUMN_SEARCH_REGEX_FORMATTING, i));
 
-                        var column = new Column(
-                            columnData,
-                            columnName,
-                            columnSearchable,
-                            columnOrderable,
-                            columnSearchValue,
-                            columnSearchRegex);
-
-                        returnCollection.Add(column);
+                        columns.Add(new Column(columnData, columnName, columnSearchable, columnOrderable, columnSearchValue, columnSearchRegex));
                     }
                     else break; // Stops iterating because there's no more columns.
                 }
 
-                return returnCollection;
+                return columns;
             }
             catch
             {
+                // Returns an empty column collection to avoid null exceptions.
                 return new List<Column>();
             }
         }
