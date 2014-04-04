@@ -45,7 +45,7 @@ public JsonResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataTab
 	Filter/sort info from each column is, well, included on each column.
 </p>
 <p>
-	To help you out, there are two methods on <code>ColumnCollection</code> to help you out:<br />
+	To help you out, there are two methods on <code>ColumnCollection</code>:<br />
 	<code>IDataTablesRequest.Columns.GetSortedColumns()</code> will return an ordered enumeration of sorted columns.<br />
 	<code>IDataTablesRequest.Columns.GetFilteredColumns()</code> will return an enumeration of columns which were actually filtered on client-side.
 </p>
