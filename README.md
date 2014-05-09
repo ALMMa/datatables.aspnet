@@ -21,7 +21,7 @@
 </p>
 
 ```C#
-public ActionResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataTablesRequest requestModel)
+public ActionResult MyActionResult([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
 {
     // do your stuff...
 	var paged = myFilteredData.Skip(requestModel.Start).Take(requestModel.Length);
@@ -30,7 +30,7 @@ public ActionResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataT
 
 // Or if you'd like to return a JsonResult, try this:
 
-public JsonResult MyActionResult([ModelBinder(typeof(DataTablesBinder)] IDataTablesRequest requestModel)
+public JsonResult MyActionResult([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
 {
     // do your stuff...
 	var paged = myFilteredData.Skip(requestModel.Start).Take(requestModel.Length);
