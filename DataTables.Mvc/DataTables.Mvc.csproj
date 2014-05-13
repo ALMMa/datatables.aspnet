@@ -79,6 +79,7 @@
     <Compile Include="DataTablesBinder.cs" />
     <Compile Include="DataTablesJsonBinder.cs" />
     <Compile Include="DataTablesResponse.cs" />
+    <Compile Include="DefaultDataTablesRequest.cs" />
     <Compile Include="IDataTablesRequest.cs" />
     <Compile Include="NameValueCollectionExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

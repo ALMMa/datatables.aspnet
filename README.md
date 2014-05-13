@@ -69,7 +69,42 @@ foreach(var column in sortedColumns)
     else { SortAgain(column.Data, column.SortDirection); }
 }
 ```
+<h3>Is it possible to add custom parameters sent with my request?</h3>
+<p>
+	Sure! It's a piece of cake now. Override <code>BindModel</code> and make it call <code>Bind</code> with your custom implementation of <code>IDataTablesRequest</code>.<br />
+	Than, override the <code>MapAditionalProperties</code> to map your extra info into your custom type.<br />
+	Here's a sample:
+</p>
+```C#
+// Create a custom type from DataTablesBinder.
+public class MyBinder : DataTablesBinder
+{
+    // Override the default BindModel called by ASP.NET and make it call Bind passing the type of your
+    // implementation of IDataTablesRequest:
+    public override object BindModel(System.Web.Mvc.ControllerContext controllerContext, System.Web.Mvc.ModelBindingContext bindingContext)
+    {
+        return Bind(controllerContext, bindingContext, typeof(MyCustomRequest));
+    }
+	
+	// Override MapAditionalProperties so you can set your aditional data into the model:
+    protected override void MapAditionalColumns(IDataTablesRequest requestModel, System.Collections.Specialized.NameValueCollection requestParameters)
+    {
+            var myModel = (MyCustomRequest)requestModel;
+            myModel.MyCustomProp = Get<string>(requestParameters, "myCustomProp");
+    }
+}
 
+// You'll need a custom request model, of course.
+// Just derive from DefaultDataTablesRequest and you're fine :)
+// You can choose to implement IDataTablesRequest too, if you like.
+public class MyCustomRequest : DefaultDataTablesRequest
+{
+    public string MyCustomProp { get; set; }
+}
+
+// Than, on your controller/action, decorate with:
+public ActionResult MyActionResult([ModelBinder(typeof(MyBinder))] MyCustomRequest requestModel)
+```
 <h3>Any issues?</h3>
 <p>
 	If you do find any issues, please, submit then and I'll fix it ASAP.

@@ -71,16 +71,28 @@ namespace DataTables.Mvc
         protected readonly string ORDER_DIRECTION_FORMATTING = "order[{0}][dir]";
         /// <summary>
         /// Binds a new model with the DataTables request parameters.
+        /// You should override this method to provide a custom type for internal binding to procees.
         /// </summary>
-        /// <param name="controllerContext"></param>
-        /// <param name="bindingContext"></param>
-        /// <returns></returns>
-        public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        /// <param name="controllerContext">The context for the controller.</param>
+        /// <param name="bindingContext">The context for the binding.</param>
+        /// <returns>Your model with all it's properties set.</returns>
+        public virtual object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+        {
+            return Bind(controllerContext, bindingContext, typeof(DefaultDataTablesRequest));
+        }
+        /// <summary>
+        /// Binds a new model with both DataTables and your custom parameters.
+        /// You should not override this method unless you're using request methods other than GET/POST.
+        /// If that's the case, you'll have to override ResolveNameValueCollection too.
+        /// </summary>
+        /// <param name="controllerContext">The context for the controller.</param>
+        /// <param name="bindingContext">The context for the binding.</param>
+        /// <param name="modelType">The type of the model which will be created. Should implement IDataTablesRequest.</param>
+        /// <returns>Your model with all it's properties set.</returns>
+        protected virtual object Bind(ControllerContext controllerContext, ModelBindingContext bindingContext, Type modelType)
         {
             var request = controllerContext.RequestContext.HttpContext.Request;
-            var requestMethod = request.HttpMethod.ToLower();
-
-            var model = new DataTablesRequest();
+            var model = (IDataTablesRequest)Activator.CreateInstance(modelType);
 
             // We could use the `bindingContext.ValueProvider.GetValue("key")` approach but
             // directly accessing the HttpValueCollection will improve performance if you have
@@ -106,11 +118,22 @@ namespace DataTables.Mvc
             ParseColumnOrdering(requestParameters, columns);
 
             // Attach columns into the model.
-            model.SetColumns(columns);
+            model.Columns = new ColumnCollection(columns);
+
+            // Map aditional properties into your custom request.
+            MapAditionalProperties(model, requestParameters);
 
             // Returns the filled model.
-            return (IDataTablesRequest)model;
+            return model;
         }
+        /// <summary>
+        /// Map aditional properties (aditional fields sent with DataTables) into your custom implementation of IDataTablesRequest.
+        /// You should override this method to map aditional info (non-standard DataTables parameters) into your custom 
+        /// implementation of IDataTablesRequest.
+        /// </summary>
+        /// <param name="requestModel">The request model which will receive your custom data.</param>
+        /// <param name="requestParameters">Parameters sent with the request.</param>
+        protected virtual void MapAditionalProperties(IDataTablesRequest requestModel, NameValueCollection requestParameters) { }
         /// <summary>
         /// Resolves the NameValueCollection from the request.
         /// Default implementation supports only GET and POST methods.
