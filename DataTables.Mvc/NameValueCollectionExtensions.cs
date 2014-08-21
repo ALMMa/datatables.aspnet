@@ -57,11 +57,33 @@ namespace DataTables.Mvc
         public static T G<T>(this NameValueCollection collection, string key, object defaultValue)
         {
             if (collection == null) throw new ArgumentNullException("collection", "The provided collection cannot be null.");
+
             if (String.IsNullOrWhiteSpace(key)) throw new ArgumentException("The provided key cannot be null or empty.", "key");
 
-            var collectionItem = collection[key];
-            if (collectionItem == null) return (T)defaultValue;
-            return (T)Convert.ChangeType(collectionItem, typeof(T));
+            // Underlying model contains nullable types, therefore we need to handle parameter values that are not set
+            if (string.IsNullOrEmpty(collection[key]))
+            {
+                return default(T);
+            }
+
+            // Underlying model contains arrays, therefore we need to handle parameter values of type array
+            var collectionItemType = typeof(T);
+            Type t = Nullable.GetUnderlyingType(collectionItemType) ?? collectionItemType;
+
+            if (collectionItemType.IsArray)
+            {
+                var collectionItem = collection[key].Split(',');
+                if (collectionItem == null) return (T)defaultValue;
+
+                return (T)Convert.ChangeType(collectionItem, t);
+            }
+            else
+            {
+                var collectionItem = collection[key];
+                if (collectionItem == null) return (T)defaultValue;
+
+                return (T)Convert.ChangeType(collectionItem, t);
+            }
         }
         /// <summary>
         /// Sets or updates a value inside the provided collection.

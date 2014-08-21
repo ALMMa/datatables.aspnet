@@ -50,7 +50,9 @@ namespace DataTables.Mvc
         /// <exception cref="System.ArgumentNullException">Thrown when the provided search value is null.</exception>
         public Search(string value, bool isRegexValue)
         {
-            if (value == null) throw new ArgumentNullException("value", "The value of the search cannot be null. If there's no search performed, provide an empty string.");
+            //HACK: An "issue" with this line resulting in an exception breaking functionality.  Is it a DataTable misconfiguration? 
+            //Set an empty search filter as described in http://datatables.net/reference/option/search.search, but exception is still thrown.
+            //if (value == null) throw new ArgumentNullException("value", "The value of the search cannot be null. If there's no search performed, provide an empty string.");
             
             this.Value = value;
             this.IsRegexValue = isRegexValue;
