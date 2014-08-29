@@ -30,49 +30,54 @@ using System.Threading.Tasks;
 
 namespace DataTables.Mvc
 {
-    /// <summary>
-    /// Represents a read-only DataTables column collection.
-    /// </summary>
+	/// <summary>
+	/// Represents a read-only DataTables column collection.
+	/// </summary>
     public class ColumnCollection : IEnumerable<Column>
-    {
-        /// <summary>
-        /// For internal use only.
-        /// Stores data.
-        /// </summary>
+	{
+		/// <summary>
+		/// For internal use only.
+		/// Stores data.
+		/// </summary>
         private IReadOnlyList<Column> Data;
-        /// <summary>
-        /// Created a new ReadOnlyColumnCollection with predefined data.
-        /// </summary>
-        /// <param name="columns">The column collection from DataTables.</param>
+		/// <summary>
+		/// Created a new ReadOnlyColumnCollection with predefined data.
+		/// </summary>
+		/// <param name="columns">The column collection from DataTables.</param>
         public ColumnCollection(IEnumerable<Column> columns)
-        {
-            if (columns == null) throw new ArgumentNullException("The provided column collection cannot be null", "columns");
-            Data = columns.ToList().AsReadOnly();
-        }
-        /// <summary>
-        /// Get sorted columns on client-side already on the same order as the client requested.
-        /// The method checks if the column is bound and if it's ordered on client-side.
-        /// </summary>
-        /// <returns>The ordered enumeration of sorted columns.</returns>
+		{
+			if (columns == null) throw new ArgumentNullException("The provided column collection cannot be null", "columns");
+			Data = columns.ToList().AsReadOnly();
+		}
+
+		/// <summary>
+		/// Get sorted columns on client-side already on the same order as the client requested.
+		/// The method checks if the column is bound and if it's ordered on client-side.
+		/// </summary>
+		/// <returns>The ordered enumeration of sorted columns.</returns>
         public IOrderedEnumerable<Column> GetSortedColumns()
-        {
-            return Data
+		{
+			return Data
                 .Where(_column => !String.IsNullOrWhiteSpace(_column.Data) && _column.IsOrdered)
                 .OrderBy(_c => _c.OrderNumber);
-        }
-        /// <summary>
-        /// Get filtered columns on client-side.
-        /// The method checks if the column is bound and if the search has a value.
-        /// </summary>
-        /// <returns>The enumeration of filtered columns.</returns>
+		}
+
+		/// <summary>
+		/// Get filtered columns on client-side.
+		/// The method checks if the column is bound and if the search has a value.
+		/// </summary>
+		/// <returns>The enumeration of filtered columns.</returns>
         public IEnumerable<Column> GetFilteredColumns()
-        {
-            return Data
+		{
+			return Data
                 .Where(_column => !String.IsNullOrWhiteSpace(_column.Data) && _column.Searchable && !String.IsNullOrWhiteSpace(_column.Search.Value));
-        }
-        /// <summary>
-        /// Get sorted columns on client-side already on the same order as the client requested.
-        /// The method checks if the column is bound and if it's ordered on client-side.
+		}
+
+		/// <summary>
+		/// Get sorted columns on client-side already on the same order as the client requested.
+		/// The method checks if the column is bound and if it's ordered on client-side.
+		/// The returned expression can be used with the OrderBy(string sortExpression) extension method
+		/// found here : http://extensionmethod.net/csharp/ienumerable-t/orderby-string-sortexpression
         /// </summary>
         /// <remarks>Added by phayman www.kwiboo.com</remarks>
         /// <returns>The ordered enumeration of sorted columns as an expression. e.g. "columnname asc, othercolumn desc"</returns>
