@@ -71,6 +71,24 @@ namespace DataTables.Mvc
                 .Where(_column => !String.IsNullOrWhiteSpace(_column.Data) && _column.Searchable && !String.IsNullOrWhiteSpace(_column.Search.Value));
         }
         /// <summary>
+        /// Get sorted columns on client-side already on the same order as the client requested.
+        /// The method checks if the column is bound and if it's ordered on client-side.
+		/// The returned expression can be used with the OrderBy(string sortExpression) extension mehod
+		/// found here : http://extensionmethod.net/csharp/ienumerable-t/orderby-string-sortexpression
+        /// </summary>
+        /// <remarks>Added by phayman www.kwiboo.com</remarks>
+        /// <returns>The ordered enumeration of sorted columns as an expression. e.g. "columnname asc, othercolumn desc"</returns>
+        public string GetSortedColumnsExpression()
+        {
+            var sortExpression = new List<string>();
+            foreach (var column in GetSortedColumns())
+            {
+                sortExpression.Add(column.Data + " " + (column.SortDirection == Column.OrderDirection.Descendant ? "desc" : "asc"));
+            }
+
+            return String.Join(",", sortExpression.ToArray());
+        }
+        /// <summary>
         /// Returns the enumerable element as defined on IEnumerable.
         /// </summary>
         /// <returns>The enumerable elemento to iterate through data.</returns>
