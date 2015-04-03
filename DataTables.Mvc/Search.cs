@@ -50,7 +50,7 @@ namespace DataTables.Mvc
         /// <exception cref="System.ArgumentNullException">Thrown when the provided search value is null.</exception>
         public Search(string value, bool isRegexValue)
         {
-            if (value == null) throw new ArgumentNullException("value", "The value of the search cannot be null. If there's no search performed, provide an empty string.");
+            //if (value == null) throw new ArgumentNullException("value", "The value of the search cannot be null. If there's no search performed, provide an empty string.");
             
             this.Value = value;
             this.IsRegexValue = isRegexValue;
