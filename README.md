@@ -1,111 +1,30 @@
-<h1>Datatables.Mvc</h1>
+<h1>Datatables.AspNet</h1>
 <p>
-	ASP.NET MVC 5 classes to bind DataTables (1.10 and above with the new camelCase API) with your controllers.
-</p>
-<h3>But why another project for this?</h3>
-<p>
-	First, it's not just another project. This one provides binding for ASP.NET MVC with DataTables 1.10.
+	Formely known as <strong>DataTables.Mvc</strong>, this project started over a year ago with small objectives, aiming to provide intermediate and experienced developers a tool to avoid the boring process of handling DataTables parameters.
 </p>
 <p>
-	Second, it's all about the new DataTables API (camelCase).<br />
-	So far, DataTables was using the <a href='http://en.wikipedia.org/wiki/Hungarian_notation'>Hungarian Notation</a> and that was, for me, a major pain. It all comes down to a developer's choice.
+	More than 15 months later, we now face new issues: need for a modular system that can be attached to either Mvc or WebApi project, support for AspNet 5, NuGet package, test suite, helper classes and more.
 </p>
+<h3>New techs, new project, new objectives</h3>
 <p>
-	Finally, there was no binder, so far, for this scenario. 
-	Of course we could simply get the request parameters manually (after all, that's what the DataTables.Mvc is doing, right?) but this should help you avoid type-casting parameters, detecting, filtering and more. 
-	Also, this should help your focus on business rules instead of HTTP parameter checking.
+	Renaming was the first step. Cleaning legacy code (kept now under legacy branch), tagging a final release (1.2) and openning space for a new project is now in place.<br />
+	Idea now is to provide a modular system (multiple projects, multiple nuget packages) so that you can use just what you want to use, instead of getting the full stack to use, let's say, just a binder.<br />
+	Also, with new techs on the way (Asp.Net 5, just for a start), DataTables.Mvc simply got old. And old code smells.
 </p>
-<h3>What about demo?</h3>
+<h3>Testing</h3>
 <p>
-	It's as simple as it gets:
+	This was another problem with old DataTables.Mvc.<br />
+	Framework was not built with testing in mind and that's why there was no testing at all. No way to simply attach tests (private obscure methods everywhere) and that's not really good for mid-to-large apps either, right?<br />
+	With the new DataTables.AspNet code, testing will be a priority and TDD will be used right from the start, to avoid unexpected behavior and code breaking on <strong>your</strong> app.
 </p>
-
-```C#
-public ActionResult MyActionResult([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
-{
-    // do your stuff...
-	var paged = myFilteredData.Skip(requestModel.Start).Take(requestModel.Length);
-    return View(new DataTablesResponse(requestModel.Draw, paged, myFilteredData.Count(), myOriginalDataSet.Count()));
-}
-
-// Or if you'd like to return a JsonResult, try this:
-
-public JsonResult MyActionResult([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
-{
-    // do your stuff...
-	var paged = myFilteredData.Skip(requestModel.Start).Take(requestModel.Length);
-	return Json(new DataTablesResponse(requestModel.Draw, paged, myFilteredData.Count(), myOriginalDataSet.Count()));
-}
-```
-<h3>What about filtering/ordering?</h3>
+<h3>Want to use existing code?</h3>
 <p>
-	It's a no brainer too.
+	If you do, check legacy branch, along with releases (zip). They won't be "oficially" released under nuget simply because they will be discontinued.<br />
+	By the time version 2.0 reaches alpha-1, NuGet package will be fully available.
 </p>
+<h3>Migration path</h3>
 <p>
-	Filter/sort info from each column is, well, included on each column.
-</p>
-<p>
-	To help you out, there are two methods on <code>ColumnCollection</code>:<br />
-	<code>IDataTablesRequest.Columns.GetSortedColumns()</code> will return an ordered enumeration of sorted columns.<br />
-	<code>IDataTablesRequest.Columns.GetFilteredColumns()</code> will return an enumeration of columns which were actually filtered on client-side.
-</p>
-<p>
-	Sample:
-</p>
-```C#
-// Apply filter to your dataset based only on the columns that actually have a search value.
-var filteredColumns = requestParameters.Columns.GetFilteredColumns();
-foreach(var column in filteredColumns)
-    Filter(column.Data, column.Search.Value, column.Search.IsRegexValue);
-
-	
-// Set your dataset on the same order as requested from client-side either directly on your SQL code or easily
-// into any type or enumeration.
-var sortedColumns = requestParameters.Columns.GetSortedColumns();
-var isSorted = false;
-foreach(var column in sortedColumns)
-{
-    if (!isSorted) { Sort(column.Data, column.SortDirection); isSorted = true; }
-    else { SortAgain(column.Data, column.SortDirection); }
-}
-```
-<h3>Is it possible to add custom parameters sent with my request?</h3>
-<p>
-	Sure! It's a piece of cake now. Override <code>BindModel</code> and make it call <code>Bind</code> with your custom implementation of <code>IDataTablesRequest</code>.<br />
-	Than, override the <code>MapAditionalProperties</code> to map your extra info into your custom type.<br />
-	Here's a sample:
-</p>
-```C#
-// Create a custom type from DataTablesBinder.
-public class MyBinder : DataTablesBinder
-{
-    // Override the default BindModel called by ASP.NET and make it call Bind passing the type of your
-    // implementation of IDataTablesRequest:
-    public override object BindModel(System.Web.Mvc.ControllerContext controllerContext, System.Web.Mvc.ModelBindingContext bindingContext)
-    {
-        return Bind(controllerContext, bindingContext, typeof(MyCustomRequest));
-    }
-	
-	// Override MapAditionalProperties so you can set your aditional data into the model:
-    protected override void MapAditionalColumns(IDataTablesRequest requestModel, System.Collections.Specialized.NameValueCollection requestParameters)
-    {
-            var myModel = (MyCustomRequest)requestModel;
-            myModel.MyCustomProp = Get<string>(requestParameters, "myCustomProp");
-    }
-}
-
-// You'll need a custom request model, of course.
-// Just derive from DefaultDataTablesRequest and you're fine :)
-// You can choose to implement IDataTablesRequest too, if you like.
-public class MyCustomRequest : DefaultDataTablesRequest
-{
-    public string MyCustomProp { get; set; }
-}
-
-// Than, on your controller/action, decorate with:
-public ActionResult MyActionResult([ModelBinder(typeof(MyBinder))] MyCustomRequest requestModel)
-```
-<h3>Any issues?</h3>
-<p>
-	If you do find any issues, please, submit then and I'll fix it ASAP.
+	Don't worry.<br />
+	Although you'll need to change existing code, by the time DataTables.AspNet reaches beta a full migration path will be released to help with existing code.<br />
+	I've chosen <strong>beta</strong> as the "due date" to a migration path because during <i>alpha</i> code might change a lot and building a migration path for that would just be hell.
 </p>
