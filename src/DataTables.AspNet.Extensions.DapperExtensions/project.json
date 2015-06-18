@@ -1,0 +1,19 @@
+﻿{
+    "version": "2.0.0-alpha-1",
+    "description": "",
+    "authors": [ "" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+
+    "dependencies": {
+        "DataTables.AspNet.Core": "",
+
+        "Dapper": "1.42.0",
+        "DapperExtensions": "1.4.4"
+    },
+
+    "frameworks": {
+        "dnx451": { }
+    }
+}

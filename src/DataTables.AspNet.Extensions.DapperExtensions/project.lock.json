@@ -1,0 +1,433 @@
+{
+  "locked": false,
+  "version": -9998,
+  "projectFileDependencyGroups": {
+    "": [
+      "DataTables.AspNet.Core ",
+      "Dapper >= 1.42.0",
+      "DapperExtensions >= 1.4.4"
+    ],
+    "DNX,Version=v4.5.1": []
+  },
+  "libraries": {
+    "Dapper/1.42": {
+      "serviceable": false,
+      "sha": "HBNIulHq5DWD1K60iVABe4oW4HoWmraR20yy9jLrw9tgTbMY2eolYk2UgXFI43lSUMTdhUjPvlHci0TnsfoiXw==",
+      "frameworks": {
+        "DNX,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/Dapper.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Dapper.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/Dapper.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Dapper.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/Dapper.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Dapper.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/Dapper.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Dapper.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/Dapper.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Dapper.dll"
+          ]
+        },
+        "DNX,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/Dapper.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Dapper.dll"
+          ]
+        },
+        "DNX,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/Dapper.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Dapper.dll"
+          ]
+        },
+        "DNX,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/Dapper.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Dapper.dll"
+          ]
+        },
+        "DNXCore,Version=v5.0": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        }
+      },
+      "files": [
+        "Dapper.1.42.nupkg",
+        "Dapper.1.42.nupkg.sha512",
+        "Dapper.nuspec",
+        "lib/net35/Dapper.dll",
+        "lib/net35/Dapper.pdb",
+        "lib/net35/Dapper.xml",
+        "lib/net40/Dapper.dll",
+        "lib/net40/Dapper.pdb",
+        "lib/net40/Dapper.xml",
+        "lib/net45/Dapper.dll",
+        "lib/net45/Dapper.pdb",
+        "lib/net45/Dapper.xml"
+      ]
+    },
+    "DapperExtensions/1.4.4": {
+      "serviceable": false,
+      "sha": "r6fSgGDFyBUMYN/IhSxf/Rr4rKaSs5MAoCoejVWgrwE/T9U7R2zKlZkYGF93Z2a7cJWNtzNJQXsibjGQ17lY3A==",
+      "frameworks": {
+        "DNX,Version=v4.5.1": {
+          "dependencies": {
+            "Dapper": "1.12"
+          },
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5": {
+          "dependencies": {
+            "Dapper": "1.12"
+          },
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.1": {
+          "dependencies": {
+            "Dapper": "1.12"
+          },
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.2": {
+          "dependencies": {
+            "Dapper": "1.12"
+          },
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.6": {
+          "dependencies": {
+            "Dapper": "1.12"
+          },
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ]
+        },
+        "DNX,Version=v4.5": {
+          "dependencies": {
+            "Dapper": "1.12"
+          },
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ]
+        },
+        "DNX,Version=v4.5.2": {
+          "dependencies": {
+            "Dapper": "1.12"
+          },
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ]
+        },
+        "DNX,Version=v4.6": {
+          "dependencies": {
+            "Dapper": "1.12"
+          },
+          "frameworkAssemblies": [
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net40/DapperExtensions.dll"
+          ]
+        },
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "Dapper": "1.12"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [],
+          "compileAssemblies": []
+        }
+      },
+      "files": [
+        "DapperExtensions.1.4.4.nupkg",
+        "DapperExtensions.1.4.4.nupkg.sha512",
+        "DapperExtensions.nuspec",
+        "lib/net40/DapperExtensions.dll",
+        "lib/net40/DapperExtensions.pdb"
+      ]
+    },
+    "DataTables.AspNet.Core/2.0.0-alpha-1": {
+      "serviceable": false,
+      "sha": "T7sCy+St5PSecABkj0fX0AXmjz9UMgN/ummTMbN1V93N0L1emGytgMAiuqR59MIJfh8MJRpVSB8o0iH2QwD/Pw==",
+      "frameworks": {
+        "DNX,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx451/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx451/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net451/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net451/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net452/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net452/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net46/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net46/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx45/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx45/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx452/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx452/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx46/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx46/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "System.Collections": "4.0.10-beta-22816",
+            "System.Linq": "4.0.0-beta-22816",
+            "System.Threading": "4.0.10-beta-22816",
+            "Microsoft.CSharp": "4.0.0-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/dnxcore50/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnxcore50/DataTables.AspNet.Core.dll"
+          ]
+        }
+      },
+      "files": [
+        "DataTables.AspNet.Core.2.0.0-alpha-1.nupkg",
+        "DataTables.AspNet.Core.2.0.0-alpha-1.nupkg.sha512",
+        "DataTables.AspNet.Core.nuspec",
+        "lib/dnx45/DataTables.AspNet.Core.dll",
+        "lib/dnx45/DataTables.AspNet.Core.xml",
+        "lib/dnx451/DataTables.AspNet.Core.dll",
+        "lib/dnx451/DataTables.AspNet.Core.xml",
+        "lib/dnx452/DataTables.AspNet.Core.dll",
+        "lib/dnx452/DataTables.AspNet.Core.xml",
+        "lib/dnx46/DataTables.AspNet.Core.dll",
+        "lib/dnx46/DataTables.AspNet.Core.xml",
+        "lib/dnxcore50/DataTables.AspNet.Core.dll",
+        "lib/dnxcore50/DataTables.AspNet.Core.xml",
+        "lib/net45/DataTables.AspNet.Core.dll",
+        "lib/net45/DataTables.AspNet.Core.xml",
+        "lib/net451/DataTables.AspNet.Core.dll",
+        "lib/net451/DataTables.AspNet.Core.xml",
+        "lib/net452/DataTables.AspNet.Core.dll",
+        "lib/net452/DataTables.AspNet.Core.xml",
+        "lib/net46/DataTables.AspNet.Core.dll",
+        "lib/net46/DataTables.AspNet.Core.xml"
+      ]
+    }
+  }
+}

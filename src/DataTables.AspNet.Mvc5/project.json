@@ -1,0 +1,51 @@
+﻿{
+    "version": "2.0.0-alpha-1",
+    "description": "MVC5 implementation for DataTables.AspNet.",
+    "authors": [ "Anderson Matos" ],
+    "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Mvc", "Mvc5" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+    
+    "id": "DataTables.AspNet.Mvc5",
+    "title": "DataTables.AspNet.Mvc5",
+    "owners": [ "Anderson Matos" ],
+    "iconUrl": "",
+    "releaseNotes": "",
+    "language": "en-US",
+    "requireLicenseAcceptance": false,
+    "copyright": "",
+    "summary": "",
+
+    "dependencies": {
+        "DataTables.AspNet.Core": "2.0.0-alpha-1",
+
+        "Newtonsoft.Json": "6.0.8"
+    },
+
+    "frameworks": {
+        "net45": {
+            "frameworkAssemblies": {
+                "System.Web": "4.0.0.0",
+                "System.Web.Mvc": "4.0.0.1"
+            }
+        },
+        "net451": {
+            "frameworkAssemblies": {
+                "System.Web": "4.0.0.0",
+                "System.Web.Mvc": "4.0.0.1"
+            }
+        },
+        "net452": {
+            "frameworkAssemblies": {
+                "System.Web": "4.0.0.0",
+                "System.Web.Mvc": "4.0.0.1"
+            }
+        },
+        "net46": {
+            "frameworkAssemblies": {
+                "System.Web": "4.0.0.0",
+                "System.Web.Mvc": "4.0.0.1"
+            }
+        }
+    }
+}

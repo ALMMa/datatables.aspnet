@@ -1,0 +1,56 @@
+﻿{
+    "version": "2.0.0-alpha-1",
+    "description": "Core elements for DataTables.AspNet.",
+    "authors": [ "Anderson Matos" ],
+    "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Mvc", "AspNet", "WebApi" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+
+    "id": "DataTables.AspNet.Core",
+    "title": "DataTables.AspNet.Core",
+    "owners": [ "Anderson Matos" ],
+    "iconUrl": "",
+    "releaseNotes": "",
+    "language": "en-US",
+    "requireLicenseAcceptance": false,
+    "copyright": "",
+    "summary": "",
+
+    "dependencies": {
+    },
+
+    "frameworks": {
+        "net45": {
+            "dependencies": { }
+        },
+        "net451": {
+            "dependencies": { }
+        },
+        "net452": {
+            "dependencies": { }
+        },
+        "net46": {
+            "dependencies": { }
+        },
+        "dnx45": {
+            "dependencies": { }
+        },
+        "dnx451": {
+            "dependencies": { }
+        },
+        "dnx452": {
+            "dependencies": { }
+        },
+        "dnx46": {
+            "dependencies": { }
+        },
+        "dnxcore50": {
+            "dependencies": {
+                "System.Collections": "4.0.10-beta-22816",
+                "System.Linq": "4.0.0-beta-22816",
+                "System.Threading": "4.0.10-beta-22816",
+                "Microsoft.CSharp": "4.0.0-beta-22816"
+            }
+        }
+    }
+}

@@ -1,0 +1,308 @@
+{
+  "locked": false,
+  "version": -9998,
+  "projectFileDependencyGroups": {
+    "": [
+      "DataTables.AspNet.Core >= 2.0.0-alpha-1",
+      "Newtonsoft.Json >= 6.0.8"
+    ],
+    ".NETFramework,Version=v4.5": [
+      "framework/System.Web >= 4.0.0.0",
+      "framework/System.Web.Mvc >= 4.0.0.1"
+    ],
+    ".NETFramework,Version=v4.5.1": [
+      "framework/System.Web >= 4.0.0.0",
+      "framework/System.Web.Mvc >= 4.0.0.1"
+    ],
+    ".NETFramework,Version=v4.5.2": [
+      "framework/System.Web >= 4.0.0.0",
+      "framework/System.Web.Mvc >= 4.0.0.1"
+    ],
+    ".NETFramework,Version=v4.6": [
+      "framework/System.Web >= 4.0.0.0",
+      "framework/System.Web.Mvc >= 4.0.0.1"
+    ]
+  },
+  "libraries": {
+    "DataTables.AspNet.Core/2.0.0-alpha-1": {
+      "serviceable": false,
+      "sha": "T7sCy+St5PSecABkj0fX0AXmjz9UMgN/ummTMbN1V93N0L1emGytgMAiuqR59MIJfh8MJRpVSB8o0iH2QwD/Pw==",
+      "frameworks": {
+        ".NETFramework,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net451/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net451/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net452/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net452/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net46/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net46/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx45/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx45/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx451/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx451/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx452/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx452/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx46/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx46/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "System.Collections": "4.0.10-beta-22816",
+            "System.Linq": "4.0.0-beta-22816",
+            "System.Threading": "4.0.10-beta-22816",
+            "Microsoft.CSharp": "4.0.0-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/dnxcore50/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnxcore50/DataTables.AspNet.Core.dll"
+          ]
+        }
+      },
+      "files": [
+        "DataTables.AspNet.Core.2.0.0-alpha-1.nupkg",
+        "DataTables.AspNet.Core.2.0.0-alpha-1.nupkg.sha512",
+        "DataTables.AspNet.Core.nuspec",
+        "lib/dnx45/DataTables.AspNet.Core.dll",
+        "lib/dnx45/DataTables.AspNet.Core.xml",
+        "lib/dnx451/DataTables.AspNet.Core.dll",
+        "lib/dnx451/DataTables.AspNet.Core.xml",
+        "lib/dnx452/DataTables.AspNet.Core.dll",
+        "lib/dnx452/DataTables.AspNet.Core.xml",
+        "lib/dnx46/DataTables.AspNet.Core.dll",
+        "lib/dnx46/DataTables.AspNet.Core.xml",
+        "lib/dnxcore50/DataTables.AspNet.Core.dll",
+        "lib/dnxcore50/DataTables.AspNet.Core.xml",
+        "lib/net45/DataTables.AspNet.Core.dll",
+        "lib/net45/DataTables.AspNet.Core.xml",
+        "lib/net451/DataTables.AspNet.Core.dll",
+        "lib/net451/DataTables.AspNet.Core.xml",
+        "lib/net452/DataTables.AspNet.Core.dll",
+        "lib/net452/DataTables.AspNet.Core.xml",
+        "lib/net46/DataTables.AspNet.Core.dll",
+        "lib/net46/DataTables.AspNet.Core.xml"
+      ]
+    },
+    "Newtonsoft.Json/6.0.8": {
+      "serviceable": false,
+      "sha": "nZX7xCBl3PXpxRCxVtVfUXn63gSzrT8aO0VB9Tp24q656IUup9EGE8SGlo0UJ9if48OacJU34ZEtKEGWIdNCzg==",
+      "frameworks": {
+        ".NETFramework,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ]
+        },
+        "DNX,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ]
+        },
+        "DNX,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ]
+        },
+        "DNX,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ]
+        },
+        "DNX,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/Newtonsoft.Json.dll"
+          ]
+        },
+        "DNXCore,Version=v5.0": {
+          "dependencies": {},
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll"
+          ],
+          "compileAssemblies": [
+            "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll"
+          ]
+        }
+      },
+      "files": [
+        "Newtonsoft.Json.6.0.8.nupkg",
+        "Newtonsoft.Json.6.0.8.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netcore45/Newtonsoft.Json.dll",
+        "lib/netcore45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+aspnetcore50/Newtonsoft.Json.xml",
+        "tools/install.ps1"
+      ]
+    }
+  }
+}

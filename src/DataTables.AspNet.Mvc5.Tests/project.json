@@ -1,0 +1,26 @@
+﻿{
+    "version": "2.0.0-alpha-1",
+    "description": "Test suite for DataTables.AspNet.Mvc5 elements.",
+    "authors": [ "Anderson Matos" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+
+    "dependencies": {
+        "xunit": "2.1.0-beta2-*",
+        "xunit.runner.dnx": "2.1.0-beta2-*",
+
+        "Moq": "4.2.1502.911",
+
+        "DataTables.AspNet.Core": "2.0.0-alpha-1",
+        "DataTables.AspNet.Mvc5": "2.0.0-alpha-1"
+    },
+
+    "commands": {
+        "test": "xunit.runner.dnx"
+    },
+
+    "frameworks": {
+        "dnx451": { }
+    }
+}
