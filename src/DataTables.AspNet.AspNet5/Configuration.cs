@@ -51,27 +51,27 @@ namespace DataTables.AspNet.AspNet5
         }
 
         /// <summary>
-        /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
+        /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="services">Service collection for dependency injection.</param>
         public static void UseDataTables(this IServiceCollection services) { services.UseDataTables(new Options()); }
 
         /// <summary>
-        /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
+        /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="services">Service collection for dependency injection.</param>
         /// <param name="options">DataTables.AspNet options.</param>
         public static void UseDataTables(this IServiceCollection services, IOptions options) { services.UseDataTables(options, new ModelBinder()); }
 
         /// <summary>
-        /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
+        /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="services">Service collection for dependency injection.</param>
         /// <param name="requestModelBinder">Request model binder to use when resolving 'IDataTablesRequest' models.</param>
         public static void UseDataTables(this IServiceCollection services, ModelBinder requestModelBinder) { services.UseDataTables(new Options(), requestModelBinder); }
 
         /// <summary>
-        /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
+        /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="services">Service collection for dependency injection.</param>
         /// <param name="parseRequestAditionalParameters">Function to evaluante and parse aditional parameters sent within the request (user-defined parameters).</param>
@@ -79,14 +79,14 @@ namespace DataTables.AspNet.AspNet5
         public static void UseDataTables(this IServiceCollection services, Func<ModelBindingContext, IDictionary<string, object>> parseRequestAditionalParameters, bool parseResponseAditionalParameters) { services.UseDataTables(new Options(), new ModelBinder(), parseRequestAditionalParameters, parseResponseAditionalParameters); }
 
         /// <summary>
-        /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
+        /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="options">DataTables.AspNet options.</param>
         /// <param name="requestModelBinder">Model binder to use when resolving 'IDataTablesRequest' model.</param>
         public static void UseDataTables(this IServiceCollection services, IOptions options, ModelBinder requestModelBinder) { services.UseDataTables(options, requestModelBinder, null, false); }
 
         /// <summary>
-        /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
+        /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="services">Service collection for dependency injection.</param>
         /// <param name="options">DataTables.AspNet options.</param>
