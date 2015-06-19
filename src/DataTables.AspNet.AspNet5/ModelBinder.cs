@@ -60,11 +60,13 @@ namespace DataTables.AspNet.AspNet5
         /// <returns>An IDataTablesRequest object or null if binding was not possible.</returns>
         public async Task<ModelBindingResult> BindModelAsync(ModelBindingContext bindingContext, IOptions options, Func<ModelBindingContext, IDictionary<string, object>> parseAditionalParameters)
         {
+            // Model binding is not set, thus AspNet5 will keep looking for other model binders.
             if (!bindingContext.ModelType.Equals(typeof(Core.IDataTablesRequest)))
-                return null;
-
-            if (options == null || options.RequestNameConvention == null)
                 return new ModelBindingResult(null, bindingContext.ModelName, false);
+
+            // Binding is set to a null model to avoid unexpected errors.
+            if (options == null || options.RequestNameConvention == null)
+                return new ModelBindingResult(null, bindingContext.ModelName, true);
 
             var values = bindingContext.ValueProvider;
 
@@ -73,7 +75,7 @@ namespace DataTables.AspNet.AspNet5
             var draw = await values.GetValueAsync(options.RequestNameConvention.Draw);
             int _draw = 0;
             if (options.IsDrawValidationEnabled && !Parse<Int32>(draw, out _draw))
-                return new ModelBindingResult(null, bindingContext.ModelName, false);
+                return new ModelBindingResult(null, bindingContext.ModelName, true); // Null model result (invalid request).
 
             var start = await values.GetValueAsync(options.RequestNameConvention.Start);
             int _start = 0;
