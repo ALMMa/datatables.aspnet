@@ -10,7 +10,7 @@
 <p>
 	After many requests, I've released official NuGet packages, which include:
 </p>
-- [DataTables.AspNet.Mvc5](https://www.nuget.org/packages/DataTables.AspNet.Mvc5/), with support for DataTables.AspNet, 1 line registration and automatic binders
+- [DataTables.AspNet.Mvc5](https://www.nuget.org/packages/DataTables.AspNet.Mvc5/), with support for Mvc5, registration and automatic binders
 - [DataTables.AspNet.AspNet5](https://www.nuget.org/packages/DataTables.AspNet.AspNet5/) with support for AspNet5, dependency injection and automatic binders
 
 Or, if you'd like to extend DataTables.AspNet (let's say: to enable it on a new technology or provide extensions methods for your ORM or choice), check out [DataTables.AspNet.Core](https://www.nuget.org/packages/DataTables.AspNet.Core/), which contains basic (core) elements, including interfaces and enums.
