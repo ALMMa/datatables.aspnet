@@ -3,8 +3,8 @@
   "version": -9998,
   "projectFileDependencyGroups": {
     "": [
-      "DataTables.AspNet.Core >= 2.0.0-alpha-1",
-      "DataTables.AspNet.AspNet5 >= 2.0.0-alpha-1",
+      "DataTables.AspNet.Core >= 2.0.0-alpha1-062401",
+      "DataTables.AspNet.AspNet5 >= 2.0.0-alpha1-062401",
       "Microsoft.AspNet.Diagnostics >= 1.0.0-beta4",
       "Microsoft.AspNet.Mvc >= 6.0.0-beta4",
       "Microsoft.AspNet.Mvc.TagHelpers >= 6.0.0-beta4",
@@ -17,13 +17,13 @@
     "DNXCore,Version=v5.0": []
   },
   "libraries": {
-    "DataTables.AspNet.AspNet5/2.0.0-alpha-1": {
+    "DataTables.AspNet.AspNet5/2.0.0-alpha1-062401": {
       "serviceable": false,
-      "sha": "VQDgj6PLmKe2i2g0fSdsIor4a1tEQvWf3TyRH65Hr5njsW1nC2RKQcPglZ+VqejpcPzFyhPJd68uDMaDfVsOvw==",
+      "sha": "/6na3hYUsoPeJ17AcqJvraBrpRyJewe6wVhR7PsfoI+Z3o9cTdQf8MJvjO3V6xrJJrZ5vm71FEF1xVb1omgXWg==",
       "frameworks": {
         "DNX,Version=v4.5.1": {
           "dependencies": {
-            "DataTables.AspNet.Core": "2.0.0-alpha-1",
+            "DataTables.AspNet.Core": "2.0.0-alpha1-062401",
             "Microsoft.AspNet.Mvc": "6.0.0-beta4",
             "Microsoft.Framework.DependencyInjection": "1.0.0-beta4",
             "Newtonsoft.Json": "7.0.1-beta3"
@@ -43,7 +43,7 @@
         },
         "DNXCore,Version=v5.0": {
           "dependencies": {
-            "DataTables.AspNet.Core": "2.0.0-alpha-1",
+            "DataTables.AspNet.Core": "2.0.0-alpha1-062401",
             "Microsoft.AspNet.Mvc": "6.0.0-beta4",
             "Microsoft.Framework.DependencyInjection": "1.0.0-beta4",
             "Newtonsoft.Json": "7.0.1-beta3",
@@ -62,8 +62,8 @@
         }
       },
       "files": [
-        "DataTables.AspNet.AspNet5.2.0.0-alpha-1.nupkg",
-        "DataTables.AspNet.AspNet5.2.0.0-alpha-1.nupkg.sha512",
+        "DataTables.AspNet.AspNet5.2.0.0-alpha1-062401.nupkg",
+        "DataTables.AspNet.AspNet5.2.0.0-alpha1-062401.nupkg.sha512",
         "DataTables.AspNet.AspNet5.nuspec",
         "lib/dnx451/DataTables.AspNet.AspNet5.dll",
         "lib/dnx451/DataTables.AspNet.AspNet5.xml",
@@ -75,9 +75,9 @@
         "lib/dnxcore50/DataTables.AspNet.AspNet5.xml"
       ]
     },
-    "DataTables.AspNet.Core/2.0.0-alpha-1": {
+    "DataTables.AspNet.Core/2.0.0-alpha1-062401": {
       "serviceable": false,
-      "sha": "YeiSxtymJaC8nYZ8cR+e7Q2Ji+Ir7e9qCeDa/wkOKU7IBvCP8PJIjISTpOtHe7Ut39NYAiX3FR6ih/1NUk5fWg==",
+      "sha": "reJ6ZZF9G9e2uY9IZN2beghLN8atkB6JD3v2L74yXfaDXDQLDvYXrUNK1nwmprWKW3OY9FvdzErX6pGYftbCcQ==",
       "frameworks": {
         "DNX,Version=v4.5.1": {
           "dependencies": {},
@@ -111,8 +111,8 @@
         }
       },
       "files": [
-        "DataTables.AspNet.Core.2.0.0-alpha-1.nupkg",
-        "DataTables.AspNet.Core.2.0.0-alpha-1.nupkg.sha512",
+        "DataTables.AspNet.Core.2.0.0-alpha1-062401.nupkg",
+        "DataTables.AspNet.Core.2.0.0-alpha1-062401.nupkg.sha512",
         "DataTables.AspNet.Core.nuspec",
         "lib/dnx45/DataTables.AspNet.Core.dll",
         "lib/dnx45/DataTables.AspNet.Core.xml",

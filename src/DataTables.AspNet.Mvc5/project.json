@@ -1,5 +1,5 @@
 ﻿{
-    "version": "2.0.0-alpha-1",
+    "version": "2.0.0-alpha1-062401",
     "description": "MVC5 implementation for DataTables.AspNet.",
     "authors": [ "Anderson Matos" ],
     "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Mvc", "Mvc5" ],
@@ -17,7 +17,7 @@
     "summary": "",
 
     "dependencies": {
-        "DataTables.AspNet.Core": "2.0.0-alpha-1",
+        "DataTables.AspNet.Core": "2.0.0-alpha1-062401",
 
         "Newtonsoft.Json": "6.0.8"
     },

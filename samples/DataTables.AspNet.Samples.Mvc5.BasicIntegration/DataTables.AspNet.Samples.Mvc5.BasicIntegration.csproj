@@ -40,11 +40,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DataTables.AspNet.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DataTables.AspNet.Core.2.0.0-alpha-1\lib\net451\DataTables.AspNet.Core.dll</HintPath>
+      <HintPath>..\..\packages\DataTables.AspNet.Core.2.0.0-alpha1-062401\lib\net451\DataTables.AspNet.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DataTables.AspNet.Mvc5, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DataTables.AspNet.Mvc5.2.0.0-alpha-1\lib\net451\DataTables.AspNet.Mvc5.dll</HintPath>
+      <HintPath>..\..\packages\DataTables.AspNet.Mvc5.2.0.0-alpha1-062401\lib\net451\DataTables.AspNet.Mvc5.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
