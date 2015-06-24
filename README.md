@@ -22,7 +22,7 @@ Or, if you'd like to extend DataTables.AspNet (let's say: to enable it on a new 
 <h3>Eager for some new code?</h3>
 <p>
 	If you are, check out 'dev' branch. It has the latest code for DataTables.AspNet, including samples and more.<br />
-	By the time version 2.0 reaches alpha-1, NuGet package will be fully available.
+	Be advised that alpha is not production-ready and your should decide carefully before adopting it for your app.
 </p>
 <h3>Or... maybe go legacy?</h3>
 <p>
