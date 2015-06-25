@@ -13,11 +13,11 @@
 - [DataTables.AspNet.Mvc5](https://www.nuget.org/packages/DataTables.AspNet.Mvc5/), with support for Mvc5, registration and automatic binders
 - [DataTables.AspNet.AspNet5](https://www.nuget.org/packages/DataTables.AspNet.AspNet5/) with support for AspNet5, dependency injection and automatic binders
 
-Or, if you'd like to extend DataTables.AspNet (let's say: to enable it on a new technology or provide extensions methods for your ORM or choice), check out [DataTables.AspNet.Core](https://www.nuget.org/packages/DataTables.AspNet.Core/), which contains basic (core) elements, including interfaces and enums.
+Or, if you'd like to extend DataTables.AspNet (let's say to enable it on a new tech or provide extensions methods for your ORM of choice) check out [DataTables.AspNet.Core](https://www.nuget.org/packages/DataTables.AspNet.Core/) which contains core elements, including standard interfaces and enums.
 
 <h3>Samples, samples, samples!</h3>
 <p>
-	Although I've released only very very basic samples (basic integration), they already provide some ideia on what's to come and how to enable DataTables.AspNet on your app. For now, you can check them on 'dev' branch. They will, however, receive dedicated pages on wiki.
+	Although I've released only very very basic samples (basic integration), they already provide some ideia on what's to come and how to enable DataTables.AspNet on your app. For now, you can check them on 'dev' branch. They will, however, have their own pages on wiki.
 </p>
 <h3>Eager for some new code?</h3>
 <p>
@@ -26,8 +26,8 @@ Or, if you'd like to extend DataTables.AspNet (let's say: to enable it on a new 
 </p>
 <h3>Or... maybe go legacy?</h3>
 <p>
-	If you don't want to (or can't) go alpha (yet), check 'legacy' branch, along with releases (zip). They won't be oficially released under NuGet simply because they will be discontinued.<br />
-	Last zip release includes some pull requests and minor fixes for old DataTables.Mvc.
+	If you don't want to (or can't) go alpha, check 'legacy' branch, along with zip releases. They won't be oficially released under NuGet because they've been discontinued.<br />
+	Latest zip release includes some pull requests and minor fixes for old DataTables.Mvc.
 </p>
 <h3>Migration path</h3>
 <p>
