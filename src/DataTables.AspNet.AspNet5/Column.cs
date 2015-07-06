@@ -48,7 +48,7 @@ namespace DataTables.AspNet.AspNet5
                         
             IsSearchable = searchable;
             if (!IsSearchable) Search = null;
-            else Search = search ?? new Search(field);
+            else Search = search ?? new Search();
         }
 
 
@@ -56,7 +56,7 @@ namespace DataTables.AspNet.AspNet5
         {
             if (!IsSortable) return false;
 
-            Sort = new Sort(Field, order, direction);
+            Sort = new Sort(order, direction);
             return true;
         }
     }

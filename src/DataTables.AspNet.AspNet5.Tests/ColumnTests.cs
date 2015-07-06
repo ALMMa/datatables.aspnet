@@ -97,7 +97,6 @@ namespace DataTables.AspNet.AspNet5.Tests
 
             // Assert
             Assert.Equal(true, orderSet);
-            Assert.Equal(column.Field, column.Sort.Field);
             Assert.Equal(3, column.Sort.Order);
             Assert.Equal(Core.SortDirection.Descending, column.Sort.Direction);
         }

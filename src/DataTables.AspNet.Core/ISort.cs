@@ -28,16 +28,9 @@ namespace DataTables.AspNet.Core
     public interface ISort
     {
         /// <summary>
-        /// Field name to sort against.
-        /// This is a cross-reference to 'Field' on a column within 'Columns' collection that is also submitted to the server.
-        /// </summary>
-        string Field { get; }
-
-        /// <summary>
         /// Indicates the sort order for composed (multi) sorting.
         /// </summary>
         int Order { get; }
-
         /// <summary>
         /// Ordering direction for this column.
         /// It will be 'Ascending' or 'Descending' to indicate ordering direction.

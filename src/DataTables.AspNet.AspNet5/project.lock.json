@@ -3,10 +3,10 @@
   "version": -9998,
   "projectFileDependencyGroups": {
     "": [
-      "DataTables.AspNet.Core >= 2.0.0-alpha1-062401",
-      "Microsoft.AspNet.Mvc >= 6.0.0-beta4",
-      "Microsoft.Framework.DependencyInjection >= 1.0.0-beta4",
-      "Newtonsoft.Json >= 7.0.1-beta3"
+      "DataTables.AspNet.Core >= 2.0.0-alpha1",
+      "Microsoft.AspNet.Mvc >= 6.0.0-beta4-*",
+      "Microsoft.Framework.DependencyInjection >= 1.0.0-beta4-*",
+      "Newtonsoft.Json >= 7.0.1"
     ],
     "DNX,Version=v4.5.1": [],
     "DNX,Version=v4.5.2": [],
@@ -6990,9 +6990,9 @@
         "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/Microsoft.Win32.Registry.dll"
       ]
     },
-    "Newtonsoft.Json/7.0.1-beta3": {
+    "Newtonsoft.Json/7.0.1": {
       "serviceable": false,
-      "sha": "065sWAmniKTf+Xg28xrDMwKKU7v0sryThZsB6GwVW9Jm3am0INdbGxhZxwy/0nyzKrh+MkFfS4Bq9na3xH3CkQ==",
+      "sha": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
       "frameworks": {
         "DNX,Version=v4.5.1": {
           "dependencies": {},
@@ -7086,8 +7086,8 @@
         }
       },
       "files": [
-        "Newtonsoft.Json.7.0.1-beta3.nupkg",
-        "Newtonsoft.Json.7.0.1-beta3.nupkg.sha512",
+        "Newtonsoft.Json.7.0.1.nupkg",
+        "Newtonsoft.Json.7.0.1.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",

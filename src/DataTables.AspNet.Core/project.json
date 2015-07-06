@@ -1,9 +1,9 @@
 ﻿{
-    "version": "2.0.0-alpha1-062401",
+    "version": "2.0.0-alpha1",
     "description": "Core elements for DataTables.AspNet.",
     "authors": [ "Anderson Matos" ],
     "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Mvc", "AspNet", "WebApi" ],
-    "projectUrl": "",
+    "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
     "licenseUrl": "",
 
     "id": "DataTables.AspNet.Core",

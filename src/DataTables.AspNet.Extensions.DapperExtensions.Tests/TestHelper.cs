@@ -29,14 +29,14 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
 {
     public static class TestHelper
     {
+        public static Core.IColumn MockColumn(string columnName, string columnField, bool searchable, bool sortable, string searchValue, bool searchRegex)
+        { return new Column(columnName, columnField, searchable, sortable, TestHelper.MockSearch(searchValue, searchRegex)); }
         public static Core.IOptions MockOptions()
         { return new Options(); }
         public static Core.ISearch MockSearch(string searchValue, bool isRegex)
-        { return MockSearch(searchValue, isRegex, null); }
-        public static Core.ISearch MockSearch(string searchValue, bool isRegex, string field)
-        { return new Search(searchValue, isRegex, field); }
-        public static Core.ISort MockSort(string field, int order, string direction)
-        { return new Sort(field, order, direction); }
+        { return new Search(searchValue, isRegex); }
+        public static Core.ISort MockSort(int order, string direction)
+        { return new Sort(order, direction); }
     }
 
 

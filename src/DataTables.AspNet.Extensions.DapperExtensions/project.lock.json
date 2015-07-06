@@ -3,7 +3,7 @@
   "version": -9998,
   "projectFileDependencyGroups": {
     "": [
-      "DataTables.AspNet.Core ",
+      "DataTables.AspNet.Core >= 2.0.0-alpha-1",
       "Dapper >= 1.42.0",
       "DapperExtensions >= 1.4.4"
     ],

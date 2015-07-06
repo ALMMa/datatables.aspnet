@@ -1,13 +1,23 @@
 ﻿{
-    "version": "2.0.0-alpha-1",
-    "description": "",
-    "authors": [ "" ],
-    "tags": [ "" ],
-    "projectUrl": "",
+    "version": "2.0.0-alpha1",
+    "description": "DataTables.AspNet extensions for DapperExtensions.",
+    "authors": [ "Anderson Matos" ],
+    "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Dapper", "DapperExtensions" ],
+    "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
     "licenseUrl": "",
 
+    "id": "DataTables.AspNet.Extensions.DapperExtensions",
+    "title": "DataTables.AspNet.Extensions.DapperExtensions",
+    "owners": [ "Anderson Matos" ],
+    "iconUrl": "",
+    "releaseNotes": "",
+    "language": "en-US",
+    "requireLicenseAcceptance": false,
+    "copyright": "",
+    "summary": "",
+
     "dependencies": {
-        "DataTables.AspNet.Core": "",
+        "DataTables.AspNet.Core": "2.0.0-alpha-1",
 
         "Dapper": "1.42.0",
         "DapperExtensions": "1.4.4"

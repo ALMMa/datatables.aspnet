@@ -51,18 +51,16 @@ namespace DataTables.AspNet.AspNet5.Tests
         public static IDictionary<string, object> MockAditionalParameters()
         { return new Dictionary<string, object>() { { "firstParameter", "firstValue" }, { "secondParameter", 7 } }; }
         public static Core.ISearch MockSearch(string searchValue, bool isRegex)
-        { return MockSearch(searchValue, isRegex, null); }
-        public static Core.ISearch MockSearch(string searchValue, bool isRegex, string field)
-        { return new Search(searchValue, isRegex, field); }
-        public static Core.ISort MockSort(string field, int order, string direction)
-        { return new Sort(field, order, direction); }
+        { return new Search(searchValue, isRegex); }
+        public static Core.ISort MockSort(int order, string direction)
+        { return new Sort(order, direction); }
         public static IEnumerable<Core.IColumn> MockColumns()
         { 
             return new Column[]
             {
-                new Column("column0_name", "column0_field", true, true, MockSearch("column0_search_value", true, "column0_field")),
-                new Column("column1_name", "column1_field", true, false, MockSearch("column1_search_value", false, "column1_field")),
-                new Column("column2_name", "column2_field", false, true, MockSearch("column2_search_value", true, "column2_field")),
+                new Column("column0_name", "column0_field", true, true, MockSearch("column0_search_value", true)),
+                new Column("column1_name", "column1_field", true, false, MockSearch("column1_search_value", false)),
+                new Column("column2_name", "column2_field", false, true, MockSearch("column2_search_value", true)),
             };
         }
         public static ModelBindingContext MockModelBindingContextWithCamelCase(string draw, string length, string start, string searchValue, string searchRegex)

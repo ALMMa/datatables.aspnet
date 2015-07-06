@@ -162,7 +162,7 @@ namespace DataTables.AspNet.AspNet5
                 bool _columnSearchRegex = false;
                 Parse<bool>(columnSearchRegex, out _columnSearchRegex);
 
-                var search = new Search(_columnSearchValue, _columnSearchRegex, _columnField);
+                var search = new Search(_columnSearchValue, _columnSearchRegex);
 
                 // Instantiates a new column with parsed elements.
                 var column = new Column(_columnName, _columnField, _columnSearchable, _columnSortable, search);

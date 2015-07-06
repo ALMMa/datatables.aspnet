@@ -28,12 +28,6 @@ namespace DataTables.AspNet.Core
     public interface ISearch
     {
         /// <summary>
-        /// Field name to search against.
-        /// This should be null on global search.
-        /// </summary>
-        string Field { get; }
-
-        /// <summary>
         /// Search value.
         /// </summary>
         string Value { get; }

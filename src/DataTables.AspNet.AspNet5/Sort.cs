@@ -37,10 +37,6 @@ namespace DataTables.AspNet.AspNet5
         /// </summary>
         public SortDirection Direction { get; private set; }
         /// <summary>
-        /// Gets data field bound.
-        /// </summary>
-        public string Field { get; private set; }
-        /// <summary>
         /// Gets sort order.
         /// </summary>
         public int Order { get; private set; }
@@ -53,9 +49,8 @@ namespace DataTables.AspNet.AspNet5
         /// <param name="field">Data field to be bound.</param>
         /// <param name="order">Sort order for multi-sorting.</param>
         /// <param name="direction">Sort direction</param>
-        public Sort(string field, int order, string direction)
+        public Sort(int order, string direction)
         {
-            Field = field ?? "";
             Order = order;
             
             Direction = (direction ?? "").ToLowerInvariant().Equals(Configuration.Options.RequestNameConvention.SortDescending)

@@ -34,11 +34,6 @@ namespace DataTables.AspNet.AspNet5
     public class Search : ISearch
     {
         /// <summary>
-        /// Gets the search data field if bound to a column.
-        /// Field for global search is null.
-        /// </summary>
-        public string Field { get; private set; }
-        /// <summary>
         /// Gets an indicator if search value is regex or plain text.
         /// </summary>
         public bool IsRegex { get; private set; }
@@ -53,14 +48,7 @@ namespace DataTables.AspNet.AspNet5
         /// Creates a new search instance.
         /// </summary>
         public Search()
-            : this(String.Empty, false, null)
-        { }
-        /// <summary>
-        /// Creates a new search instance.
-        /// </summary>
-        /// <param name="field">Data field name to be bound.</param>
-        public Search(string field)
-            : this(String.Empty, false, field)
+            : this(String.Empty, false)
         { }
         /// <summary>
         /// Creates a new search instance.
@@ -68,17 +56,7 @@ namespace DataTables.AspNet.AspNet5
         /// <param name="value">Search value.</param>
         /// <param name="isRegex">True if search value is regex, False if search value is plain text.</param>
         public Search(string value, bool isRegex)
-            : this (value, isRegex, null)
-        { }
-        /// <summary>
-        /// Creates a new search instance.
-        /// </summary>
-        /// <param name="value">Search value.</param>
-        /// <param name="isRegex">True if search value is regex, False if search value is plain text.</param>
-        /// <param name="field">Data field name to be bound.</param>
-        public Search(string value, bool isRegex, string field)
         {
-            Field = field;
             Value = value;
             IsRegex = isRegex;
         }

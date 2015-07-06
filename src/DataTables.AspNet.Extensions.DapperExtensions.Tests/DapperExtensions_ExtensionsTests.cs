@@ -41,10 +41,10 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         public void DefaultSearchOnStringFieldWithExistingFieldName()
         {
             // Arrange
-            var search = TestHelper.MockSearch("searchValue", false, "Name");
+            var column = TestHelper.MockColumn("columnName", "Name", true, true, "searchValue", false);
 
             // Act
-            var predicate = search.GetFilterPredicate<SampleEntity>();
+            var predicate = column.GetFilterPredicate<SampleEntity>();
 
             // Assert
             Assert.Equal(global::DapperExtensions.Operator.Like, ((global::DapperExtensions.IFieldPredicate)predicate).Operator);
@@ -58,10 +58,10 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         public void DefaultSearchOnStringFieldWithNonExistingFieldName()
         {
             // Arrange
-            var search = TestHelper.MockSearch("searchValue", false, "OtherName");
+            var column = TestHelper.MockColumn("columnName", "OtherName", true, true, "searchValue", false);
 
             // Act
-            var predicate = search.GetFilterPredicate<SampleEntity>();
+            var predicate = column.GetFilterPredicate<SampleEntity>();
 
             // Assert
             Assert.Null(predicate);
@@ -73,10 +73,10 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         public void ForceEqualsToSearchOnStringField()
         {
             // Arrange
-            var search = TestHelper.MockSearch("searchValue", false, "Name");
+            var column = TestHelper.MockColumn("columnName", "Name", true, true, "searchValue", false);
 
             // Act
-            var predicate = search.GetFilterPredicate<SampleEntity>(true);
+            var predicate = column.GetFilterPredicate<SampleEntity>(true);
 
             // Assert
             Assert.Equal(global::DapperExtensions.Operator.Eq, ((global::DapperExtensions.IFieldPredicate)predicate).Operator);
@@ -88,10 +88,10 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         public void DefaultSearchOnIntField()
         {
             // Arrange
-            var search = TestHelper.MockSearch("1", false, "Id");
+            var column = TestHelper.MockColumn("columnName", "Id", true, true, "1", false);
 
             // Act
-            var predicate = search.GetFilterPredicate<SampleEntity>();
+            var predicate = column.GetFilterPredicate<SampleEntity>();
 
             // Assert
             Assert.Equal(global::DapperExtensions.Operator.Eq, ((global::DapperExtensions.IFieldPredicate)predicate).Operator);
@@ -106,10 +106,11 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         {
             // Arrange
             var options = TestHelper.MockOptions();
-            var sort = TestHelper.MockSort("Name", 1, options.RequestNameConvention.SortAscending);
+            var column = TestHelper.MockColumn("columnName", "Name", true, true, null, false);
+            column.SetSort(1, options.RequestNameConvention.SortAscending);
 
             // Act
-            var predicate = sort.GetSortPredicate<SampleEntity>();
+            var predicate = column.GetSortPredicate<SampleEntity>();
 
             // Assert
             Assert.Equal(true, predicate.Ascending);
@@ -123,10 +124,11 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         {
             // Arrange
             var options = TestHelper.MockOptions();
-            var sort = TestHelper.MockSort("OtherName", 1, options.RequestNameConvention.SortAscending);
+            var column = TestHelper.MockColumn("columnName", "OtherName", true, true, null, false);
+            column.SetSort(1, options.RequestNameConvention.SortAscending);
 
             // Act
-            var predicate = sort.GetSortPredicate<SampleEntity>();
+            var predicate = column.GetSortPredicate<SampleEntity>();
 
             // Assert
             Assert.Null(predicate);
@@ -139,10 +141,11 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         {
             // Arrange
             var options = TestHelper.MockOptions();
-            var sort = TestHelper.MockSort("Name", 1, options.RequestNameConvention.SortDescending);
+            var column = TestHelper.MockColumn("columnName", "Name", true, true, null, false);
+            column.SetSort(1, options.RequestNameConvention.SortDescending);
 
             // Act
-            var predicate = sort.GetSortPredicate<SampleEntity>();
+            var predicate = column.GetSortPredicate<SampleEntity>();
 
             // Assert
             Assert.Equal(false, predicate.Ascending);
@@ -155,15 +158,17 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         {
             // Arrange
             var options = TestHelper.MockOptions();
-            var sort1 = TestHelper.MockSort("Id", 0, options.RequestNameConvention.SortAscending);
-            var sort2 = TestHelper.MockSort("Name", 1, options.RequestNameConvention.SortDescending);
-            var sortCollection = new ISort[] { sort1, sort2 };
+            var column1 = TestHelper.MockColumn("columnName1", "Id", true, true, null, false);
+            column1.SetSort(1, options.RequestNameConvention.SortAscending);
+            var column2 = TestHelper.MockColumn("columnName2", "Name", true, true, null, false);
+            column2.SetSort(1, options.RequestNameConvention.SortDescending);
+            var columns = new IColumn[] { column1, column2 };
 
             // Act
-            var collection = sortCollection.GetSortPredicate<SampleEntity>();
+            var columnCollection = columns.GetSortPredicate<SampleEntity>();
 
             // Assert
-            Assert.Equal(2, collection.Count);
+            Assert.Equal(2, columnCollection.Count);
         }
         /// <summary>
         /// Validates sort translation of an empty collection.
@@ -172,13 +177,13 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         public void SortEmptyCollection()
         {
             // Arrange
-            var sortCollection = new ISort[0];
+            var columnCollection = new IColumn[0];
 
             // Act
-            var collection = sortCollection.GetSortPredicate<SampleEntity>();
+            var collection = columnCollection.GetSortPredicate<SampleEntity>();
 
             // Assert
-            Assert.Equal(0, collection.Count);
+            Assert.Null(collection);
         }
         /// <summary>
         /// Validates sort translation of a null object.
@@ -187,10 +192,10 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         public void SortNullCollection()
         {
             // Arrange
-            ISort[] sortCollection = null;
+            IColumn[] columnCollection = null;
 
             // Act
-            var collection = sortCollection.GetSortPredicate<SampleEntity>();
+            var collection = columnCollection.GetSortPredicate<SampleEntity>();
 
             // Assert
             Assert.Null(collection);

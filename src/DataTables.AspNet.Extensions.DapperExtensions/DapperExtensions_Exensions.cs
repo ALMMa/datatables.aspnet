@@ -37,32 +37,34 @@ namespace DataTables.AspNet.Extensions.DapperExtensions
     public static class DapperExtensions_Extensions
     {
         /// <summary>
-        /// Transforms a DataTables search object into a DapperExtensions field predicate.
+        /// Gets the DapperExtensions filter predicate for a given column, if any search is set.
         /// Important: regex search is not supported.
         /// </summary>
         /// <typeparam name="TElement">The type of corresponding entity.</typeparam>
-        /// <param name="search">The search object to convert.</param>
-        /// <returns>The field predicate for the specified type.</returns>
-        public static IPredicate GetFilterPredicate<TElement>(this Core.ISearch search) where TElement : class
+        /// <param name="column">The column to get search information.</param>
+        /// <returns>The field predicate for the specified type or null.</returns>
+        public static IPredicate GetFilterPredicate<TElement>(this Core.IColumn column) where TElement : class
         {
-            return search.GetFilterPredicate<TElement>(false);
+            return column.GetFilterPredicate<TElement>(false);
         }
         /// <summary>
-        /// Transforms a DataTables search object into a DapperExtensions field predicate.
+        /// Gets the DapperExtensions filter predicate for a given column, if any search is set.
         /// Important: regex search is not supported.
         /// </summary>
         /// <typeparam name="TElement">The type of corresponding entity.</typeparam>
-        /// <param name="search">The search object to convert.</param>
+        /// <param name="column">The column to get search information.</param>
         /// <param name="forceEqualsOperator">Forces '==' operator for string properties.</param>
-        /// <returns>The field predicate for the specified type.</returns>
-        public static IPredicate GetFilterPredicate<TElement>(this Core.ISearch search, bool forceEqualsOperator) where TElement : class
+        /// <returns>The field predicate for the specified type or null.</returns>
+        public static IPredicate GetFilterPredicate<TElement>(this Core.IColumn column, bool forceEqualsOperator) where TElement : class
         {
-            if (search == null) return null;
+            if (column == null) return null;
+            if (!column.IsSearchable) return null;
+            if (column.Search == null) return null;
 
-            if (search.IsRegex) return null;
+            if (column.Search.IsRegex) return null;
 
             // Scaffolds type and searches for member (field) name.
-            var typeSearchResult = TypeSearchResult.Scaffold<TElement>(search.Field);
+            var typeSearchResult = TypeSearchResult.Scaffold<TElement>(column.Field);
 
             // Type does not contains member - returns a null predicate to ensure compliance.
             if (!typeSearchResult.ContainsMember)
@@ -76,36 +78,39 @@ namespace DataTables.AspNet.Extensions.DapperExtensions
                     ? Operator.Like
                     : Operator.Eq;
 
-            return new FieldPredicate<TElement>() { PropertyName = search.Field, Operator = _operator, Value = search.Value };
+            return new FieldPredicate<TElement>() { PropertyName = column.Field, Operator = _operator, Value = column.Search.Value };
         }
         /// <summary>
         /// Transforms a DataTables sort object into a DapperExtensions sort element.
         /// </summary>
         /// <param name="sort"></param>
         /// <returns></returns>
-        public static ISort GetSortPredicate<TElement>(this Core.ISort sort)
+        public static ISort GetSortPredicate<TElement>(this Core.IColumn column)
         {
-            if (sort == null) return null;
+            if (column == null) return null;
+            if (column.Sort == null) return null;
 
             // Scaffolds type and searches for member (field) name.
-            var typeSearchResult = TypeSearchResult.Scaffold<TElement>(sort.Field);
+            var typeSearchResult = TypeSearchResult.Scaffold<TElement>(column.Field);
 
             // Type does not contains member - returns a null sort to ensure compliance.
             if (!typeSearchResult.ContainsMember) return null;
 
-            return new Sort() { Ascending = sort.Direction == Core.SortDirection.Ascending, PropertyName = sort.Field };
+            return new Sort() { Ascending = column.Sort.Direction == Core.SortDirection.Ascending, PropertyName = column.Field };
         }
         /// <summary>
         /// Transforms a DataTables sort collection into a DapperExtensions sort list.
         /// </summary>
         /// <param name="sort"></param>
         /// <returns></returns>
-        public static IList<ISort> GetSortPredicate<TElement>(this IEnumerable<Core.ISort> sort)
+        public static IList<ISort> GetSortPredicate<TElement>(this IEnumerable<Core.IColumn> columns)
         {
-            if (sort == null) return null;
+            if (columns == null) return null;
+            if (!columns.Any() || !columns.Any(_c => _c.Sort != null)) return null;
 
-            return sort
-                .OrderBy(_sort => _sort.Order)
+            var sortColumns = columns.Where(_c => _c.Sort != null).OrderBy(_c => _c.Sort.Order);
+
+            return sortColumns
                 .Select(_sort => _sort.GetSortPredicate<TElement>())
                 .Where(_sort => _sort != null)
                 .ToList();
