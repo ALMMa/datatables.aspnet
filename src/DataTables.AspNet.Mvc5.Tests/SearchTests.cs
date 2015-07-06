@@ -42,7 +42,6 @@ namespace DataTables.AspNet.Mvc5.Tests
 
             Assert.Equal("searchValue", search.Value);
             Assert.Equal(true, search.IsRegex);
-            Assert.Equal(null, search.Field);
         }
         /// <summary>
         /// Validates search creation with data field.
@@ -54,7 +53,6 @@ namespace DataTables.AspNet.Mvc5.Tests
 
             Assert.Equal("searchValue", search.Value);
             Assert.Equal(true, search.IsRegex);
-            Assert.Equal("field", search.Field);
         }
     }
 }

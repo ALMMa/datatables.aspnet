@@ -17,8 +17,8 @@
     "summary": "",
 
     "dependencies": {
-        "DataTables.AspNet.Core": "2.0.0-alpha1",
-        "DataTables.AspNet.AspNet5": "2.0.0-alpha1",
+        "DataTables.AspNet.Core": "",
+        "DataTables.AspNet.AspNet5": "",
         "DataTables.AspNet.Extensions.DapperExtensions": "",
 
         "xunit": "2.1.0-beta3-*",

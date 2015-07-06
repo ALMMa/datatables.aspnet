@@ -17,7 +17,7 @@
     "summary": "",
 
     "dependencies": {
-        "DataTables.AspNet.Core": "2.0.0-alpha-1",
+        "DataTables.AspNet.Core": "",
 
         "Dapper": "1.42.0",
         "DapperExtensions": "1.4.4"

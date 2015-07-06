@@ -51,7 +51,6 @@ namespace DataTables.AspNet.Mvc5.Tests
 
             Assert.Equal("searchValue", request.Search.Value);
             Assert.Equal(true, request.Search.IsRegex);
-            Assert.Equal(null, request.Search.Field);
 
             Assert.Equal(3, request.Columns.Count());
             foreach (var column in request.Columns) Assert.NotNull(column);

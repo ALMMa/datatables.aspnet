@@ -55,7 +55,6 @@ namespace DataTables.AspNet.Mvc5.Tests
 
             Assert.Equal("mockSearchValue", model.Search.Value);
             Assert.Equal(true, model.Search.IsRegex);
-            Assert.Equal(null, model.Search.Field);
 
             Assert.Equal(0, model.Columns.Count());
         }
@@ -168,7 +167,6 @@ namespace DataTables.AspNet.Mvc5.Tests
 
             Assert.Equal("mockSearchValue", model.Search.Value);
             Assert.Equal(true, model.Search.IsRegex);
-            Assert.Equal(null, model.Search.Field);
 
             Assert.Equal(0, model.Columns.Count());
         }

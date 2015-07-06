@@ -3,7 +3,7 @@
   "version": -9998,
   "projectFileDependencyGroups": {
     "": [
-      "DataTables.AspNet.Core >= 2.0.0-alpha1",
+      "DataTables.AspNet.Core >= 2.0.0-alpha2-070602",
       "Newtonsoft.Json >= 7.0.1"
     ],
     ".NETFramework,Version=v4.5": [

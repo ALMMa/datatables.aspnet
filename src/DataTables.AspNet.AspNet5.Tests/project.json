@@ -22,8 +22,8 @@
 
         "Moq": "4.2.1507.118",
 
-        "DataTables.AspNet.Core": "2.0.0-alpha1",
-        "DataTables.AspNet.AspNet5": "2.0.0-alpha1"
+        "DataTables.AspNet.Core": "",
+        "DataTables.AspNet.AspNet5": ""
     },
 
     "commands": {

@@ -6,12 +6,176 @@
       "xunit >= 2.1.0-beta3-*",
       "xunit.runner.dnx >= 2.1.0-beta3-*",
       "Moq >= 4.2.1507.118",
-      "DataTables.AspNet.Core >= 2.0.0-alpha1",
-      "DataTables.AspNet.AspNet5 >= 2.0.0-alpha1"
+      "DataTables.AspNet.Core ",
+      "DataTables.AspNet.AspNet5 "
     ],
     "DNX,Version=v4.5.1": []
   },
   "libraries": {
+    "DataTables.AspNet.Core/2.0.0-alpha2-070602": {
+      "serviceable": false,
+      "sha": "03W27f0Sb0TyaDUEDONfE+Sd0NkbYUfi/ESxQCpM8PoRLhKdDFAgquBDZwIbt+NecXbXx8ncbEPiyO9nkIEAgQ==",
+      "frameworks": {
+        "DNX,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx451/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx451/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net45/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net45/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.1": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net451/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net451/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net452/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net452/DataTables.AspNet.Core.dll"
+          ]
+        },
+        ".NETFramework,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/net46/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/net46/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.5": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx45/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx45/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.5.2": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx452/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx452/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNX,Version=v4.6": {
+          "dependencies": {},
+          "frameworkAssemblies": [
+            "mscorlib",
+            "System",
+            "System.Core",
+            "Microsoft.CSharp"
+          ],
+          "runtimeAssemblies": [
+            "lib/dnx46/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnx46/DataTables.AspNet.Core.dll"
+          ]
+        },
+        "DNXCore,Version=v5.0": {
+          "dependencies": {
+            "System.Collections": "4.0.10-beta-22816",
+            "System.Linq": "4.0.0-beta-22816",
+            "System.Threading": "4.0.10-beta-22816",
+            "Microsoft.CSharp": "4.0.0-beta-22816"
+          },
+          "frameworkAssemblies": [],
+          "runtimeAssemblies": [
+            "lib/dnxcore50/DataTables.AspNet.Core.dll"
+          ],
+          "compileAssemblies": [
+            "lib/dnxcore50/DataTables.AspNet.Core.dll"
+          ]
+        }
+      },
+      "files": [
+        "DataTables.AspNet.Core.2.0.0-alpha2-070602.nupkg",
+        "DataTables.AspNet.Core.2.0.0-alpha2-070602.nupkg.sha512",
+        "DataTables.AspNet.Core.nuspec",
+        "lib/dnx45/DataTables.AspNet.Core.dll",
+        "lib/dnx45/DataTables.AspNet.Core.xml",
+        "lib/dnx451/DataTables.AspNet.Core.dll",
+        "lib/dnx451/DataTables.AspNet.Core.xml",
+        "lib/dnx452/DataTables.AspNet.Core.dll",
+        "lib/dnx452/DataTables.AspNet.Core.xml",
+        "lib/dnx46/DataTables.AspNet.Core.dll",
+        "lib/dnx46/DataTables.AspNet.Core.xml",
+        "lib/dnxcore50/DataTables.AspNet.Core.dll",
+        "lib/dnxcore50/DataTables.AspNet.Core.xml",
+        "lib/net45/DataTables.AspNet.Core.dll",
+        "lib/net45/DataTables.AspNet.Core.xml",
+        "lib/net451/DataTables.AspNet.Core.dll",
+        "lib/net451/DataTables.AspNet.Core.xml",
+        "lib/net452/DataTables.AspNet.Core.dll",
+        "lib/net452/DataTables.AspNet.Core.xml",
+        "lib/net46/DataTables.AspNet.Core.dll",
+        "lib/net46/DataTables.AspNet.Core.xml"
+      ]
+    },
     "Microsoft.AspNet.Authentication/1.0.0-beta4": {
       "serviceable": true,
       "sha": "bF++RlseLYrzDjtzrwNsLlftnj65Gctg6AkW6QMmk3W5EcNCktynbfjZrAn/1JRr7jri5XAJ546kvoayYKMjEg==",

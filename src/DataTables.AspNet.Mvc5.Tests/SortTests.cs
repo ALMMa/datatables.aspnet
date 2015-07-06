@@ -40,7 +40,6 @@ namespace DataTables.AspNet.Mvc5.Tests
             var sort = TestHelper.MockSort("sortField", 9, options.RequestNameConvention.SortAscending);
 
             // Assert
-            Assert.Equal("sortField", sort.Field);
             Assert.Equal(9, sort.Order);
             Assert.Equal(Core.SortDirection.Ascending, sort.Direction);
         }
@@ -55,7 +54,6 @@ namespace DataTables.AspNet.Mvc5.Tests
             var sort = TestHelper.MockSort("sortField", 9, options.RequestNameConvention.SortDescending);
 
             // Assert
-            Assert.Equal("sortField", sort.Field);
             Assert.Equal(9, sort.Order);
             Assert.Equal(Core.SortDirection.Descending, sort.Direction);
         }

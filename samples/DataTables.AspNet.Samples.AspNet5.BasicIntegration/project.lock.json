@@ -3,8 +3,8 @@
   "version": -9998,
   "projectFileDependencyGroups": {
     "": [
-      "DataTables.AspNet.Core >= 2.0.0-alpha1-062401",
-      "DataTables.AspNet.AspNet5 >= 2.0.0-alpha1-062401",
+      "DataTables.AspNet.Core >= 2.0.0-alpha2-*",
+      "DataTables.AspNet.AspNet5 >= 2.0.0-alpha2-*",
       "Microsoft.AspNet.Diagnostics >= 1.0.0-beta4",
       "Microsoft.AspNet.Mvc >= 6.0.0-beta4",
       "Microsoft.AspNet.Mvc.TagHelpers >= 6.0.0-beta4",
@@ -17,16 +17,16 @@
     "DNXCore,Version=v5.0": []
   },
   "libraries": {
-    "DataTables.AspNet.AspNet5/2.0.0-alpha1-062401": {
+    "DataTables.AspNet.AspNet5/2.0.0-alpha2-070601": {
       "serviceable": false,
-      "sha": "/6na3hYUsoPeJ17AcqJvraBrpRyJewe6wVhR7PsfoI+Z3o9cTdQf8MJvjO3V6xrJJrZ5vm71FEF1xVb1omgXWg==",
+      "sha": "8QGWyGx9lWOWvKO4inG1eRfyDLoQpueO7Xmd42V/wOFkg6kteBoqw2Xx+qgYTF34V9FkCup0GxAt+6gPv+qMkg==",
       "frameworks": {
         "DNX,Version=v4.5.1": {
           "dependencies": {
-            "DataTables.AspNet.Core": "2.0.0-alpha1-062401",
+            "DataTables.AspNet.Core": "2.0.0-alpha2-070601",
             "Microsoft.AspNet.Mvc": "6.0.0-beta4",
             "Microsoft.Framework.DependencyInjection": "1.0.0-beta4",
-            "Newtonsoft.Json": "7.0.1-beta3"
+            "Newtonsoft.Json": "7.0.1"
           },
           "frameworkAssemblies": [
             "mscorlib",
@@ -43,10 +43,10 @@
         },
         "DNXCore,Version=v5.0": {
           "dependencies": {
-            "DataTables.AspNet.Core": "2.0.0-alpha1-062401",
+            "DataTables.AspNet.Core": "2.0.0-alpha2-070601",
             "Microsoft.AspNet.Mvc": "6.0.0-beta4",
             "Microsoft.Framework.DependencyInjection": "1.0.0-beta4",
-            "Newtonsoft.Json": "7.0.1-beta3",
+            "Newtonsoft.Json": "7.0.1",
             "System.Collections": "4.0.10-beta-22816",
             "System.Linq": "4.0.0-beta-22816",
             "System.Threading": "4.0.10-beta-22816",
@@ -62,8 +62,8 @@
         }
       },
       "files": [
-        "DataTables.AspNet.AspNet5.2.0.0-alpha1-062401.nupkg",
-        "DataTables.AspNet.AspNet5.2.0.0-alpha1-062401.nupkg.sha512",
+        "DataTables.AspNet.AspNet5.2.0.0-alpha2-070601.nupkg",
+        "DataTables.AspNet.AspNet5.2.0.0-alpha2-070601.nupkg.sha512",
         "DataTables.AspNet.AspNet5.nuspec",
         "lib/dnx451/DataTables.AspNet.AspNet5.dll",
         "lib/dnx451/DataTables.AspNet.AspNet5.xml",
@@ -75,9 +75,9 @@
         "lib/dnxcore50/DataTables.AspNet.AspNet5.xml"
       ]
     },
-    "DataTables.AspNet.Core/2.0.0-alpha1-062401": {
+    "DataTables.AspNet.Core/2.0.0-alpha2-070602": {
       "serviceable": false,
-      "sha": "reJ6ZZF9G9e2uY9IZN2beghLN8atkB6JD3v2L74yXfaDXDQLDvYXrUNK1nwmprWKW3OY9FvdzErX6pGYftbCcQ==",
+      "sha": "03W27f0Sb0TyaDUEDONfE+Sd0NkbYUfi/ESxQCpM8PoRLhKdDFAgquBDZwIbt+NecXbXx8ncbEPiyO9nkIEAgQ==",
       "frameworks": {
         "DNX,Version=v4.5.1": {
           "dependencies": {},
@@ -111,8 +111,8 @@
         }
       },
       "files": [
-        "DataTables.AspNet.Core.2.0.0-alpha1-062401.nupkg",
-        "DataTables.AspNet.Core.2.0.0-alpha1-062401.nupkg.sha512",
+        "DataTables.AspNet.Core.2.0.0-alpha2-070602.nupkg",
+        "DataTables.AspNet.Core.2.0.0-alpha2-070602.nupkg.sha512",
         "DataTables.AspNet.Core.nuspec",
         "lib/dnx45/DataTables.AspNet.Core.dll",
         "lib/dnx45/DataTables.AspNet.Core.xml",
@@ -3213,9 +3213,9 @@
         "lib/portable-wpa81+wp80+win80+net45+aspnetcore50/Microsoft.Win32.Registry.dll"
       ]
     },
-    "Newtonsoft.Json/7.0.1-beta3": {
+    "Newtonsoft.Json/7.0.1": {
       "serviceable": false,
-      "sha": "065sWAmniKTf+Xg28xrDMwKKU7v0sryThZsB6GwVW9Jm3am0INdbGxhZxwy/0nyzKrh+MkFfS4Bq9na3xH3CkQ==",
+      "sha": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
       "frameworks": {
         "DNX,Version=v4.5.1": {
           "dependencies": {},
@@ -3239,8 +3239,8 @@
         }
       },
       "files": [
-        "Newtonsoft.Json.7.0.1-beta3.nupkg",
-        "Newtonsoft.Json.7.0.1-beta3.nupkg.sha512",
+        "Newtonsoft.Json.7.0.1.nupkg",
+        "Newtonsoft.Json.7.0.1.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
