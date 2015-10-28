@@ -1,47 +1,40 @@
 ﻿{
-    "version": "2.0.0-alpha2-070602",
-    "description": "AspNet5 implementation for DataTables.AspNet.",
-    "authors": [ "Anderson Matos" ],
-    "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "AspNet", "AspNet5" ],
-    "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
-    "licenseUrl": "",
+	"version": "2.0.0-beta1-102801",
+	"description": "AspNet5 implementation for DataTables.AspNet.",
+	"authors": [ "Anderson Matos" ],
+	"tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "AspNet", "AspNet5" ],
+	"projectUrl": "https://github.com/ALMMa/datatables.aspnet",
+	"licenseUrl": "",
 
-    "id": "DataTables.AspNet.AspNet5",
-    "title": "DataTables.AspNet.AspNet5",
-    "owners": [ "Anderson Matos" ],
-    "iconUrl": "",
-    "releaseNotes": "",
-    "language": "en-US",
-    "requireLicenseAcceptance": false,
-    "copyright": "",
-    "summary": "",
+	"id": "DataTables.AspNet.AspNet5",
+	"title": "DataTables.AspNet.AspNet5",
+	"owners": [ "Anderson Matos" ],
+	"iconUrl": "",
+	"releaseNotes": "Updated NuGet references.",
+	"language": "en-US",
+	"requireLicenseAcceptance": false,
+	"copyright": "",
+	"summary": "",
 
-    "dependencies": {
-        "DataTables.AspNet.Core": "2.0.0-alpha2-070602",
+	"dependencies": {
+		"DataTables.AspNet.Core": "",
 
-        "Microsoft.AspNet.Mvc": "6.0.0-beta4-*",
-        "Microsoft.Framework.DependencyInjection": "1.0.0-beta4-*",
+		"Microsoft.AspNet.Mvc": "6.0.0-beta8",
+		
+		"Newtonsoft.Json": "7.0.1"
+	},
 
-        "Newtonsoft.Json": "7.0.1"
-    },
-
-    "frameworks": {
-        "dnx451": {
-            "dependencies": { }
-        },
-        "dnx452": {
-            "dependencies": { }
-        },
-        "dnx46": {
-            "dependencies": { }
-        },
-        "dnxcore50": {
-            "dependencies": {
-                "System.Collections": "4.0.10-beta-22816",
-                "System.Linq": "4.0.0-beta-22816",
-                "System.Threading": "4.0.10-beta-22816",
-                "Microsoft.CSharp": "4.0.0-beta-22816"
-            }
-        }
-    }
+	"frameworks": {
+		"dnx451": { },
+		"dnx452": { },
+		"dnx46": { },
+		"dnxcore50": {
+			"dependencies": {
+				"System.Collections": "4.0.10",
+				"System.Linq": "4.0.0",
+				"System.Threading": "4.0.10",
+				"Microsoft.CSharp": "4.0.0"
+			}
+		}
+	}
 }

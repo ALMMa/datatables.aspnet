@@ -52,7 +52,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             Assert.Equal(0, response.TotalRecords);
             Assert.Equal(0, response.TotalRecordsFiltered);
             Assert.Null(response.Data);
-            Assert.Null(response.AditionalParameters);
+            Assert.Null(response.AdditionalParameters);
         }
         /// <summary>
         /// Validates response creation without aditional parameters dictionary.
@@ -73,7 +73,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             Assert.Equal(2000, response.TotalRecords);
             Assert.Equal(1000, response.TotalRecordsFiltered);
             Assert.Equal(data, response.Data);
-            Assert.Null(response.AditionalParameters);
+            Assert.Null(response.AdditionalParameters);
         }
         /// <summary>
         /// Validates response creation with aditional parameters dictionary.
@@ -84,7 +84,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
             var data = TestHelper.MockData();
-            var aditionalParameters = TestHelper.MockAditionalParameters();
+            var aditionalParameters = TestHelper.MockAdditionalParameters();
 
             // Act
             var response = DataTablesResponse.Create(request, 2000, 1000, data, aditionalParameters);
@@ -95,7 +95,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             Assert.Equal(2000, response.TotalRecords);
             Assert.Equal(1000, response.TotalRecordsFiltered);
             Assert.Equal(data, response.Data);
-            Assert.Equal(aditionalParameters, response.AditionalParameters);
+            Assert.Equal(aditionalParameters, response.AdditionalParameters);
         }
         /// <summary>
         /// Validates error response serialization.
@@ -123,7 +123,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
             var names = new NameConvention.CamelCaseResponseNameConvention();
-            var aditionalParameters = TestHelper.MockAditionalParameters();
+            var aditionalParameters = TestHelper.MockAdditionalParameters();
             var expectedJson = String.Format("{{\"{0}\":3,\"{1}\":\"just_an_error_message\",\"firstParameter\":\"firstValue\",\"secondParameter\":7}}", names.Draw, names.Error);
 
             // Act
@@ -165,7 +165,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
             var data = TestHelper.MockData();
             var names = new NameConvention.CamelCaseResponseNameConvention();
-            var aditionalParameters = TestHelper.MockAditionalParameters();
+            var aditionalParameters = TestHelper.MockAdditionalParameters();
             var expectedJson = String.Format("{{\"{0}\":3,\"{1}\":2000,\"{2}\":1000,\"{3}\":{4},\"firstParameter\":\"firstValue\",\"secondParameter\":7}}",
                 names.Draw,
                 names.TotalRecords,

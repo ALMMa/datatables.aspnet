@@ -55,6 +55,6 @@ namespace DataTables.AspNet.Core
         /// <summary>
         /// Gets aditional parameters to send back to the client-side.
         /// </summary>
-        IDictionary<string, object> AditionalParameters { get; }
+        IDictionary<string, object> AdditionalParameters { get; }
     }
 }

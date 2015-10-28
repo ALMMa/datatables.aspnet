@@ -49,7 +49,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModelAsync(modelBindingContext, options, TestHelper.ParseAditionalParameters).Result.Model;
+            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
 
             // Assert
             Assert.Equal(3, model.Draw);
@@ -73,7 +73,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options().DisableDrawValidation();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModelAsync(modelBindingContext, options, TestHelper.ParseAditionalParameters).Result.Model;
+            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
 
             // Assert
             Assert.Equal(0, model.Draw);
@@ -94,7 +94,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModelAsync(modelBindingContext, options, TestHelper.ParseAditionalParameters).Result.Model;
+            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
 
             // Assert
             Assert.Equal(null, model);
@@ -111,12 +111,12 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModelAsync(modelBindingContext, options, TestHelper.ParseAditionalParameters).Result.Model;
+            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
 
             // Assert
             Assert.Equal(3, model.Draw);
 
-            Assert.Equal(null, model.AditionalParameters);
+            Assert.Equal(null, model.AdditionalParameters);
         }
         /// <summary>
         /// Validates CamelCase model binding with aditional parameters set and with aditional parameters enabled.
@@ -127,16 +127,16 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var binder = new ModelBinder();
             var modelBindingContext = TestHelper.MockModelBindingContextWithCamelCase("3", "13", "99", "mockSearchValue", "true", new Dictionary<string, object>() { { "firstParameter", "firstValue" }, { "secondParameter", 7 } });
-            var options = new Options().EnableRequestAditionalParameters();
+            var options = new Options().EnableRequestAdditionalParameters();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModelAsync(modelBindingContext, options, TestHelper.ParseAditionalParameters).Result.Model;
+            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
 
             // Assert
             Assert.Equal(3, model.Draw);
 
-            Assert.Equal("firstValue", model.AditionalParameters["firstParameter"]);
-            Assert.Equal(7, model.AditionalParameters["secondParameter"]);
+            Assert.Equal("firstValue", model.AdditionalParameters["firstParameter"]);
+            Assert.Equal(7, model.AdditionalParameters["secondParameter"]);
         }
 
 
@@ -153,7 +153,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options().UseHungarianNotation();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModelAsync(modelBindingContext, options, TestHelper.ParseAditionalParameters).Result.Model;
+            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
 
             // Assert
             Assert.Equal(3, model.Draw);
@@ -177,7 +177,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options().UseHungarianNotation().DisableDrawValidation();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModelAsync(modelBindingContext, options, TestHelper.ParseAditionalParameters).Result.Model;
+            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
 
             // Assert
             Assert.Equal(0, model.Draw);
@@ -198,7 +198,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options().UseHungarianNotation();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModelAsync(modelBindingContext, options, TestHelper.ParseAditionalParameters).Result.Model;
+            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
 
             // Assert
             Assert.Equal(null, model);
@@ -215,7 +215,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModelAsync(modelBindingContext, options, TestHelper.ParseAditionalParameters).Result.Model;
+            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
 
             // Assert
             Assert.Equal(null, model);

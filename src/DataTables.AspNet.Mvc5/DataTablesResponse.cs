@@ -58,7 +58,7 @@ namespace DataTables.AspNet.Mvc5
         /// <summary>
         /// Gets aditional parameters for response.
         /// </summary>
-        public IDictionary<string, object> AditionalParameters { get; protected set; }
+        public IDictionary<string, object> AdditionalParameters { get; protected set; }
         
         
         
@@ -94,10 +94,10 @@ namespace DataTables.AspNet.Mvc5
                     jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Data, true);
                     jsonWriter.WriteRawValue(SerializeData(Data));
 
-                    // AditionalParameters
-                    if (DataTables.AspNet.Mvc5.Configuration.Options.IsResponseAditionalParametersEnabled && AditionalParameters != null)
+                    // AdditionalParameters
+                    if (DataTables.AspNet.Mvc5.Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
                     {
-                        foreach(var keypair in AditionalParameters)
+                        foreach(var keypair in AdditionalParameters)
                         {
                             jsonWriter.WritePropertyName(keypair.Key, true);
                             jsonWriter.WriteValue(keypair.Value);
@@ -120,10 +120,10 @@ namespace DataTables.AspNet.Mvc5
                     jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Error, true);
                     jsonWriter.WriteValue(Error);
 
-                    // AditionalParameters
-                    if (DataTables.AspNet.Mvc5.Configuration.Options.IsResponseAditionalParametersEnabled && AditionalParameters != null)
+                    // AdditionalParameters
+                    if (DataTables.AspNet.Mvc5.Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
                     {
-                        foreach (var keypair in AditionalParameters)
+                        foreach (var keypair in AdditionalParameters)
                         {
                             jsonWriter.WritePropertyName(keypair.Key, true);
                             jsonWriter.WriteValue(keypair.Value);
@@ -181,11 +181,11 @@ namespace DataTables.AspNet.Mvc5
         /// </summary>
         /// <param name="draw">Draw count from request object.</param>
         /// <param name="errorMessage">Error message.</param>
-        private DataTablesResponse(int draw, string errorMessage, IDictionary<string, object> aditionalParameters)
+        private DataTablesResponse(int draw, string errorMessage, IDictionary<string, object> additionalParameters)
         {
             Draw = draw;
             Error = errorMessage;
-            AditionalParameters = aditionalParameters;
+            AdditionalParameters = additionalParameters;
         }
         /// <summary>
         /// For internal use only.
@@ -205,16 +205,16 @@ namespace DataTables.AspNet.Mvc5
         /// <param name="draw">Draw count from request object.</param>
         /// <param name="totalRecords">Total record count (total records available on database).</param>
         /// <param name="totalRecordsFiltered">Filtered record count (total records available after filtering).</param>
-        /// <param name="aditionalParameters">Aditional parameters for response.</param>
+        /// <param name="additionalParameters">Aditional parameters for response.</param>
         /// <param name="data">Data object (collection).</param>
-        private DataTablesResponse(int draw, int totalRecords, int totalRecordsFiltered, object data, IDictionary<string, object> aditionalParameters)
+        private DataTablesResponse(int draw, int totalRecords, int totalRecordsFiltered, object data, IDictionary<string, object> additionalParameters)
         {
             Draw = draw;
             TotalRecords = totalRecords;
             TotalRecordsFiltered = totalRecordsFiltered;
             Data = data;
 
-            AditionalParameters = aditionalParameters;
+            AdditionalParameters = additionalParameters;
         }
 
 
@@ -239,9 +239,9 @@ namespace DataTables.AspNet.Mvc5
         /// <param name="totalRecords">Total record count (total records available on database).</param>
         /// <param name="totalRecordsFiltered">Filtered record count (total records available after filtering).</param>
         /// <param name="data">Data object (collection).</param>
-        /// <param name="aditionalParameters">Aditional parameters for response.</param>
+        /// <param name="additionalParameters">Aditional parameters for response.</param>
         /// <returns>The response object.</returns>
-        public static DataTablesResponse Create(Core.IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, object data, IDictionary<string, object> aditionalParameters)
+        public static DataTablesResponse Create(Core.IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, object data, IDictionary<string, object> additionalParameters)
         {
             // When request is null, there should be no response (null response).
             if (request == null) return null;
@@ -254,7 +254,7 @@ namespace DataTables.AspNet.Mvc5
                 if (request.Draw < 1) return null;
             }
 
-            return new DataTablesResponse(request.Draw, totalRecords, totalRecordsFiltered, data, aditionalParameters);
+            return new DataTablesResponse(request.Draw, totalRecords, totalRecordsFiltered, data, additionalParameters);
         }
         /// <summary>
         /// Creates a new response instance.
@@ -272,7 +272,7 @@ namespace DataTables.AspNet.Mvc5
         /// <param name="request">The request object.</param>
         /// <param name="errorMessage">Error message.</param>
         /// <returns>The response object.</returns>
-        public static DataTablesResponse Create(Core.IDataTablesRequest request, string errorMessage, IDictionary<string, object> aditionalParameters)
+        public static DataTablesResponse Create(Core.IDataTablesRequest request, string errorMessage, IDictionary<string, object> additionalParameters)
         {
             // When request is null, there should be no response (null response).
             if (request == null) return null;
@@ -285,7 +285,7 @@ namespace DataTables.AspNet.Mvc5
                 if (request.Draw < 1) return null;
             }
 
-            return new DataTablesResponse(request.Draw, errorMessage, aditionalParameters);
+            return new DataTablesResponse(request.Draw, errorMessage, additionalParameters);
         }
     }
 }

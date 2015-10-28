@@ -54,36 +54,36 @@ namespace DataTables.AspNet.AspNet5
         /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="services">Service collection for dependency injection.</param>
-        public static void UseDataTables(this IServiceCollection services) { services.UseDataTables(new Options()); }
+        public static void RegisterDataTables(this IServiceCollection services) { services.RegisterDataTables(new Options()); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="services">Service collection for dependency injection.</param>
         /// <param name="options">DataTables.AspNet options.</param>
-        public static void UseDataTables(this IServiceCollection services, IOptions options) { services.UseDataTables(options, new ModelBinder()); }
+        public static void RegisterDataTables(this IServiceCollection services, IOptions options) { services.RegisterDataTables(options, new ModelBinder()); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="services">Service collection for dependency injection.</param>
         /// <param name="requestModelBinder">Request model binder to use when resolving 'IDataTablesRequest' models.</param>
-        public static void UseDataTables(this IServiceCollection services, ModelBinder requestModelBinder) { services.UseDataTables(new Options(), requestModelBinder); }
+        public static void RegisterDataTables(this IServiceCollection services, ModelBinder requestModelBinder) { services.RegisterDataTables(new Options(), requestModelBinder); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="services">Service collection for dependency injection.</param>
-        /// <param name="parseRequestAditionalParameters">Function to evaluante and parse aditional parameters sent within the request (user-defined parameters).</param>
-        /// <param name="parseResponseAditionalParameters">Indicates whether response aditional parameters parsing is enabled or not.</param>
-        public static void UseDataTables(this IServiceCollection services, Func<ModelBindingContext, IDictionary<string, object>> parseRequestAditionalParameters, bool parseResponseAditionalParameters) { services.UseDataTables(new Options(), new ModelBinder(), parseRequestAditionalParameters, parseResponseAditionalParameters); }
+        /// <param name="parseRequestAdditionalParameters">Function to evaluante and parse aditional parameters sent within the request (user-defined parameters).</param>
+        /// <param name="parseResponseAdditionalParameters">Indicates whether response aditional parameters parsing is enabled or not.</param>
+        public static void RegisterDataTables(this IServiceCollection services, Func<ModelBindingContext, IDictionary<string, object>> parseRequestAdditionalParameters, bool parseResponseAdditionalParameters) { services.RegisterDataTables(new Options(), new ModelBinder(), parseRequestAdditionalParameters, parseResponseAdditionalParameters); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for AspNet5 projects.
         /// </summary>
         /// <param name="options">DataTables.AspNet options.</param>
         /// <param name="requestModelBinder">Model binder to use when resolving 'IDataTablesRequest' model.</param>
-        public static void UseDataTables(this IServiceCollection services, IOptions options, ModelBinder requestModelBinder) { services.UseDataTables(options, requestModelBinder, null, false); }
+        public static void RegisterDataTables(this IServiceCollection services, IOptions options, ModelBinder requestModelBinder) { services.RegisterDataTables(options, requestModelBinder, null, false); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for AspNet5 projects.
@@ -91,28 +91,29 @@ namespace DataTables.AspNet.AspNet5
         /// <param name="services">Service collection for dependency injection.</param>
         /// <param name="options">DataTables.AspNet options.</param>
         /// <param name="requestModelBinder">Request model binder to use when resolving 'IDataTablesRequest' models.</param>
-        /// <param name="parseRequestAditionalParameters">Function to evaluate and parse aditional parameters sent within the request (user-defined parameters).</param>
-        /// <param name="enableResponseAditionalParameters">Indicates whether response aditional parameters parsing is enabled or not.</param>
-        public static void UseDataTables(this IServiceCollection services, IOptions options, ModelBinder requestModelBinder, Func<ModelBindingContext, IDictionary<string, object>> parseRequestAditionalParameters, bool enableResponseAditionalParameters)
+        /// <param name="parseRequestAdditionalParameters">Function to evaluate and parse aditional parameters sent within the request (user-defined parameters).</param>
+        /// <param name="enableResponseAdditionalParameters">Indicates whether response aditional parameters parsing is enabled or not.</param>
+        public static void RegisterDataTables(this IServiceCollection services, IOptions options, ModelBinder requestModelBinder, Func<ModelBindingContext, IDictionary<string, object>> parseRequestAdditionalParameters, bool enableResponseAdditionalParameters)
         {
             if (options == null) throw new ArgumentNullException("options", "Options for DataTables.AspNet cannot be null.");
             if (requestModelBinder == null) throw new ArgumentNullException("requestModelBinder", "Request model binder for DataTables.AspNet cannot be null.");
 
             Options = options;
 
-            if (parseRequestAditionalParameters != null)
+            if (parseRequestAdditionalParameters != null)
             {
-                Options.EnableRequestAditionalParameters();
-                requestModelBinder.ParseAditionalParameters = parseRequestAditionalParameters;
+                Options.EnableRequestAdditionalParameters();
+                requestModelBinder.ParseAdditionalParameters = parseRequestAdditionalParameters;
             }
 
-            if (enableResponseAditionalParameters)
-                Options.EnableResponseAditionalParameters();
+            if (enableResponseAdditionalParameters)
+                Options.EnableResponseAdditionalParameters();
 
             services.Configure<Microsoft.AspNet.Mvc.MvcOptions>(_options =>
             {
-                _options.ModelBinders.Add(new Microsoft.AspNet.Mvc.OptionDescriptors.ModelBinderDescriptor(requestModelBinder));
-            });            
+				// Should be inserted into first position because there is a generic binder which could end up resolving/binding model incorrectly.
+                _options.ModelBinders.Insert(0, requestModelBinder);
+            });
         }
     }
 }

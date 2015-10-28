@@ -23,6 +23,7 @@ THE SOFTWARE.
 */
 #endregion Copyright
 
+using System;
 using System.Linq;
 using DataTables.AspNet.AspNet5;
 using Microsoft.AspNet.Mvc;
@@ -62,7 +63,9 @@ namespace DataTables.AspNet.Samples.AspNet5.BasicIntegration.Controllers
             // Global filtering.
             // Filter is being manually applied due to in-memmory (IEnumerable) data.
             // If you want something rather easier, check IEnumerableExtensions Sample.
-            var filteredData = data.Where(_item => _item.Name.Contains(request.Search.Value));
+            var filteredData = String.IsNullOrWhiteSpace(request.Search.Value)
+				? data
+				: data.Where(_item => _item.Name.Contains(request.Search.Value));
 
             // Paging filtered data.
             // Paging is rather manual due to in-memmory (IEnumerable) data.

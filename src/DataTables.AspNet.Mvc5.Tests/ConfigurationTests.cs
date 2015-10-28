@@ -41,14 +41,14 @@ namespace DataTables.AspNet.Mvc5.Tests
         public void DefaultRegistration()
         {
             // Arrange
-            DataTables.AspNet.Mvc5.Configuration.Register();
+            DataTables.AspNet.Mvc5.Configuration.RegisterDataTables();
             var modelBinder = System.Web.Mvc.ModelBinders.Binders.Single(_b => _b.Key.IsEquivalentTo(typeof(Core.IDataTablesRequest)));
 
             // Assert
             Assert.NotNull(modelBinder);
             Assert.NotNull(modelBinder.Value);
             Assert.NotNull(modelBinder.Value as ModelBinder);
-            Assert.Null((modelBinder.Value as ModelBinder).ParseAditionalParameters);
+            Assert.Null((modelBinder.Value as ModelBinder).ParseAdditionalParameters);
         }
         /// <summary>
         /// This test must be executed alone.
@@ -59,7 +59,7 @@ namespace DataTables.AspNet.Mvc5.Tests
         {
             // Arrange
             var options = TestHelper.MockOptions().UseHungarianNotation();
-            DataTables.AspNet.Mvc5.Configuration.Register(options);
+            DataTables.AspNet.Mvc5.Configuration.RegisterDataTables(options);
 
             // Assert
             Assert.Equal(options, DataTables.AspNet.Mvc5.Configuration.Options);
@@ -73,7 +73,7 @@ namespace DataTables.AspNet.Mvc5.Tests
         {
             // Arrange
             var requestBinder = TestHelper.MockModelBinder();
-            DataTables.AspNet.Mvc5.Configuration.Register(requestBinder);
+            DataTables.AspNet.Mvc5.Configuration.RegisterDataTables(requestBinder);
             var modelBinder = System.Web.Mvc.ModelBinders.Binders.Single(_b => _b.Key.IsEquivalentTo(typeof(Core.IDataTablesRequest)));
 
             // Assert
@@ -87,13 +87,13 @@ namespace DataTables.AspNet.Mvc5.Tests
         public void RegistrationWithParseAditionalParameters()
         {
             // Arrange
-            DataTables.AspNet.Mvc5.Configuration.Register(TestHelper.ParseAditionalParameters, true);
+            DataTables.AspNet.Mvc5.Configuration.RegisterDataTables(TestHelper.ParseAditionalParameters, true);
             var modelBinder = System.Web.Mvc.ModelBinders.Binders.Single(_b => _b.Key.IsEquivalentTo(typeof(Core.IDataTablesRequest))).Value as ModelBinder;
 
             // Assert
-            Assert.Equal(true, DataTables.AspNet.Mvc5.Configuration.Options.IsRequestAditionalParametersEnabled);
-            Assert.Equal(true, DataTables.AspNet.Mvc5.Configuration.Options.IsResponseAditionalParametersEnabled);
-            Assert.NotNull(modelBinder.ParseAditionalParameters);
+            Assert.Equal(true, DataTables.AspNet.Mvc5.Configuration.Options.IsRequestAdditionalParametersEnabled);
+            Assert.Equal(true, DataTables.AspNet.Mvc5.Configuration.Options.IsResponseAdditionalParametersEnabled);
+            Assert.NotNull(modelBinder.ParseAdditionalParameters);
         }
     }
 }

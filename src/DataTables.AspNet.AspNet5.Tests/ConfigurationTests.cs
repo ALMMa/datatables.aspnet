@@ -24,7 +24,7 @@ THE SOFTWARE.
 #endregion Copyright
 
 using System.Linq;
-using Microsoft.AspNet.Mvc.OptionDescriptors;
+using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.Framework.DependencyInjection;
 using Xunit;
 
@@ -44,15 +44,16 @@ namespace DataTables.AspNet.AspNet5.Tests
         {
             // Arrange
             var serviceCollection = new Microsoft.Framework.DependencyInjection.ServiceCollection();
-            DataTables.AspNet.AspNet5.Configuration.UseDataTables(serviceCollection);
-            serviceCollection.AddMvc();
-            var provider = serviceCollection.BuildServiceProvider();
-            var modelBinder = provider.GetRequiredServices<Microsoft.AspNet.Mvc.ModelBinding.IModelBinderProvider>().ElementAt(0).ModelBinders[0];
+			DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection);
+			serviceCollection.AddMvc();
+			var provider = serviceCollection.BuildServiceProvider();
+			var modelBinder = provider.GetServices<IModelBinder>().FirstOrDefault();
+			
 
             // Assert
             Assert.NotNull(modelBinder);
             Assert.NotNull(modelBinder as ModelBinder);
-            Assert.Null((modelBinder as ModelBinder).ParseAditionalParameters);
+            Assert.Null((modelBinder as ModelBinder).ParseAdditionalParameters);
         }
         /// <summary>
         /// This test must be executed alone.
@@ -64,7 +65,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var options = TestHelper.MockOptions().UseHungarianNotation();
             var serviceCollection = new Microsoft.Framework.DependencyInjection.ServiceCollection();
-            DataTables.AspNet.AspNet5.Configuration.UseDataTables(serviceCollection, options);
+            DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection, options);
 
             // Assert
             Assert.Equal(options, DataTables.AspNet.AspNet5.Configuration.Options);
@@ -79,10 +80,10 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var requestBinder = TestHelper.MockModelBinder();
             var serviceCollection = new Microsoft.Framework.DependencyInjection.ServiceCollection();
-            DataTables.AspNet.AspNet5.Configuration.UseDataTables(serviceCollection, requestBinder);
+            DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection, requestBinder);
             serviceCollection.AddMvc();
             var provider = serviceCollection.BuildServiceProvider();
-            var modelBinder = provider.GetRequiredServices<Microsoft.AspNet.Mvc.ModelBinding.IModelBinderProvider>().ElementAt(0).ModelBinders[0];
+            var modelBinder = provider.GetServices<IModelBinder>().FirstOrDefault();
 
             // Assert
             Assert.Equal(requestBinder, modelBinder);
@@ -92,19 +93,19 @@ namespace DataTables.AspNet.AspNet5.Tests
         /// Validate registration with custom parser function for aditional parameters.
         /// </summary>
         [Fact]
-        public void RegistrationWithParseAditionalParameters()
+        public void RegistrationWithParseAdditionalParameters()
         {
             // Arrange
             var serviceCollection = new Microsoft.Framework.DependencyInjection.ServiceCollection();
-            DataTables.AspNet.AspNet5.Configuration.UseDataTables(serviceCollection, TestHelper.ParseAditionalParameters, true);
+            DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection, TestHelper.ParseAdditionalParameters, true);
             serviceCollection.AddMvc();
             var provider = serviceCollection.BuildServiceProvider();
-            var modelBinder = provider.GetRequiredServices<Microsoft.AspNet.Mvc.ModelBinding.IModelBinderProvider>().ElementAt(0).ModelBinders[0];
+            var modelBinder = provider.GetServices<IModelBinder>().FirstOrDefault();
 
             // Assert
-            Assert.Equal(true, DataTables.AspNet.AspNet5.Configuration.Options.IsRequestAditionalParametersEnabled);
-            Assert.Equal(true, DataTables.AspNet.AspNet5.Configuration.Options.IsResponseAditionalParametersEnabled);
-            Assert.NotNull((modelBinder as ModelBinder).ParseAditionalParameters);
+            Assert.Equal(true, DataTables.AspNet.AspNet5.Configuration.Options.IsRequestAdditionalParametersEnabled);
+            Assert.Equal(true, DataTables.AspNet.AspNet5.Configuration.Options.IsResponseAdditionalParametersEnabled);
+            Assert.NotNull((modelBinder as ModelBinder).ParseAdditionalParameters);
         }
     }
 }

@@ -45,10 +45,10 @@ namespace DataTables.AspNet.AspNet5
         /// <returns>An IDataTablesRequest object or null if binding was not possible.</returns>
         public Task<ModelBindingResult> BindModelAsync(ModelBindingContext bindingContext)
         {
-            return BindModelAsync(
+            return Task.FromResult<ModelBindingResult>(BindModel(
                 bindingContext,
                 DataTables.AspNet.AspNet5.Configuration.Options,
-                ParseAditionalParameters);
+                ParseAdditionalParameters));
         }
         /// <summary>
         /// For internal and testing use only.
@@ -58,57 +58,57 @@ namespace DataTables.AspNet.AspNet5
         /// <param name="bindingContext">Binding context for data/parameters/values.</param>
         /// <param name="options">DataTables.AspNet global options.</param>
         /// <returns>An IDataTablesRequest object or null if binding was not possible.</returns>
-        public async Task<ModelBindingResult> BindModelAsync(ModelBindingContext bindingContext, IOptions options, Func<ModelBindingContext, IDictionary<string, object>> parseAditionalParameters)
+        public virtual ModelBindingResult BindModel(ModelBindingContext bindingContext, IOptions options, Func<ModelBindingContext, IDictionary<string, object>> parseAditionalParameters)
         {
             // Model binding is not set, thus AspNet5 will keep looking for other model binders.
             if (!bindingContext.ModelType.Equals(typeof(Core.IDataTablesRequest)))
-                return new ModelBindingResult(null, bindingContext.ModelName, false);
+                return ModelBindingResult.Failed(bindingContext.ModelName);
 
             // Binding is set to a null model to avoid unexpected errors.
             if (options == null || options.RequestNameConvention == null)
-                return new ModelBindingResult(null, bindingContext.ModelName, true);
+                return ModelBindingResult.Failed(bindingContext.ModelName);
 
             var values = bindingContext.ValueProvider;
 
             // Accordingly to DataTables docs, it is recommended to receive/return draw casted as int for security reasons.
             // This is meant to help prevent XSS attacks.
-            var draw = await values.GetValueAsync(options.RequestNameConvention.Draw);
+            var draw = values.GetValue(options.RequestNameConvention.Draw);
             int _draw = 0;
             if (options.IsDrawValidationEnabled && !Parse<Int32>(draw, out _draw))
-                return new ModelBindingResult(null, bindingContext.ModelName, true); // Null model result (invalid request).
+                return ModelBindingResult.Failed(bindingContext.ModelName); // Null model result (invalid request).
 
-            var start = await values.GetValueAsync(options.RequestNameConvention.Start);
+            var start = values.GetValue(options.RequestNameConvention.Start);
             int _start = 0;
             Parse<int>(start, out _start);
 
-            var length = await values.GetValueAsync(options.RequestNameConvention.Length);
+            var length = values.GetValue(options.RequestNameConvention.Length);
             int _length = options.DefaultPageLength;
             Parse<int>(length, out _length);
 
-            var searchValue = await values.GetValueAsync(options.RequestNameConvention.SearchValue);
+            var searchValue = values.GetValue(options.RequestNameConvention.SearchValue);
             string _searchValue = null;
             Parse<string>(searchValue, out _searchValue);
 
-            var searchRegex = await values.GetValueAsync(options.RequestNameConvention.IsSearchRegex);
+            var searchRegex = values.GetValue(options.RequestNameConvention.IsSearchRegex);
             bool _searchRegex = false;
             Parse<bool>(searchRegex, out _searchRegex);
 
             var search = new Search(_searchValue, _searchRegex);
 
             // Parse columns & column sorting.
-            var columns = await ParseColumns(values, options.RequestNameConvention);
-            var sorting = await ParseSorting(columns, values, options.RequestNameConvention);
+            var columns = ParseColumns(values, options.RequestNameConvention);
+            var sorting = ParseSorting(columns, values, options.RequestNameConvention);
 
-            if (options.IsRequestAditionalParametersEnabled && parseAditionalParameters != null)
+            if (options.IsRequestAdditionalParametersEnabled && parseAditionalParameters != null)
             {
                 var aditionalParameters = parseAditionalParameters(bindingContext);
                 var model = new DataTablesRequest(_draw, _start, _length, search, columns, aditionalParameters);
-                return new ModelBindingResult(model, bindingContext.ModelName, true);
+                return ModelBindingResult.Success(bindingContext.ModelName, model);
             }
             else
             {
                 var model = new DataTablesRequest(_draw, _start, _length, search, columns);
-                return new ModelBindingResult(model, bindingContext.ModelName, true);
+                return ModelBindingResult.Success(bindingContext.ModelName, model);
             }
         }
 
@@ -116,7 +116,7 @@ namespace DataTables.AspNet.AspNet5
         /// Provides custom aditional parameters processing for your request.
         /// You have to implement this to populate 'IDataTablesRequest' object with aditional (user-defined) request values.
         /// </summary>
-        public Func<ModelBindingContext, IDictionary<string, object>> ParseAditionalParameters;
+        public Func<ModelBindingContext, IDictionary<string, object>> ParseAdditionalParameters;
 
         /// <summary>
         /// For internal use only.
@@ -125,7 +125,7 @@ namespace DataTables.AspNet.AspNet5
         /// <param name="values">Request parameters.</param>
         /// <param name="names">Name convention for request parameters.</param>
         /// <returns></returns>
-        private static async Task<IEnumerable<IColumn>> ParseColumns(IValueProvider values, IRequestNameConvention names)
+        private static IEnumerable<IColumn> ParseColumns(IValueProvider values, IRequestNameConvention names)
         {
             var columns = new List<IColumn>();
 
@@ -133,32 +133,32 @@ namespace DataTables.AspNet.AspNet5
             while (true)
             {
                 // Parses Field value.
-                var columnField = await values.GetValueAsync(String.Format(names.ColumnField, counter));
+                var columnField = values.GetValue(String.Format(names.ColumnField, counter));
                 string _columnField = null;
                 if (!Parse<string>(columnField, out _columnField)) break;
 
                 // Parses Name value.
-                var columnName = await values.GetValueAsync(String.Format(names.ColumnName, counter));
+                var columnName = values.GetValue(String.Format(names.ColumnName, counter));
                 string _columnName = null;
                 if (!Parse<string>(columnName, out _columnName)) break;
 
                 // Parses Orderable value.
-                var columnSortable = await values.GetValueAsync(String.Format(names.IsColumnSortable, counter));
+                var columnSortable = values.GetValue(String.Format(names.IsColumnSortable, counter));
                 bool _columnSortable = true;
                 Parse<bool>(columnSortable, out _columnSortable);
 
                 // Parses Searchable value.
-                var columnSearchable = await values.GetValueAsync(String.Format(names.IsColumnSearchable, counter));
+                var columnSearchable = values.GetValue(String.Format(names.IsColumnSearchable, counter));
                 bool _columnSearchable = true;
                 Parse<bool>(columnSearchable, out _columnSearchable);
 
                 // Parsed Search value.
-                var columnSearchValue = await values.GetValueAsync(String.Format(names.ColumnSearchValue, counter));
+                var columnSearchValue = values.GetValue(String.Format(names.ColumnSearchValue, counter));
                 string _columnSearchValue = null;
                 Parse<string>(columnSearchValue, out _columnSearchValue);
 
                 // Parses IsRegex value.
-                var columnSearchRegex = await values.GetValueAsync(String.Format(names.IsColumnSearchRegex, counter));
+                var columnSearchRegex = values.GetValue(String.Format(names.IsColumnSearchRegex, counter));
                 bool _columnSearchRegex = false;
                 Parse<bool>(columnSearchRegex, out _columnSearchRegex);
 
@@ -185,19 +185,19 @@ namespace DataTables.AspNet.AspNet5
         /// <param name="values">Request parameters.</param>
         /// <param name="names">Name convention for request parameters.</param>
         /// <returns></returns>
-        private static async Task<IEnumerable<ISort>> ParseSorting(IEnumerable<IColumn> columns, IValueProvider values, IRequestNameConvention names)
+        private static IEnumerable<ISort> ParseSorting(IEnumerable<IColumn> columns, IValueProvider values, IRequestNameConvention names)
         {
             var sorting = new List<ISort>();
 
             for (int i = 0; i < columns.Count(); i++)
             {
-                var sortField = await values.GetValueAsync(String.Format(names.SortField, i));
+                var sortField = values.GetValue(String.Format(names.SortField, i));
                 int _sortField = 0;
                 if (!Parse<int>(sortField, out _sortField)) break;
 
                 var column = columns.ElementAt(_sortField);
 
-                var sortDirection = await values.GetValueAsync(String.Format(names.SortDirection, i));
+                var sortDirection = values.GetValue(String.Format(names.SortDirection, i));
                 string _sortDirection = null;
                 Parse<string>(sortDirection, out _sortDirection);
 
@@ -220,11 +220,11 @@ namespace DataTables.AspNet.AspNet5
             result = default(ElementType);
 
             if (value == null) return false;
-            if (value.RawValue == null) return false;
+            if (string.IsNullOrWhiteSpace(value.FirstValue)) return false;
 
             try
             {
-                result = (ElementType)Convert.ChangeType(value.AttemptedValue, typeof(ElementType));
+                result = (ElementType)Convert.ChangeType(value.FirstValue, typeof(ElementType));
                 return true;
             }
             catch { return false; }

@@ -47,11 +47,11 @@ namespace DataTables.AspNet.AspNet5
         /// </summary>
         /// <param name="request">The DataTables request object.</param>
         /// <param name="errorMessage">Error message to send back to client-side.</param>
-        /// <param name="aditionalParameters">Aditional parameters dictionary.</param>
+        /// <param name="additionalParameters">Aditional parameters dictionary.</param>
         /// <returns>A DataTables response object.</returns>
-        public static Core.IDataTablesResponse CreateResponse(this Core.IDataTablesRequest request, string errorMessage, IDictionary<string, object> aditionalParameters)
+        public static Core.IDataTablesResponse CreateResponse(this Core.IDataTablesRequest request, string errorMessage, IDictionary<string, object> additionalParameters)
         {
-            return DataTablesResponse.Create(request, errorMessage, aditionalParameters);
+            return DataTablesResponse.Create(request, errorMessage, additionalParameters);
         }
         /// <summary>
         /// Creates a DataTables response object.
@@ -72,11 +72,11 @@ namespace DataTables.AspNet.AspNet5
         /// <param name="totalRecords">Total records count (total available non-filtered records on database).</param>
         /// <param name="totalRecordsFiltered">Total filtered records (total available records after filtering).</param>
         /// <param name="data">Data object (collection).</param>
-        /// <param name="aditionalParameters">Adicional parameters dictionary.</param>
+        /// <param name="additionalParameters">Adicional parameters dictionary.</param>
         /// <returns>A DataTables response object.</returns>
-        public static Core.IDataTablesResponse CreateResponse(this Core.IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, object data, IDictionary<string, object> aditionalParameters)
+        public static Core.IDataTablesResponse CreateResponse(this Core.IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, object data, IDictionary<string, object> additionalParameters)
         {
-            return DataTablesResponse.Create(request, totalRecords, totalRecordsFiltered, data, aditionalParameters);
+            return DataTablesResponse.Create(request, totalRecords, totalRecordsFiltered, data, additionalParameters);
         }
     }
 }

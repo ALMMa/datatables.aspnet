@@ -33,10 +33,10 @@ namespace DataTables.AspNet.Samples.AspNet5.BasicIntegration
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+			services.AddMvc();
 
-            // DataTables.AspNet registration with default options.
-            services.UseDataTables();
+			// DataTables.AspNet registration with default options.
+			services.RegisterDataTables();
         }
 
         public void Configure(IApplicationBuilder app)
@@ -44,8 +44,16 @@ namespace DataTables.AspNet.Samples.AspNet5.BasicIntegration
             // Add static files to the request pipeline.
             app.UseStaticFiles();
 
-            // Add MVC to the request pipeline.
-            app.UseMvc(routes =>
+			// Adds dev exception page for better debug experience.
+			app.UseDeveloperExceptionPage();
+
+			// This is new for beta8 and above.
+			// If you're using Kestrel, you can comment-out this line (although it should work fine even with this option enabled, at least for beta8).
+			// If you're using IIS Express, you must have this set:
+			app.UseIISPlatformHandler();
+
+			// Add MVC to the request pipeline.
+			app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",

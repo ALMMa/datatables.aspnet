@@ -41,11 +41,11 @@ namespace DataTables.AspNet.Core
         /// <summary>
         /// Gets the indicator whether aditional request parameters parsing is enabled or not.
         /// </summary>
-        bool IsRequestAditionalParametersEnabled { get; }
+        bool IsRequestAdditionalParametersEnabled { get; }
         /// <summary>
         /// Gets the indicator whether aditional response parameters parsing is enabled or not.
         /// </summary>
-        bool IsResponseAditionalParametersEnabled { get; }
+        bool IsResponseAdditionalParametersEnabled { get; }
 
 
         /// <summary>
@@ -81,22 +81,22 @@ namespace DataTables.AspNet.Core
         /// You must also provide your own custom parsing function on registration.
         /// </summary>
         /// <returns></returns>
-        IOptions EnableRequestAditionalParameters();
+        IOptions EnableRequestAdditionalParameters();
         /// <summary>
         /// Disables request aditional parameter parsing.
         /// </summary>
         /// <returns></returns>
-        IOptions DisableRequestAditionalParameters();
+        IOptions DisableRequestAdditionalParameters();
         /// <summary>
         /// Enables response aditional parameter parsing.
         /// </summary>
         /// <returns></returns>
-        IOptions EnableResponseAditionalParameters();
+        IOptions EnableResponseAdditionalParameters();
         /// <summary>
         /// Disables response aditional parameter parsing.
         /// </summary>
         /// <returns></returns>
-        IOptions DisableResponseAditionalParameters();
+        IOptions DisableResponseAdditionalParameters();
         /// <summary>
         /// Forces DataTables to use CamelCase naming convention.
         /// CamelCase is enabled by default.

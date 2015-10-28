@@ -36,7 +36,7 @@ namespace DataTables.AspNet.Samples.Mvc5.BasicIntegration
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             // DataTables.AspNet registration with default options.
-            DataTables.AspNet.Mvc5.Configuration.Register();
+            DataTables.AspNet.Mvc5.Configuration.RegisterDataTables();
         }
     }
 }

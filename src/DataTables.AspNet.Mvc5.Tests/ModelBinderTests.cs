@@ -117,7 +117,7 @@ namespace DataTables.AspNet.Mvc5.Tests
             // Assert
             Assert.Equal(3, model.Draw);
 
-            Assert.Equal(null, model.AditionalParameters);
+            Assert.Equal(null, model.AdditionalParameters);
         }
         /// <summary>
         /// Validates CamelCase model binding with aditional parameters set and with aditional parameters enabled.
@@ -130,7 +130,7 @@ namespace DataTables.AspNet.Mvc5.Tests
             var controllerContext = TestHelper.MockControllerContext();
             var aditionalParameters = TestHelper.MockAditionalParameters();
             var modelBindingContext = TestHelper.MockModelBindingContextWithCamelCase("3", "13", "99", "mockSearchValue", "true", aditionalParameters);
-            var options = TestHelper.MockOptions().EnableRequestAditionalParameters();
+            var options = TestHelper.MockOptions().EnableRequestAdditionalParameters();
 
 
             // Act
@@ -139,8 +139,8 @@ namespace DataTables.AspNet.Mvc5.Tests
             // Assert
             Assert.Equal(3, model.Draw);
 
-            Assert.Equal("firstValue", model.AditionalParameters["firstParameter"]);
-            Assert.Equal(7, model.AditionalParameters["secondParameter"]);
+            Assert.Equal("firstValue", model.AdditionalParameters["firstParameter"]);
+            Assert.Equal(7, model.AdditionalParameters["secondParameter"]);
         }
 
 

@@ -52,40 +52,42 @@ namespace DataTables.AspNet.Mvc5
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
-        public static void Register() { Register(new Options()); }
+        public static void RegisterDataTables() { RegisterDataTables(new Options()); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
         /// <param name="options">DataTables.AspNet options.</param>
-        public static void Register(IOptions options) { Register(options, new ModelBinder()); }
+        public static void RegisterDataTables(IOptions options) { RegisterDataTables(options, new ModelBinder()); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
         /// <param name="requestModelBinder">Request model binder to use when resolving 'IDataTablesRequest' models.</param>
-        public static void Register(ModelBinder requestModelBinder) { Register(new Options(), requestModelBinder); }
+        public static void RegisterDataTables(ModelBinder requestModelBinder) { RegisterDataTables(new Options(), requestModelBinder); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
-        /// <param name="parseAditionalParameters">Function to evaluante and parse aditional parameters sent within the request (user-defined parameters).</param>
-        public static void Register(Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> parseRequestAditionalParameters, bool parseResponseAditionalParameters) { Register(new Options(), new ModelBinder(), parseRequestAditionalParameters, parseResponseAditionalParameters); }
+		/// <param name="parseRequestAdditionalParameters">Function to evaluate request additional parameters sent to the server.</param>
+		/// <param name="parseResponseAdditionalParameters">Indicates if additional parameters will be sent to the response.</param>
+        public static void RegisterDataTables(Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> parseRequestAdditionalParameters, bool parseResponseAdditionalParameters) { RegisterDataTables(new Options(), new ModelBinder(), parseRequestAdditionalParameters, parseResponseAdditionalParameters); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
         /// <param name="options">DataTables.AspNet options.</param>
         /// <param name="requestModelBinder">Model binder to use when resolving 'IDataTablesRequest' model.</param>
-        public static void Register(IOptions options, ModelBinder requestModelBinder) { Register(options, requestModelBinder, null, false); }
+        public static void RegisterDataTables(IOptions options, ModelBinder requestModelBinder) { RegisterDataTables(options, requestModelBinder, null, false); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
         /// <param name="options">DataTables.AspNet options.</param>
         /// <param name="requestModelBinder">Request model binder to use when resolving 'IDataTablesRequest' models.</param>
-        /// <param name="parseAditionalParameters">Function to evaluate and parse aditional parameters sent within the request (user-defined parameters).</param>
-        public static void Register(IOptions options, ModelBinder requestModelBinder, Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> parseRequestAditionalParameters, bool parseResponseAditionalParameters)
+		/// <param name="parseRequestAdditionalParameters">Function to evaluate request additional parameters sent to the server.</param>
+		/// <param name="parseResponseAdditionalParameters">Indicates if additional parameters will be sent to the response.</param>
+        public static void RegisterDataTables(IOptions options, ModelBinder requestModelBinder, Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> parseRequestAdditionalParameters, bool parseResponseAdditionalParameters)
         {
             if (options == null) throw new ArgumentNullException("options", "Options for DataTables.AspNet cannot be null.");
             if (requestModelBinder == null) throw new ArgumentNullException("requestModelBinder", "Request model binder for DataTables.AspNet cannot be null.");
@@ -93,14 +95,14 @@ namespace DataTables.AspNet.Mvc5
             Options = options;
             ModelBinders.Binders.Add(typeof(IDataTablesRequest), requestModelBinder);
 
-            if (parseRequestAditionalParameters != null)
+            if (parseRequestAdditionalParameters != null)
             {
-                Options.EnableRequestAditionalParameters();
-                requestModelBinder.ParseAditionalParameters = parseRequestAditionalParameters;
+                Options.EnableRequestAdditionalParameters();
+                requestModelBinder.ParseAdditionalParameters = parseRequestAdditionalParameters;
             }
 
-            if (parseResponseAditionalParameters)
-                Options.EnableResponseAditionalParameters();
+            if (parseResponseAdditionalParameters)
+                Options.EnableResponseAdditionalParameters();
         }
     }
 }

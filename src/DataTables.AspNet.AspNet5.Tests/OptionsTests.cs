@@ -44,8 +44,8 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Assert
             Assert.NotNull(options);
             Assert.Equal(10, options.DefaultPageLength);
-            Assert.Equal(false, options.IsRequestAditionalParametersEnabled);
-            Assert.Equal(false, options.IsResponseAditionalParametersEnabled);
+            Assert.Equal(false, options.IsRequestAdditionalParametersEnabled);
+            Assert.Equal(false, options.IsResponseAdditionalParametersEnabled);
             Assert.Equal(true, options.IsDrawValidationEnabled);
             Assert.Equal(new NameConvention.CamelCaseRequestNameConvention().Draw, options.RequestNameConvention.Draw);
             Assert.Equal(new NameConvention.CamelCaseResponseNameConvention().Draw, options.ResponseNameConvention.Draw);
@@ -124,12 +124,12 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = TestHelper.MockOptions();
 
             // Act
-            options.EnableRequestAditionalParameters();
-            options.EnableResponseAditionalParameters();
+            options.EnableRequestAdditionalParameters();
+            options.EnableResponseAdditionalParameters();
 
             // Assert
-            Assert.Equal(true, options.IsRequestAditionalParametersEnabled);
-            Assert.Equal(true, options.IsResponseAditionalParametersEnabled);
+            Assert.Equal(true, options.IsRequestAdditionalParametersEnabled);
+            Assert.Equal(true, options.IsResponseAdditionalParametersEnabled);
         }
         /// <summary>
         /// Validates disabling aditional parameters verification.
@@ -141,12 +141,12 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = TestHelper.MockOptions();
 
             // Act
-            options.EnableRequestAditionalParameters().DisableRequestAditionalParameters();
-            options.EnableResponseAditionalParameters().DisableResponseAditionalParameters();
+            options.EnableRequestAdditionalParameters().DisableRequestAdditionalParameters();
+            options.EnableResponseAdditionalParameters().DisableResponseAdditionalParameters();
 
             // Assert
-            Assert.Equal(false, options.IsRequestAditionalParametersEnabled);
-            Assert.Equal(false, options.IsResponseAditionalParametersEnabled);
+            Assert.Equal(false, options.IsRequestAdditionalParametersEnabled);
+            Assert.Equal(false, options.IsResponseAdditionalParametersEnabled);
         }
         /// <summary>
         /// Validates changing default page length.

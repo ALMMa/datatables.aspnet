@@ -53,7 +53,7 @@ namespace DataTables.AspNet.AspNet5.Tests
         {
             // Arrange
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
-            var aditionalParameters = TestHelper.MockAditionalParameters();
+            var aditionalParameters = TestHelper.MockAdditionalParameters();
 
             // Act
             var response = request.CreateResponse("just_some_error_message", aditionalParameters);
@@ -86,7 +86,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
             var data = TestHelper.MockData();
-            var aditionalParameters = TestHelper.MockAditionalParameters();
+            var aditionalParameters = TestHelper.MockAdditionalParameters();
 
             // Act
             var response = request.CreateResponse(2000, 1000, data, aditionalParameters);

@@ -33,7 +33,7 @@ namespace DataTables.AspNet.Mvc5
     /// </summary>
     internal class DataTablesRequest : Core.IDataTablesRequest
     {
-        public IDictionary<string, object> AditionalParameters { get; private set; }
+        public IDictionary<string, object> AdditionalParameters { get; private set; }
         public IEnumerable<Core.IColumn> Columns { get; private set; }
         public int Draw { get; private set; }
         public int Length { get; private set; }
@@ -43,14 +43,14 @@ namespace DataTables.AspNet.Mvc5
         public DataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns)
             :this(draw, start, length, search, columns, null)
         { }
-        public DataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns, IDictionary<string, object> aditionalParameters)
+        public DataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns, IDictionary<string, object> additionalParameters)
         {
             Draw = draw;
             Start = start;
             Length = length;
             Search = search;
             Columns = columns;
-            AditionalParameters = aditionalParameters;
+            AdditionalParameters = additionalParameters;
         }
     }
 }

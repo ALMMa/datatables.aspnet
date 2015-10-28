@@ -1,5 +1,5 @@
 ﻿{
-    "version": "2.0.0-alpha1",
+    "version": "2.0.0-alpha3",
     "description": "Test suite for DataTables.AspNet.Extensions.DapperExtensions.",
     "authors": [ "Anderson Matos" ],
     "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Dapper", "DapperExtensions" ],
@@ -21,8 +21,10 @@
         "DataTables.AspNet.AspNet5": "",
         "DataTables.AspNet.Extensions.DapperExtensions": "",
 
-        "xunit": "2.1.0-beta3-*",
-        "xunit.runner.dnx": "2.1.0-beta3-*"
+        "xunit": "2.1.0",
+		"xunit.runner.dnx": "2.1.0-beta6-build191",
+
+		"Moq": "4.2.1510.2205"
     },
 
     "commands": {

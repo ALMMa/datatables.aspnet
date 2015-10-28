@@ -49,7 +49,7 @@ namespace DataTables.AspNet.Mvc5
                 controllerContext, 
                 bindingContext, 
                 DataTables.AspNet.Mvc5.Configuration.Options,
-                ParseAditionalParameters);
+                ParseAdditionalParameters);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace DataTables.AspNet.Mvc5
         /// <param name="bindingContext">Binding context for data/parameters/values.</param>
         /// <param name="options">DataTables.AspNet global options.</param>
         /// <returns>An IDataTablesRequest object or null if binding was not possible.</returns>
-        public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext, IOptions options, Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> parseAditionalParameters)
+        public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext, IOptions options, Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> parseAdditionalParameters)
         {
             if (options == null || options.RequestNameConvention == null) return null;
             
@@ -95,10 +95,10 @@ namespace DataTables.AspNet.Mvc5
             var columns = ParseColumns(values, options.RequestNameConvention);
             var sorting = ParseSorting(columns, values, options.RequestNameConvention);
 
-            if (options.IsRequestAditionalParametersEnabled && parseAditionalParameters != null)
+            if (options.IsRequestAdditionalParametersEnabled && parseAdditionalParameters != null)
             {
-                var aditionalParameters = parseAditionalParameters(controllerContext, bindingContext);
-                return new DataTablesRequest(_draw, _start, _length, search, columns, aditionalParameters);
+                var additionalParameters = parseAdditionalParameters(controllerContext, bindingContext);
+                return new DataTablesRequest(_draw, _start, _length, search, columns, additionalParameters);
             }
             else
             {
@@ -110,7 +110,7 @@ namespace DataTables.AspNet.Mvc5
         /// Provides custom aditional parameters processing for your request.
         /// You have to implement this to populate 'IDataTablesRequest' object with aditional (user-defined) request values.
         /// </summary>
-        public Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> ParseAditionalParameters;
+        public Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> ParseAdditionalParameters;
 
         /// <summary>
         /// For internal use only.

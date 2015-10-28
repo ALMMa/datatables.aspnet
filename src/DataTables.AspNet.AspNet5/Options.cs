@@ -45,11 +45,11 @@ namespace DataTables.AspNet.AspNet5
         /// <summary>
         /// Gets an indicator whether request aditional parameters parsing is enabled or not.
         /// </summary>
-        public bool IsRequestAditionalParametersEnabled { get; private set; }
+        public bool IsRequestAdditionalParametersEnabled { get; private set; }
         /// <summary>
         /// Gets an indicator whether response adicional parameters parsing is enabled or not.
         /// </summary>
-        public bool IsResponseAditionalParametersEnabled { get; private set; }
+        public bool IsResponseAdditionalParametersEnabled { get; private set; }
 
 
 
@@ -90,24 +90,24 @@ namespace DataTables.AspNet.AspNet5
         /// You must provide your own function for request adicional parameter resolution on DataTables.AspNet registration.
         /// </summary>
         /// <returns></returns>
-        public IOptions EnableRequestAditionalParameters() { IsRequestAditionalParametersEnabled = true; return this; }
+        public IOptions EnableRequestAdditionalParameters() { IsRequestAdditionalParametersEnabled = true; return this; }
         /// <summary>
         /// Disables parsing request aditional parameters.
         /// Request aditional parameters are not resolved by default for performance reasons.
         /// </summary>
         /// <returns></returns>
-        public IOptions DisableRequestAditionalParameters() { IsRequestAditionalParametersEnabled = false; return this; }
+        public IOptions DisableRequestAdditionalParameters() { IsRequestAdditionalParametersEnabled = false; return this; }
         /// <summary>
         /// Enables parsing response aditional parameters.
         /// </summary>
         /// <returns></returns>
-        public IOptions EnableResponseAditionalParameters() { IsRequestAditionalParametersEnabled = true; return this; }
+        public IOptions EnableResponseAdditionalParameters() { IsRequestAdditionalParametersEnabled = true; return this; }
         /// <summary>
         /// Disables parsing response aditional parameters.
         /// Response aditional parameters are not resolved by default for performance reasons.
         /// </summary>
         /// <returns></returns>
-        public IOptions DisableResponseAditionalParameters() { IsResponseAditionalParametersEnabled = false; return this; }
+        public IOptions DisableResponseAdditionalParameters() { IsResponseAdditionalParametersEnabled = false; return this; }
         /// <summary>
         /// Forces DataTables to use CamelCase on request/respose parameter names.
         /// CamelCase is enabled by default and is available for DataTables 1.10 and above.
@@ -136,15 +136,16 @@ namespace DataTables.AspNet.AspNet5
         /// </summary>
         /// <param name="defaultPageLength">Default page length to be used.</param>
         /// <param name="enableDrawValidation">Indicates if draw validation will be enabled by default or not.</param>
-        /// <param name="enableAditionalParameters">Indicates if aditional parameters resolution will be enabled by default or not.</param>
+		/// <param name="enableRequestAdditionalParameters">Indicates if additional parameters resolution will be enabled for for request by default.</param>
+		/// <param name="enableResponseAdditionalParameters">Indicates if additional parameters will be sent to the response by default.</param>
         /// <param name="requestNameConvention">Request naming convention to be used.</param>
         /// <param name="responseNameConvention">Response naming convention to be used.</param>
-        public Options(int defaultPageLength, bool enableDrawValidation, bool enableRequestAditionalParameters, bool enableResponseAditionalParameters, IRequestNameConvention requestNameConvention, IResponseNameConvention responseNameConvention)
+        public Options(int defaultPageLength, bool enableDrawValidation, bool enableRequestAdditionalParameters, bool enableResponseAdditionalParameters, IRequestNameConvention requestNameConvention, IResponseNameConvention responseNameConvention)
         {
             DefaultPageLength = defaultPageLength;
             IsDrawValidationEnabled = enableDrawValidation;
-            IsRequestAditionalParametersEnabled = enableRequestAditionalParameters;
-            IsResponseAditionalParametersEnabled = enableResponseAditionalParameters;
+            IsRequestAdditionalParametersEnabled = enableRequestAdditionalParameters;
+            IsResponseAdditionalParametersEnabled = enableResponseAdditionalParameters;
 
             RequestNameConvention = requestNameConvention;
             ResponseNameConvention = responseNameConvention;

@@ -51,7 +51,7 @@ namespace DataTables.AspNet.Mvc5.Tests
             Assert.Equal(0, response.TotalRecords);
             Assert.Equal(0, response.TotalRecordsFiltered);
             Assert.Null(response.Data);
-            Assert.Null(response.AditionalParameters);
+            Assert.Null(response.AdditionalParameters);
         }
         /// <summary>
         /// Validates response creation without aditional parameters dictionary.
@@ -72,7 +72,7 @@ namespace DataTables.AspNet.Mvc5.Tests
             Assert.Equal(2000, response.TotalRecords);
             Assert.Equal(1000, response.TotalRecordsFiltered);
             Assert.Equal(data, response.Data);
-            Assert.Null(response.AditionalParameters);
+            Assert.Null(response.AdditionalParameters);
         }
         /// <summary>
         /// Validates response creation with aditional parameters dictionary.
@@ -94,7 +94,7 @@ namespace DataTables.AspNet.Mvc5.Tests
             Assert.Equal(2000, response.TotalRecords);
             Assert.Equal(1000, response.TotalRecordsFiltered);
             Assert.Equal(data, response.Data);
-            Assert.Equal(aditionalParameters, response.AditionalParameters);
+            Assert.Equal(aditionalParameters, response.AdditionalParameters);
         }
         /// <summary>
         /// Validates error response serialization.

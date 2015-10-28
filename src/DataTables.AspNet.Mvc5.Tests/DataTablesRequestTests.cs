@@ -68,9 +68,9 @@ namespace DataTables.AspNet.Mvc5.Tests
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, search, columns, aditionalParameters);
 
             // Assert
-            Assert.Equal(2, request.AditionalParameters.Count);
-            Assert.Equal("firstValue", request.AditionalParameters["firstParameter"]);
-            Assert.Equal(7, request.AditionalParameters["secondParameter"]);
+            Assert.Equal(2, request.AdditionalParameters.Count);
+            Assert.Equal("firstValue", request.AdditionalParameters["firstParameter"]);
+            Assert.Equal(7, request.AdditionalParameters["secondParameter"]);
         }
     }
 }

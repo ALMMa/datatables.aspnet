@@ -44,11 +44,11 @@ namespace DataTables.AspNet.AspNet5.Tests
         { return new ModelBinder(); }
         public static Core.IDataTablesRequest MockDataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns)
         { return MockDataTablesRequest(draw, start, length, search, columns, null); }
-        public static Core.IDataTablesRequest MockDataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns, IDictionary<string, object> aditionalParameters)
-        { return new DataTablesRequest(draw, start, length, search, columns, aditionalParameters); }
+        public static Core.IDataTablesRequest MockDataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns, IDictionary<string, object> additionalParameters)
+        { return new DataTablesRequest(draw, start, length, search, columns, additionalParameters); }
         public static System.Collections.IEnumerable MockData()
         { return new string[] { "firstElement", "secondElement", "thirdElement" }; }
-        public static IDictionary<string, object> MockAditionalParameters()
+        public static IDictionary<string, object> MockAdditionalParameters()
         { return new Dictionary<string, object>() { { "firstParameter", "firstValue" }, { "secondParameter", 7 } }; }
         public static Core.ISearch MockSearch(string searchValue, bool isRegex)
         { return new Search(searchValue, isRegex); }
@@ -65,13 +65,13 @@ namespace DataTables.AspNet.AspNet5.Tests
         }
         public static ModelBindingContext MockModelBindingContextWithCamelCase(string draw, string length, string start, string searchValue, string searchRegex)
         { return MockModelBindingContextWithCamelCase(draw, length, start, searchValue, searchRegex, null); }
-        public static ModelBindingContext MockModelBindingContextWithCamelCase(string draw, string length, string start, string searchValue, string searchRegex, IDictionary<string, object> aditionalParameters)
-        { return MockModelBindingContext(draw, length, start, searchValue, searchRegex, aditionalParameters, new NameConvention.CamelCaseRequestNameConvention()); }
+        public static ModelBindingContext MockModelBindingContextWithCamelCase(string draw, string length, string start, string searchValue, string searchRegex, IDictionary<string, object> additionalParameters)
+        { return MockModelBindingContext(draw, length, start, searchValue, searchRegex, additionalParameters, new NameConvention.CamelCaseRequestNameConvention()); }
         public static ModelBindingContext MockModelBindingContextWithHungarianNotation(string draw, string length, string start, string searchValue, string searchRegex)
         { return MockModelBindingContextWithHungarianNotation(draw, length, start, searchValue, searchRegex, null); }
-        public static ModelBindingContext MockModelBindingContextWithHungarianNotation(string draw, string length, string start, string searchValue, string searchRegex, IDictionary<string, object> aditionalParameters)
-        { return MockModelBindingContext(draw, length, start, searchValue, searchRegex, aditionalParameters, new NameConvention.HungarianNotationRequestNameConvention()); }
-        public static ModelBindingContext MockModelBindingContext(string draw, string length, string start, string searchValue, string searchRegex, IDictionary<string, object> aditionalParameters, Core.NameConvention.IRequestNameConvention requestNameConvention)
+        public static ModelBindingContext MockModelBindingContextWithHungarianNotation(string draw, string length, string start, string searchValue, string searchRegex, IDictionary<string, object> additionalParameters)
+        { return MockModelBindingContext(draw, length, start, searchValue, searchRegex, additionalParameters, new NameConvention.HungarianNotationRequestNameConvention()); }
+        public static ModelBindingContext MockModelBindingContext(string draw, string length, string start, string searchValue, string searchRegex, IDictionary<string, object> additionalParameters, Core.NameConvention.IRequestNameConvention requestNameConvention)
         {
             // Request properties.
             var formCollection = new Dictionary<string, object>()
@@ -84,9 +84,9 @@ namespace DataTables.AspNet.AspNet5.Tests
             if (!String.IsNullOrWhiteSpace(draw)) formCollection.Add(requestNameConvention.Draw, draw);
 
             // Aditional parameters.
-            if (aditionalParameters != null)
+            if (additionalParameters != null)
             {
-                foreach (var keypair in aditionalParameters)
+                foreach (var keypair in additionalParameters)
                 {
                     formCollection.Add(keypair.Key, Convert.ToString(keypair.Value));
                 }
@@ -127,15 +127,15 @@ namespace DataTables.AspNet.AspNet5.Tests
                 ModelMetadata = modelMetadata
             };
         }
-        public static IDictionary<string, object> ParseAditionalParameters(ModelBindingContext modelBindingContext)
+        public static IDictionary<string, object> ParseAdditionalParameters(ModelBindingContext modelBindingContext)
         {
             var _return = new Dictionary<string, object>();
 
-            var firstParameter = modelBindingContext.ValueProvider.GetValueAsync("firstParameter").Result;
-            _return.Add("firstParameter", firstParameter.AttemptedValue);
+            var firstParameter = modelBindingContext.ValueProvider.GetValue("firstParameter");
+            _return.Add("firstParameter", firstParameter.FirstValue);
 
-            var secondParameter = modelBindingContext.ValueProvider.GetValueAsync("secondParameter").Result;
-            _return.Add("secondParameter", Convert.ToInt32(secondParameter.AttemptedValue));
+            var secondParameter = modelBindingContext.ValueProvider.GetValue("secondParameter");
+            _return.Add("secondParameter", Convert.ToInt32(secondParameter.FirstValue));
 
             return _return;
         }

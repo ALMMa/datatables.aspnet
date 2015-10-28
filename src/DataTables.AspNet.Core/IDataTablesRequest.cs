@@ -68,6 +68,6 @@ namespace DataTables.AspNet.Core
         /// <summary>
         /// Gets the user-defined collection of parameters.
         /// </summary>
-        IDictionary<string, object> AditionalParameters { get; }
+        IDictionary<string, object> AdditionalParameters { get; }
     }
 }
