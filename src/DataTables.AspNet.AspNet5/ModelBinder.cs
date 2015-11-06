@@ -60,9 +60,9 @@ namespace DataTables.AspNet.AspNet5
         /// <returns>An IDataTablesRequest object or null if binding was not possible.</returns>
         public virtual ModelBindingResult BindModel(ModelBindingContext bindingContext, IOptions options, Func<ModelBindingContext, IDictionary<string, object>> parseAditionalParameters)
         {
-            // Model binding is not set, thus AspNet5 will keep looking for other model binders.
-            if (!bindingContext.ModelType.Equals(typeof(Core.IDataTablesRequest)))
-                return ModelBindingResult.Failed(bindingContext.ModelName);
+			// Model binding is not set, thus AspNet5 will keep looking for other model binders.
+			if (!bindingContext.ModelType.Equals(typeof(Core.IDataTablesRequest)))
+				return ModelBindingResult.NoResult;
 
             // Binding is set to a null model to avoid unexpected errors.
             if (options == null || options.RequestNameConvention == null)
