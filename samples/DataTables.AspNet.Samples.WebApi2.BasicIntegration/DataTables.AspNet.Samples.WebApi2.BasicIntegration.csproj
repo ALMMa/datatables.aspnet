@@ -45,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DataTables.AspNet.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DataTables.AspNet.Core.2.0.0-beta1-102801\lib\net451\DataTables.AspNet.Core.dll</HintPath>
+      <HintPath>..\..\packages\DataTables.AspNet.Core.2.0.0-beta2\lib\net451\DataTables.AspNet.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DataTables.AspNet.WebApi2, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DataTables.AspNet.WebApi2.2.0.0-beta1-102801\lib\net451\DataTables.AspNet.WebApi2.dll</HintPath>
+      <HintPath>..\..\packages\DataTables.AspNet.WebApi2.2.0.0-beta2\lib\net451\DataTables.AspNet.WebApi2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

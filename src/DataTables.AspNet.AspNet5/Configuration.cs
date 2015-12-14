@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using DataTables.AspNet.Core;
 using Microsoft.AspNet.Mvc.ModelBinding;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DataTables.AspNet.AspNet5
 {

@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataTables.AspNet.Samples.Mvc5.BasicIntegration</RootNamespace>
     <AssemblyName>DataTables.AspNet.Samples.Mvc5.BasicIntegration</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -41,11 +41,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DataTables.AspNet.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DataTables.AspNet.Core.2.0.0-beta1-102801\lib\net451\DataTables.AspNet.Core.dll</HintPath>
+      <HintPath>..\..\packages\DataTables.AspNet.Core.2.0.0-beta2\lib\net451\DataTables.AspNet.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DataTables.AspNet.Mvc5, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DataTables.AspNet.Mvc5.2.0.0-beta1-102801\lib\net451\DataTables.AspNet.Mvc5.dll</HintPath>
+      <HintPath>..\..\packages\DataTables.AspNet.Mvc5.2.0.0-beta2\lib\net451\DataTables.AspNet.Mvc5.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -64,9 +64,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>

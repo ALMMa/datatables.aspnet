@@ -24,7 +24,7 @@ THE SOFTWARE.
 #endregion Copyright
 
 using Microsoft.AspNet.Builder;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using DataTables.AspNet.AspNet5;
 
 namespace DataTables.AspNet.Samples.AspNet5.BasicIntegration

@@ -25,7 +25,7 @@ THE SOFTWARE.
 
 using System.Linq;
 using Microsoft.AspNet.Mvc.ModelBinding;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace DataTables.AspNet.AspNet5.Tests
@@ -43,7 +43,7 @@ namespace DataTables.AspNet.AspNet5.Tests
         public void DefaultRegistration()
         {
             // Arrange
-            var serviceCollection = new Microsoft.Framework.DependencyInjection.ServiceCollection();
+            var serviceCollection = new ServiceCollection();
 			DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection);
 			serviceCollection.AddMvc();
 			var provider = serviceCollection.BuildServiceProvider();
@@ -64,7 +64,7 @@ namespace DataTables.AspNet.AspNet5.Tests
         {
             // Arrange
             var options = TestHelper.MockOptions().UseHungarianNotation();
-            var serviceCollection = new Microsoft.Framework.DependencyInjection.ServiceCollection();
+            var serviceCollection = new ServiceCollection();
             DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection, options);
 
             // Assert
@@ -79,7 +79,7 @@ namespace DataTables.AspNet.AspNet5.Tests
         {
             // Arrange
             var requestBinder = TestHelper.MockModelBinder();
-            var serviceCollection = new Microsoft.Framework.DependencyInjection.ServiceCollection();
+            var serviceCollection = new ServiceCollection();
             DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection, requestBinder);
             serviceCollection.AddMvc();
             var provider = serviceCollection.BuildServiceProvider();
@@ -96,7 +96,7 @@ namespace DataTables.AspNet.AspNet5.Tests
         public void RegistrationWithParseAdditionalParameters()
         {
             // Arrange
-            var serviceCollection = new Microsoft.Framework.DependencyInjection.ServiceCollection();
+            var serviceCollection = new ServiceCollection();
             DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection, TestHelper.ParseAdditionalParameters, true);
             serviceCollection.AddMvc();
             var provider = serviceCollection.BuildServiceProvider();
