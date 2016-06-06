@@ -1,48 +1,34 @@
 ﻿{
-	"version": "2.0.0-beta2",
-	"description": "Core elements for DataTables.AspNet.",
-	"authors": [ "Anderson Matos" ],
-	"tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Mvc", "AspNet", "WebApi" ],
-	"projectUrl": "https://github.com/ALMMa/datatables.aspnet",
-	"licenseUrl": "",
+    "id": "DataTables.AspNet.Core",
+    "title": "DataTables.AspNet.Core",
+    "version": "2.0.0-beta3",
+    "description": "Core elements for DataTables.AspNet.",
+    "authors": [ "Anderson Matos" ],
 
-	"id": "DataTables.AspNet.Core",
-	"title": "DataTables.AspNet.Core",
-	"owners": [ "Anderson Matos" ],
-	"iconUrl": "",
-	"releaseNotes": "Updated NuGet references and addedd support for 'dotnet' framework targetting.",
-	"language": "en-US",
-	"requireLicenseAcceptance": false,
-	"copyright": "",
-	"summary": "",
-
-	"dependencies": {
-	},
-
-	"frameworks": {
-		"net45": { },
-		"net451": { },
-		"net452": { },
-		"net46": { },
-		"dnx45": { },
-		"dnx451": { },
-		"dnx452": { },
-		"dnx46": { },
-		"dotnet": {
-			"dependencies": {
-				"System.Collections": "4.0.10",
-				"System.Linq": "4.0.0",
-				"System.Threading": "4.0.10",
-				"Microsoft.CSharp": "4.0.0"
-			}
-		},
-		"dnxcore50": {
-			"dependencies": {
-				"System.Collections": "4.0.10",
-				"System.Linq": "4.0.0",
-				"System.Threading": "4.0.10",
-				"Microsoft.CSharp": "4.0.0"
-			}
-		}
-	}
+    "packOptions": {
+        "summary": "Core elements for DataTables.AspNet.",
+        "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Mvc", "AspNet", "WebApi" ],
+        "owners": [ "Anderson Matos" ],
+        "releaseNotes": "Finished porting to .NET Core RC2.",
+        "iconUrl": "",
+        "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
+        "licenseUrl": "",
+        "requireLicenseAcceptance": false,
+        "repository": {
+            "type": "git",
+            "url": "https://github.com/ALMMa/datatables.aspnet"
+        }
+    },
+        
+    "language": "en-US",
+    "copyright": "",
+    
+    "frameworks": {
+        "net45": { },
+        "netstandard1.1": {
+            "dependencies": {
+                "NETStandard.Library": "1.5.0-rc2-24027"
+            }
+        }
+    }
 }

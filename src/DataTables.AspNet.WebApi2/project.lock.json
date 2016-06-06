@@ -3,10 +3,6 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5"
-      },
       "Microsoft.AspNet.WebApi/5.2.3": {
         "type": "package",
         "dependencies": {
@@ -52,7 +48,7 @@
           "lib/net45/System.Web.Http.WebHost.dll": {}
         }
       },
-      "Newtonsoft.Json/7.0.1": {
+      "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -60,726 +56,68 @@
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
         }
-      }
-    },
-    ".NETFramework,Version=v4.5.1": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
+      },
+      "DataTables.AspNet.Core/2.0.0-beta3": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
+        "framework": ".NETFramework,Version=v4.5",
         "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
+          "net45/DataTables.AspNet.Core.dll": {}
         },
         "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.2": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.2"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.6": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.6"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5/win7-x86": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5/win7-x64": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.1/win7-x86": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.1/win7-x64": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.2/win7-x86": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.2"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.2/win7-x64": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.2"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.6/win7-x86": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.6"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.6/win7-x64": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.6"
-      },
-      "Microsoft.AspNet.WebApi/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
-        }
-      },
-      "Microsoft.AspNet.WebApi.Client/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "6.0.4"
-        },
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Net.Http.Formatting.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.Core/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Client": "5.2.3"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.dll": {}
-        }
-      },
-      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
-        },
-        "compile": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        },
-        "runtime": {
-          "lib/net45/System.Web.Http.WebHost.dll": {}
-        }
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
+          "net45/DataTables.AspNet.Core.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-      "type": "project",
-      "path": "../DataTables.AspNet.Core/project.json"
-    },
     "Microsoft.AspNet.WebApi/5.2.3": {
-      "type": "package",
       "sha512": "mGBfSy61+2dIdPwgguW8EaCVsbYTwwVHeCc/pVq1PhlZS87ColgJ++Hve40TrX6Dtqde0fo9M1Tt19rXlHC5GA==",
+      "type": "package",
       "files": [
-        "Microsoft.AspNet.WebApi.5.2.3.nupkg",
         "Microsoft.AspNet.WebApi.5.2.3.nupkg.sha512",
         "Microsoft.AspNet.WebApi.nuspec"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.3": {
-      "type": "package",
-      "serviceable": true,
       "sha512": "3kiI8peSXbXHDDrRuo+QaX0iCEVRe0nvn2dBDRw656uPX32UalbBlSIDUDlJxu05eau4tnuhsikiUuugvvoUoQ==",
+      "type": "package",
       "files": [
+        "Microsoft.AspNet.WebApi.Client.5.2.3.nupkg.sha512",
+        "Microsoft.AspNet.WebApi.Client.nuspec",
         "lib/net45/System.Net.Http.Formatting.dll",
         "lib/net45/System.Net.Http.Formatting.xml",
         "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
-        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
-        "Microsoft.AspNet.WebApi.Client.5.2.3.nupkg",
-        "Microsoft.AspNet.WebApi.Client.5.2.3.nupkg.sha512",
-        "Microsoft.AspNet.WebApi.Client.nuspec"
+        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml"
       ]
     },
     "Microsoft.AspNet.WebApi.Core/5.2.3": {
-      "type": "package",
-      "serviceable": true,
       "sha512": "o90QYlRV8VKR1S7+EcJw9w8WSyVFLl+IIzN8ILZ+n2t6rsc/KS8kBxRzA7wCFPRUHhebCfLqilBk39phvanx3g==",
+      "type": "package",
       "files": [
         "Content/web.config.transform",
-        "lib/net45/System.Web.Http.dll",
-        "lib/net45/System.Web.Http.xml",
-        "Microsoft.AspNet.WebApi.Core.5.2.3.nupkg",
         "Microsoft.AspNet.WebApi.Core.5.2.3.nupkg.sha512",
-        "Microsoft.AspNet.WebApi.Core.nuspec"
+        "Microsoft.AspNet.WebApi.Core.nuspec",
+        "lib/net45/System.Web.Http.dll",
+        "lib/net45/System.Web.Http.xml"
       ]
     },
     "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
-      "type": "package",
-      "serviceable": true,
       "sha512": "bhm4/BKdS3t6nK2R3NjCpxulcwtMFiHqVBDLuN3W5So1PhZfE+RBs7eVazGOhsEKCk7PoSmiSnl9DG0cpyfHtA==",
+      "type": "package",
       "files": [
-        "lib/net45/System.Web.Http.WebHost.dll",
-        "lib/net45/System.Web.Http.WebHost.xml",
-        "Microsoft.AspNet.WebApi.WebHost.5.2.3.nupkg",
         "Microsoft.AspNet.WebApi.WebHost.5.2.3.nupkg.sha512",
-        "Microsoft.AspNet.WebApi.WebHost.nuspec"
+        "Microsoft.AspNet.WebApi.WebHost.nuspec",
+        "lib/net45/System.Web.Http.WebHost.dll",
+        "lib/net45/System.Web.Http.WebHost.xml"
       ]
     },
-    "Newtonsoft.Json/7.0.1": {
+    "Newtonsoft.Json/8.0.3": {
+      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
       "type": "package",
-      "sha512": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
       "files": [
+        "Newtonsoft.Json.8.0.3.nupkg",
+        "Newtonsoft.Json.8.0.3.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -792,30 +130,25 @@
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
-        "Newtonsoft.Json.7.0.1.nupkg",
-        "Newtonsoft.Json.7.0.1.nupkg.sha512",
-        "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
       ]
+    },
+    "DataTables.AspNet.Core/2.0.0-beta3": {
+      "type": "project",
+      "path": "../DataTables.AspNet.Core/project.json",
+      "msbuildProject": "../DataTables.AspNet.Core/DataTables.AspNet.Core.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "DataTables.AspNet.Core ",
+      "DataTables.AspNet.Core >= 2.0.0-beta3",
       "Microsoft.AspNet.WebApi >= 5.2.3",
-      "Newtonsoft.Json >= 7.0.1"
+      "Newtonsoft.Json >= 8.0.3"
     ],
     ".NETFramework,Version=v4.5": [
-      "fx/System.Web >= 4.0.0"
-    ],
-    ".NETFramework,Version=v4.5.1": [
-      "fx/System.Web >= 4.0.0"
-    ],
-    ".NETFramework,Version=v4.5.2": [
-      "fx/System.Web >= 4.0.0"
-    ],
-    ".NETFramework,Version=v4.6": [
-      "fx/System.Web >= 4.0.0"
+      "System.Web >= 4.0.0"
     ]
-  }
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
 }

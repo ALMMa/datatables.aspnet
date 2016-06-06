@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7C40D7E9-8127-4204-918D-7126DF55D34E}"
 EndProject
@@ -19,9 +19,9 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Mvc5.Test
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Extensions.DapperExtensions.Tests", "src\DataTables.AspNet.Extensions.DapperExtensions.Tests\DataTables.AspNet.Extensions.DapperExtensions.Tests.xproj", "{C033DD3D-CDA1-4997-84B4-2B7541DE46E7}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.AspNet5", "src\DataTables.AspNet.AspNet5\DataTables.AspNet.AspNet5.xproj", "{A99E62EC-9FA2-4564-A4E1-92BDF40B9752}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.AspNetCore", "src\DataTables.AspNet.AspNetCore\DataTables.AspNet.AspNetCore.xproj", "{A99E62EC-9FA2-4564-A4E1-92BDF40B9752}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.AspNet5.Tests", "src\DataTables.AspNet.AspNet5.Tests\DataTables.AspNet.AspNet5.Tests.xproj", "{C83A8298-6186-4372-A763-C17961F3C98E}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.AspNetCore.Tests", "src\DataTables.AspNet.AspNetCore.Tests\DataTables.AspNet.AspNetCore.Tests.xproj", "{C83A8298-6186-4372-A763-C17961F3C98E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E2CD3569-9291-46EE-874F-97617823990F}"
 EndProject
@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "basic integration", "basic 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTables.AspNet.Samples.Mvc5.BasicIntegration", "samples\DataTables.AspNet.Samples.Mvc5.BasicIntegration\DataTables.AspNet.Samples.Mvc5.BasicIntegration.csproj", "{E5270B4D-D22B-46EF-BF40-E0478E930DFC}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Samples.AspNet5.BasicIntegration", "samples\DataTables.AspNet.Samples.AspNet5.BasicIntegration\DataTables.AspNet.Samples.AspNet5.BasicIntegration.xproj", "{FDF558EF-39AC-4E6B-8055-07965399959E}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Samples.AspNetCore.BasicIntegration", "samples\DataTables.AspNet.Samples.AspNetCore.BasicIntegration\DataTables.AspNet.Samples.AspNetCore.BasicIntegration.xproj", "{FDF558EF-39AC-4E6B-8055-07965399959E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTables.AspNet.Samples.WebApi2.BasicIntegration", "samples\DataTables.AspNet.Samples.WebApi2.BasicIntegration\DataTables.AspNet.Samples.WebApi2.BasicIntegration.csproj", "{6F6CD0EB-FF42-4724-B951-4CF898E7B780}"
 EndProject
@@ -39,21 +39,21 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.WebApi2",
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Extensions.AnsiSql.Tests", "src\DataTables.AspNet.Extensions.AnsiSql.Tests\DataTables.AspNet.Extensions.AnsiSql.Tests.xproj", "{DB3FCEEC-0113-46D8-B9E6-587545406014}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Extensions.Enumerable.Tests", "src\DataTables.AspNet.Extensions.Enumerable.Tests\DataTables.AspNet.Extensions.Enumerable.Tests.xproj", "{FD1E2622-6B0F-4A66-AA7C-B7A832B6AF58}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Extensions.Queryable.Tests", "src\DataTables.AspNet.Extensions.Queryable.Tests\DataTables.AspNet.Extensions.Queryable.Tests.xproj", "{1FE192DE-1178-467B-BA96-9BC1C24AF56C}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Extensions.AnsiSql", "src\DataTables.AspNet.Extensions.AnsiSql\DataTables.AspNet.Extensions.AnsiSql.xproj", "{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Extensions.Enumerable", "src\DataTables.AspNet.Extensions.Enumerable\DataTables.AspNet.Extensions.Enumerable.xproj", "{CD323DB4-F325-4A13-A5E1-8CD024C9E0A9}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Extensions.Queryable", "src\DataTables.AspNet.Extensions.Queryable\DataTables.AspNet.Extensions.Queryable.xproj", "{08B1D983-021B-4924-B9F0-177AEEA70199}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D6EDF2E2-8746-4DE6-88D2-89978D23B4F5}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
 		README.md = README.md
-		WE-Markdown.css = WE-Markdown.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{A6B96E7E-A26C-4AF8-A309-58ED2531C9E4}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\DataTables.AspNet.AspNetCore.pack.bat = nuget\DataTables.AspNet.AspNetCore.pack.bat
+		nuget\DataTables.AspNet.Core.pack.bat = nuget\DataTables.AspNet.Core.pack.bat
+		nuget\DataTables.AspNet.Mvc5.pack.bat = nuget\DataTables.AspNet.Mvc5.pack.bat
+		nuget\DataTables.AspNet.WebApi2.pack.bat = nuget\DataTables.AspNet.WebApi2.pack.bat
+		nuget\PACK_ALL.bat = nuget\PACK_ALL.bat
 	EndProjectSection
 EndProject
 Global
@@ -114,26 +114,10 @@ Global
 		{DB3FCEEC-0113-46D8-B9E6-587545406014}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB3FCEEC-0113-46D8-B9E6-587545406014}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB3FCEEC-0113-46D8-B9E6-587545406014}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD1E2622-6B0F-4A66-AA7C-B7A832B6AF58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD1E2622-6B0F-4A66-AA7C-B7A832B6AF58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD1E2622-6B0F-4A66-AA7C-B7A832B6AF58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD1E2622-6B0F-4A66-AA7C-B7A832B6AF58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1FE192DE-1178-467B-BA96-9BC1C24AF56C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1FE192DE-1178-467B-BA96-9BC1C24AF56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1FE192DE-1178-467B-BA96-9BC1C24AF56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1FE192DE-1178-467B-BA96-9BC1C24AF56C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD323DB4-F325-4A13-A5E1-8CD024C9E0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD323DB4-F325-4A13-A5E1-8CD024C9E0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD323DB4-F325-4A13-A5E1-8CD024C9E0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD323DB4-F325-4A13-A5E1-8CD024C9E0A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{08B1D983-021B-4924-B9F0-177AEEA70199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08B1D983-021B-4924-B9F0-177AEEA70199}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08B1D983-021B-4924-B9F0-177AEEA70199}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08B1D983-021B-4924-B9F0-177AEEA70199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,10 +137,6 @@ Global
 		{5D46B881-C683-4D86-B906-B7821DDE2056} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
 		{DA1469AD-F087-448F-8A27-5A0FED8442AD} = {7C40D7E9-8127-4204-918D-7126DF55D34E}
 		{DB3FCEEC-0113-46D8-B9E6-587545406014} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
-		{FD1E2622-6B0F-4A66-AA7C-B7A832B6AF58} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
-		{1FE192DE-1178-467B-BA96-9BC1C24AF56C} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9} = {1C3565DA-C7DF-4312-A394-ECBAE5D89365}
-		{CD323DB4-F325-4A13-A5E1-8CD024C9E0A9} = {1C3565DA-C7DF-4312-A394-ECBAE5D89365}
-		{08B1D983-021B-4924-B9F0-177AEEA70199} = {1C3565DA-C7DF-4312-A394-ECBAE5D89365}
 	EndGlobalSection
 EndGlobal

@@ -36,18 +36,16 @@
           "lib/net40/DapperExtensions.dll": {}
         }
       },
-      "DataTables.AspNet.AspNet5/2.0.0-beta2": {
+      "DataTables.AspNet.AspNet5/2.0.0-beta3": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "DataTables.AspNet.Core": null,
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Newtonsoft.Json": "7.0.1"
+          "Newtonsoft.Json": "8.0.3"
         }
       },
-      "DataTables.AspNet.Core/2.0.0-beta2": {
-        "type": "project",
-        "framework": "DNX,Version=v4.5.1"
+      "DataTables.AspNet.Core/2.0.0-beta3": {
+        "type": "project"
       },
       "DataTables.AspNet.Extensions.DapperExtensions/2.0.0-beta1-102801": {
         "type": "project",
@@ -1177,7 +1175,7 @@
           "lib/net40/Moq.dll": {}
         }
       },
-      "Newtonsoft.Json/7.0.1": {
+      "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -1532,18 +1530,16 @@
           "lib/net40/DapperExtensions.dll": {}
         }
       },
-      "DataTables.AspNet.AspNet5/2.0.0-beta2": {
+      "DataTables.AspNet.AspNet5/2.0.0-beta3": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "DataTables.AspNet.Core": null,
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Newtonsoft.Json": "7.0.1"
+          "Newtonsoft.Json": "8.0.3"
         }
       },
-      "DataTables.AspNet.Core/2.0.0-beta2": {
-        "type": "project",
-        "framework": "DNX,Version=v4.5.1"
+      "DataTables.AspNet.Core/2.0.0-beta3": {
+        "type": "project"
       },
       "DataTables.AspNet.Extensions.DapperExtensions/2.0.0-beta1-102801": {
         "type": "project",
@@ -2673,7 +2669,7 @@
           "lib/net40/Moq.dll": {}
         }
       },
-      "Newtonsoft.Json/7.0.1": {
+      "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -3028,18 +3024,16 @@
           "lib/net40/DapperExtensions.dll": {}
         }
       },
-      "DataTables.AspNet.AspNet5/2.0.0-beta2": {
+      "DataTables.AspNet.AspNet5/2.0.0-beta3": {
         "type": "project",
-        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "DataTables.AspNet.Core": null,
           "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-          "Newtonsoft.Json": "7.0.1"
+          "Newtonsoft.Json": "8.0.3"
         }
       },
-      "DataTables.AspNet.Core/2.0.0-beta2": {
-        "type": "project",
-        "framework": "DNX,Version=v4.5.1"
+      "DataTables.AspNet.Core/2.0.0-beta3": {
+        "type": "project"
       },
       "DataTables.AspNet.Extensions.DapperExtensions/2.0.0-beta1-102801": {
         "type": "project",
@@ -4169,7 +4163,7 @@
           "lib/net40/Moq.dll": {}
         }
       },
-      "Newtonsoft.Json/7.0.1": {
+      "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -4492,11 +4486,11 @@
     }
   },
   "libraries": {
-    "DataTables.AspNet.AspNet5/2.0.0-beta2": {
+    "DataTables.AspNet.AspNet5/2.0.0-beta3": {
       "type": "project",
       "path": "../DataTables.AspNet.AspNet5/project.json"
     },
-    "DataTables.AspNet.Core/2.0.0-beta2": {
+    "DataTables.AspNet.Core/2.0.0-beta3": {
       "type": "project",
       "path": "../DataTables.AspNet.Core/project.json"
     },
@@ -5413,9 +5407,9 @@
         "Moq.nuspec"
       ]
     },
-    "Newtonsoft.Json/7.0.1": {
+    "Newtonsoft.Json/8.0.3": {
       "type": "package",
-      "sha512": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
+      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
       "files": [
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -5429,8 +5423,8 @@
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
-        "Newtonsoft.Json.7.0.1.nupkg",
-        "Newtonsoft.Json.7.0.1.nupkg.sha512",
+        "Newtonsoft.Json.8.0.3.nupkg",
+        "Newtonsoft.Json.8.0.3.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
       ]

@@ -3,11 +3,57 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5"
+      "Microsoft.AspNet.Mvc/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.0.0",
+          "Microsoft.AspNet.WebPages": "3.0.0"
+        },
+        "compile": {
+          "lib/net45/System.Web.Mvc.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Mvc.dll": {}
+        }
       },
-      "Newtonsoft.Json/7.0.1": {
+      "Microsoft.AspNet.Razor/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Web.Razor.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Razor.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.0.0",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/System.Web.Helpers.dll": {},
+          "lib/net45/System.Web.WebPages.Deployment.dll": {},
+          "lib/net45/System.Web.WebPages.Razor.dll": {},
+          "lib/net45/System.Web.WebPages.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Helpers.dll": {},
+          "lib/net45/System.Web.WebPages.Deployment.dll": {},
+          "lib/net45/System.Web.WebPages.Razor.dll": {},
+          "lib/net45/System.Web.WebPages.dll": {}
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
         "type": "package",
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -15,183 +61,71 @@
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
         }
-      }
-    },
-    ".NETFramework,Version=v4.5.1": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
       },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
+      "DataTables.AspNet.Core/2.0.0-beta3": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5",
         "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
+          "net45/DataTables.AspNet.Core.dll": {}
         },
         "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.2": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.2"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.6": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.6"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5/win7-x86": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5/win7-x64": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.1/win7-x86": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.1/win7-x64": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.2/win7-x86": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.2"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.5.2/win7-x64": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.5.2"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.6/win7-x86": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.6"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.6/win7-x64": {
-      "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.6"
-      },
-      "Newtonsoft.Json/7.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/net45/Newtonsoft.Json.dll": {}
-        },
-        "runtime": {
-          "lib/net45/Newtonsoft.Json.dll": {}
+          "net45/DataTables.AspNet.Core.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "DataTables.AspNet.Core/2.0.0-beta1-102801": {
-      "type": "project",
-      "path": "../DataTables.AspNet.Core/project.json"
-    },
-    "Newtonsoft.Json/7.0.1": {
+    "Microsoft.AspNet.Mvc/5.0.0": {
+      "sha512": "Dj4C1Nwa1PyxhGtjQx9p6WNTBdvN46gJZMcjQAjxB+2Lmcr+ixior9FGHf9PjH6UUxR9vCZVz16zMlofFdwbPQ==",
       "type": "package",
-      "sha512": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
       "files": [
+        "Microsoft.AspNet.Mvc.5.0.0.nupkg.sha512",
+        "Microsoft.AspNet.Mvc.nuspec",
+        "lib/net45/System.Web.Mvc.dll",
+        "lib/net45/System.Web.Mvc.xml"
+      ]
+    },
+    "Microsoft.AspNet.Razor/3.0.0": {
+      "sha512": "mU1W0PRd1uQAb+triRGp51YYkw26RQ9q1tWPX57eHqxDqjx1smRHhejQhhnoAGr3bZDkl8AoUxegGR3tNM+YKA==",
+      "type": "package",
+      "files": [
+        "Microsoft.AspNet.Razor.3.0.0.nupkg.sha512",
+        "Microsoft.AspNet.Razor.nuspec",
+        "lib/net45/System.Web.Razor.dll",
+        "lib/net45/System.Web.Razor.xml"
+      ]
+    },
+    "Microsoft.AspNet.WebPages/3.0.0": {
+      "sha512": "wkz/rBJlALE/tVfhVFpadcaBK0oLGOb8AbuyWQ5qr84JPHtqWjsJUe3Lfyzu2ZixdYrQ9NuKMNlKIshaJUsCFA==",
+      "type": "package",
+      "files": [
+        "Microsoft.AspNet.WebPages.3.0.0.nupkg.sha512",
+        "Microsoft.AspNet.WebPages.nuspec",
+        "lib/net45/System.Web.Helpers.dll",
+        "lib/net45/System.Web.Helpers.xml",
+        "lib/net45/System.Web.WebPages.Deployment.dll",
+        "lib/net45/System.Web.WebPages.Deployment.xml",
+        "lib/net45/System.Web.WebPages.Razor.dll",
+        "lib/net45/System.Web.WebPages.Razor.xml",
+        "lib/net45/System.Web.WebPages.dll",
+        "lib/net45/System.Web.WebPages.xml"
+      ]
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "sha512": "FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "type": "package",
+      "files": [
+        "Microsoft.Web.Infrastructure.1.0.0.nupkg.sha512",
+        "Microsoft.Web.Infrastructure.nuspec",
+        "lib/net40/Microsoft.Web.Infrastructure.dll"
+      ]
+    },
+    "Newtonsoft.Json/8.0.3": {
+      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
+      "type": "package",
+      "files": [
+        "Newtonsoft.Json.8.0.3.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -204,33 +138,25 @@
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
-        "Newtonsoft.Json.7.0.1.nupkg",
-        "Newtonsoft.Json.7.0.1.nupkg.sha512",
-        "Newtonsoft.Json.nuspec",
         "tools/install.ps1"
       ]
+    },
+    "DataTables.AspNet.Core/2.0.0-beta3": {
+      "type": "project",
+      "path": "../DataTables.AspNet.Core/project.json",
+      "msbuildProject": "../DataTables.AspNet.Core/DataTables.AspNet.Core.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "DataTables.AspNet.Core ",
-      "Newtonsoft.Json >= 7.0.1"
+      "DataTables.AspNet.Core >= 2.0.0-beta3",
+      "Microsoft.AspNet.Mvc >= 5.0.0",
+      "Newtonsoft.Json >= 8.0.3"
     ],
     ".NETFramework,Version=v4.5": [
-      "fx/System.Web >= 4.0.0",
-      "fx/System.Web.Mvc >= 5.0.0"
-    ],
-    ".NETFramework,Version=v4.5.1": [
-      "fx/System.Web >= 4.0.0",
-      "fx/System.Web.Mvc >= 5.0.0"
-    ],
-    ".NETFramework,Version=v4.5.2": [
-      "fx/System.Web >= 4.0.0",
-      "fx/System.Web.Mvc >= 5.0.0"
-    ],
-    ".NETFramework,Version=v4.6": [
-      "fx/System.Web >= 4.0.0",
-      "fx/System.Web.Mvc >= 5.0.0"
+      "System.Web >= 4.0.0"
     ]
-  }
+  },
+  "tools": {},
+  "projectFileToolGroups": {}
 }

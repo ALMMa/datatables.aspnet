@@ -1,50 +1,41 @@
 ﻿{
-	"version": "2.0.0-beta2",
-	"description": "MVC5 implementation for DataTables.AspNet.",
-	"authors": [ "Anderson Matos" ],
-	"tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Mvc", "Mvc5" ],
-	"projectUrl": "https://github.com/ALMMa/datatables.aspnet",
-	"licenseUrl": "",
+    "id": "DataTables.AspNet.Mvc5",
+    "title": "DataTables.AspNet.Mvc5",
+    "version": "2.0.0-beta3",
+    "description": "MVC5 implementation for DataTables.AspNet.",
+    "authors": [ "Anderson Matos" ],
 
-	"id": "DataTables.AspNet.Mvc5",
-	"title": "DataTables.AspNet.Mvc5",
-	"owners": [ "Anderson Matos" ],
-	"iconUrl": "",
-	"releaseNotes": "Updated NuGet references.",
-	"language": "en-US",
-	"requireLicenseAcceptance": false,
-	"copyright": "",
-	"summary": "",
+    "packOptions": {
+        "summary": "MVC5 implementation for DataTables.AspNet.",
+        "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Mvc", "Mvc5" ],
+        "owners": [ "Anderson Matos" ],
+        "releaseNotes": "Finished porting to .NET Core RC2.",
+        "iconUrl": "",
+        "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
+        "licenseUrl": "",
+        "requireLicenseAcceptance": false,
+        "repository": {
+            "type": "git",
+            "url": "https://github.com/ALMMa/datatables.aspnet"
+        }
+    },
+        
+    "language": "en-US",
+    "copyright": "",
 
-	"dependencies": {
-		"DataTables.AspNet.Core": "",
-		"Newtonsoft.Json": "7.0.1"
-	},
+    "dependencies": {
+        "Microsoft.AspNet.Mvc": "5.0.0",
 
-	"frameworks": {
-		"net45": {
-			"frameworkAssemblies": {
-				"System.Web": "4.0.0.0",
-				"System.Web.Mvc": "5.0.0.0"
+        "DataTables.AspNet.Core": "2.0.0-beta3",
+
+        "Newtonsoft.Json": "8.0.3"
+    },
+
+    "frameworks": {
+        "net45": {
+            "frameworkAssemblies": {
+                "System.Web": "4.0.0.0"
             }
-		},
-		"net451": {
-			"frameworkAssemblies": {
-				"System.Web": "4.0.0.0",
-				"System.Web.Mvc": "5.0.0.0"
-			}
-		},
-		"net452": {
-			"frameworkAssemblies": {
-				"System.Web": "4.0.0.0",
-				"System.Web.Mvc": "5.0.0.0"
-			}
-		},
-		"net46": {
-			"frameworkAssemblies": {
-				"System.Web": "4.0.0.0",
-				"System.Web.Mvc": "5.0.0.0"
-			}
-		}
-	}
+        }
+    }
 }

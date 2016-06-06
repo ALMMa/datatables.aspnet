@@ -1,29 +1,40 @@
 ﻿{
-    "version": "2.0.0-beta1-102801",
-    "description": "DataTables.AspNet extensions for DapperExtensions.",
-    "authors": [ "Anderson Matos" ],
-    "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Dapper", "DapperExtensions" ],
-    "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
-    "licenseUrl": "",
-
     "id": "DataTables.AspNet.Extensions.DapperExtensions",
     "title": "DataTables.AspNet.Extensions.DapperExtensions",
-    "owners": [ "Anderson Matos" ],
-    "iconUrl": "",
-    "releaseNotes": "",
+    "version": "2.0.0-beta3",
+    "description": "DataTables.AspNet extensions for DapperExtensions.",
+    "authors": [ "Anderson Matos" ],
+
+    "packOptions": {
+        "summary": "",
+        "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Dapper", "DapperExtensions" ],
+        "owners": [ "Anderson Matos" ],
+        "releaseNotes": "",
+        "iconUrl": "",
+        "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
+        "licenseUrl": "",
+        "requireLicenseAcceptance": false,
+        "repository": {
+            "type": "git",
+            "url": "https://github.com/ALMMa/datatables.aspnet"
+        }
+    },
+
     "language": "en-US",
-    "requireLicenseAcceptance": false,
     "copyright": "",
-    "summary": "",
 
     "dependencies": {
-        "DataTables.AspNet.Core": "",
+        "DataTables.AspNet.Core": "2.0.0-beta3",
 
-        "Dapper": "1.42.0",
+        "Dapper": "1.50.0-beta9",
         "DapperExtensions": "1.4.4"
     },
 
     "frameworks": {
-        "dnx451": { }
+        "net45": { },
+        "net451": { },
+        "net452": { },
+        "net46": { },
+        "net461": { }
     }
 }

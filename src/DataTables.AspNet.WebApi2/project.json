@@ -1,47 +1,41 @@
 ﻿{
-	"version": "2.0.0-beta2",
-	"description": "WebApi2 implementation for DataTables.AspNet.",
-	"authors": [ "Anderson Matos" ],
-	"tags": [ "DataTables", "DataTables.Mvc", "DataTables.WebApi2", "WebApi", "WebApi2" ],
-	"projectUrl": "https://github.com/ALMMa/datatables.aspnet",
-	"licenseUrl": "",
+    "id": "DataTables.AspNet.WebApi2",
+    "title": "DataTables.AspNet.WebApi2",
+    "version": "2.0.0-beta3",
+    "description": "WebApi2 implementation for DataTables.AspNet.",
+    "authors": [ "Anderson Matos" ],
 
-	"id": "DataTables.AspNet.WebApi2",
-	"title": "DataTables.AspNet.WebApi2",
-	"owners": [ "Anderson Matos" ],
-	"iconUrl": "",
-	"releaseNotes": "",
-	"language": "en-US",
-	"requireLicenseAcceptance": false,
-	"copyright": "",
-	"summary": "",
+    "packOptions": {
+        "summary": "WebApi2 implementation for DataTables.AspNet.",
+        "tags": [ "DataTables", "DataTables.Mvc", "DataTables.WebApi2", "WebApi", "WebApi2" ],
+        "owners": [ "Anderson Matos" ],
+        "releaseNotes": "Finished porting to .NET Core RC2.",
+        "iconUrl": "",
+        "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
+        "licenseUrl": "",
+        "requireLicenseAcceptance": false,
+        "repository": {
+            "type": "git",
+            "url": "https://github.com/ALMMa/datatables.aspnet"
+        }
+    },
+        
+    "language": "en-US",
+    "copyright": "",
 
-	"dependencies": {
-		"DataTables.AspNet.Core": "",
-		"Microsoft.AspNet.WebApi": "5.2.3",
-		"Newtonsoft.Json": "7.0.1"
-	},
+    "dependencies": {
+        "Microsoft.AspNet.WebApi": "5.2.3",
 
-	"frameworks": {
-		"net45": {
-			"frameworkAssemblies": {
-				"System.Web": "4.0.0.0"
+        "DataTables.AspNet.Core": "2.0.0-beta3",
+
+        "Newtonsoft.Json": "8.0.3"
+    },
+
+    "frameworks": {
+        "net45": {
+            "frameworkAssemblies": {
+                "System.Web": "4.0.0.0"
             }
-		},
-		"net451": {
-			"frameworkAssemblies": {
-				"System.Web": "4.0.0.0"
-			}
-		},
-		"net452": {
-			"frameworkAssemblies": {
-				"System.Web": "4.0.0.0"
-			}
-		},
-		"net46": {
-			"frameworkAssemblies": {
-				"System.Web": "4.0.0.0"
-			}
-		}
-	}
+        }
+    }
 }
