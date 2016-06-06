@@ -3,8 +3,8 @@ Formely known as <strong>DataTables.Mvc</strong>, this project started over a ye
 More than 15 months later, we now undergo a full rewrite with support for Mvc, WebApi and AspNet (<strong>core CLR included!</strong>).<br />
 Also, unit-testing is a priority to avoid breaking <i>your</i> app.
 
-<h3>Beta4 is here with DotNet Core support!</h3>
-`Beta4` release now ships with support for DotNet Core RC2, along with extension and a complete rewrite of tests.
+<h3>Beta3 is here with DotNet Core support!</h3>
+`Beta3` release now ships with support for DotNet Core RC2, along with extension and a complete rewrite of tests.
 This is the fourth beta release for `DataTables.AspNet`. A full migration path (for all, including MVC 5 and WebApi) is now being released.
 
 <h3>Standard NuGet packages</h3>
