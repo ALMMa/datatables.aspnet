@@ -25,9 +25,9 @@ THE SOFTWARE.
 
 using System;
 using System.Collections.Generic;
-using Microsoft.AspNet.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace DataTables.AspNet.AspNet5.Tests
+namespace DataTables.AspNet.AspNetCore.Tests
 {
     /// <summary>
     /// Provides arrange methods and helpers to execute unit tests.
@@ -95,9 +95,10 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Value provider for request properties.
             var valueProvider = new DictionaryBasedValueProvider(new BindingSource("a", "a", false, true), formCollection);
 
+
             // Model metadata.
-            var x = new Microsoft.AspNet.Mvc.ModelBinding.Metadata.DefaultCompositeMetadataDetailsProvider(null);
-            var modelMetadata = new Microsoft.AspNet.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider(x).GetMetadataForType(typeof(Core.IDataTablesRequest));
+            var x = new Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultCompositeMetadataDetailsProvider(null);
+            var modelMetadata = new Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider(x).GetMetadataForType(typeof(Core.IDataTablesRequest));
             //var modelMetadata = new Microsoft.AspNet.Mvc.ModelBinding.Metadata. ModelMetadataProviders.Current.GetMetadataForType(null, typeof(Core.IDataTablesRequest));
 
             return new ModelBindingContext()
@@ -116,8 +117,8 @@ namespace DataTables.AspNet.AspNet5.Tests
             var valueProvider = new DictionaryBasedValueProvider(new BindingSource("a", "a", false, true), formCollection);
 
             // Model metadata.
-            var x = new Microsoft.AspNet.Mvc.ModelBinding.Metadata.DefaultCompositeMetadataDetailsProvider(null);
-            var modelMetadata = new Microsoft.AspNet.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider(x).GetMetadataForType(typeof(Core.IDataTablesRequest));
+            var x = new Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultCompositeMetadataDetailsProvider(null);
+            var modelMetadata = new Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider(x).GetMetadataForType(typeof(Core.IDataTablesRequest));
             //var modelMetadata = new Microsoft.AspNet.Mvc.ModelBinding.Metadata. ModelMetadataProviders.Current.GetMetadataForType(null, typeof(Core.IDataTablesRequest));
 
             return new ModelBindingContext()

@@ -103,6 +103,8 @@ namespace DataTables.AspNet.Mvc5.Tests
         public void ErrorResponseSerializationWithoutAditionalParameters()
         {
             // Arrange
+            DataTables.AspNet.Mvc5.Configuration.Options.DisableRequestAdditionalParameters();
+            DataTables.AspNet.Mvc5.Configuration.Options.DisableResponseAdditionalParameters();
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
             var names = new NameConvention.CamelCaseResponseNameConvention();
             var expectedJson = String.Format("{{\"{0}\":3,\"{1}\":\"just_an_error_message\"}}", names.Draw, names.Error);
@@ -120,6 +122,8 @@ namespace DataTables.AspNet.Mvc5.Tests
         public void ErrorResponseSerializationWithAditionalParameters()
         {
             // Arrange
+            DataTables.AspNet.Mvc5.Configuration.Options.EnableRequestAdditionalParameters();
+            DataTables.AspNet.Mvc5.Configuration.Options.EnableResponseAdditionalParameters();
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
             var names = new NameConvention.CamelCaseResponseNameConvention();
             var aditionalParameters = TestHelper.MockAditionalParameters();
@@ -138,6 +142,8 @@ namespace DataTables.AspNet.Mvc5.Tests
         public void ResponseSerializationWithoutAditionalParameters()
         {
             // Arrange
+            DataTables.AspNet.Mvc5.Configuration.Options.DisableRequestAdditionalParameters();
+            DataTables.AspNet.Mvc5.Configuration.Options.DisableResponseAdditionalParameters();
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
             var data = TestHelper.MockData();
             var names = new NameConvention.CamelCaseResponseNameConvention();
@@ -161,6 +167,8 @@ namespace DataTables.AspNet.Mvc5.Tests
         public void ResponseSerializationWithAditionalParameters()
         {
             // Arrange
+            DataTables.AspNet.Mvc5.Configuration.Options.EnableRequestAdditionalParameters();
+            DataTables.AspNet.Mvc5.Configuration.Options.EnableResponseAdditionalParameters();
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
             var data = TestHelper.MockData();
             var names = new NameConvention.CamelCaseResponseNameConvention();

@@ -25,7 +25,7 @@ THE SOFTWARE.
 
 using Xunit;
 
-namespace DataTables.AspNet.AspNet5.Tests
+namespace DataTables.AspNet.AspNetCore.Tests
 {
     public class SortTests
     {

@@ -27,7 +27,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace DataTables.AspNet.AspNet5.Tests
+namespace DataTables.AspNet.AspNetCore.Tests
 {
     /// <summary>
     /// Represents tests for DataTables.AspNet.AspNet5 'DataTablesRequest' class.

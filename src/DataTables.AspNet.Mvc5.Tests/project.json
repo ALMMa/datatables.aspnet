@@ -16,14 +16,16 @@
     "copyright": "",
     "summary": "",
 
+    "testRunner": "xunit",
+
 	"dependencies": {
-		"DataTables.AspNet.Core": "",
-		"DataTables.AspNet.Mvc5": "",
+		"DataTables.AspNet.Core": "2.0.0-beta3",
+		"DataTables.AspNet.Mvc5": "2.0.0-beta3",
 
 		"xunit": "2.1.0",
-		"xunit.runner.dnx": "2.1.0-rc1-build204",
+		"dotnet-test-xunit": "1.0.0-rc2-build10025",
 
-		"Moq": "4.2.1510.2205"
+		"Moq": "4.6.25-alpha"
 	},
 
     "commands": {
@@ -31,6 +33,6 @@
     },
 
     "frameworks": {
-        "dnx451": { }
+        "net461": { }
     }
 }

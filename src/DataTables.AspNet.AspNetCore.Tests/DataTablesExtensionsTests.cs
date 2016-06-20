@@ -26,7 +26,7 @@ THE SOFTWARE.
 using System.Collections.Generic;
 using Xunit;
 
-namespace DataTables.AspNet.AspNet5.Tests
+namespace DataTables.AspNet.AspNetCore.Tests
 {
     public class DataTablesExtensionsTests
     {
@@ -119,7 +119,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var request = TestHelper.MockDataTablesRequest(0, 13, 99, null, null);
             var data = TestHelper.MockData();
-            DataTables.AspNet.AspNet5.Configuration.Options.EnableDrawValidation();
+            DataTables.AspNet.AspNetCore.Configuration.Options.EnableDrawValidation();
 
             // Act
             var response = request.CreateResponse(2000, 1000, data);
@@ -137,7 +137,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var request = TestHelper.MockDataTablesRequest(0, 13, 99, null, null);
             var data = TestHelper.MockData();
-            DataTables.AspNet.AspNet5.Configuration.Options.DisableDrawValidation();
+            DataTables.AspNet.AspNetCore.Configuration.Options.DisableDrawValidation();
 
             // Act
             var response = request.CreateResponse(2000, 1000, data);

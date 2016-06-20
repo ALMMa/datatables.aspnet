@@ -26,7 +26,7 @@ THE SOFTWARE.
 using System;
 using Xunit;
 
-namespace DataTables.AspNet.AspNet5.Tests
+namespace DataTables.AspNet.AspNetCore.Tests
 {
     /// <summary>
     /// Represents tests for DataTables.AspNet.AspNet5 'Column' class.

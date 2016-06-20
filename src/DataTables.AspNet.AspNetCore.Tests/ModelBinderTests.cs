@@ -28,9 +28,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using Moq;
-using Microsoft.AspNet.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace DataTables.AspNet.AspNet5.Tests
+namespace DataTables.AspNet.AspNetCore.Tests
 {
     /// <summary>
     /// Represents tests for DataTables.AspNet.AspNet5 'RequestBinder' class.
@@ -49,7 +49,13 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
+            var model = modelBindingContext.Result.HasValue
+                ? modelBindingContext.Result.Value.IsModelSet
+                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
+                    : null
+                : null;
 
             // Assert
             Assert.Equal(3, model.Draw);
@@ -73,7 +79,13 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options().DisableDrawValidation();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
+            var model = modelBindingContext.Result.HasValue
+                ? modelBindingContext.Result.Value.IsModelSet
+                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
+                    : null
+                : null;
 
             // Assert
             Assert.Equal(0, model.Draw);
@@ -94,7 +106,13 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
+            var model = modelBindingContext.Result.HasValue
+                ? modelBindingContext.Result.Value.IsModelSet
+                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
+                    : null
+                : null;
 
             // Assert
             Assert.Equal(null, model);
@@ -111,7 +129,13 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
+            var model = modelBindingContext.Result.HasValue
+                ? modelBindingContext.Result.Value.IsModelSet
+                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
+                    : null
+                : null;
 
             // Assert
             Assert.Equal(3, model.Draw);
@@ -130,7 +154,13 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options().EnableRequestAdditionalParameters();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
+            var model = modelBindingContext.Result.HasValue
+                ? modelBindingContext.Result.Value.IsModelSet
+                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
+                    : null
+                : null;
 
             // Assert
             Assert.Equal(3, model.Draw);
@@ -153,7 +183,13 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options().UseHungarianNotation();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
+            var model = modelBindingContext.Result.HasValue
+                ? modelBindingContext.Result.Value.IsModelSet
+                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
+                    : null
+                : null;
 
             // Assert
             Assert.Equal(3, model.Draw);
@@ -177,7 +213,13 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options().UseHungarianNotation().DisableDrawValidation();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
+            var model = modelBindingContext.Result.HasValue
+                ? modelBindingContext.Result.Value.IsModelSet
+                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
+                    : null
+                : null;
 
             // Assert
             Assert.Equal(0, model.Draw);
@@ -198,7 +240,13 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options().UseHungarianNotation();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
+            var model = modelBindingContext.Result.HasValue
+                ? modelBindingContext.Result.Value.IsModelSet
+                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
+                    : null
+                : null;
 
             // Assert
             Assert.Equal(null, model);
@@ -215,7 +263,13 @@ namespace DataTables.AspNet.AspNet5.Tests
             var options = new Options();
 
             // Act
-            var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
+            binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
+            var model = modelBindingContext.Result.HasValue
+                ? modelBindingContext.Result.Value.IsModelSet
+                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
+                    : null
+                : null;
 
             // Assert
             Assert.Equal(null, model);

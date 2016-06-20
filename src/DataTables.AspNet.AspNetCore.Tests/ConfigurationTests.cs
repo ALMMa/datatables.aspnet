@@ -24,11 +24,11 @@ THE SOFTWARE.
 #endregion Copyright
 
 using System.Linq;
-using Microsoft.AspNet.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace DataTables.AspNet.AspNet5.Tests
+namespace DataTables.AspNet.AspNetCore.Tests
 {
     /// <summary>
     /// Represents tests for DataTables.AspNet.AspNet5 'Configuration' class.
@@ -44,7 +44,7 @@ namespace DataTables.AspNet.AspNet5.Tests
         {
             // Arrange
             var serviceCollection = new ServiceCollection();
-			DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection);
+			DataTables.AspNet.AspNetCore.Configuration.RegisterDataTables(serviceCollection);
 			serviceCollection.AddMvc();
 			var provider = serviceCollection.BuildServiceProvider();
 			var modelBinder = provider.GetServices<IModelBinder>().FirstOrDefault();
@@ -52,8 +52,8 @@ namespace DataTables.AspNet.AspNet5.Tests
 
             // Assert
             Assert.NotNull(modelBinder);
-            Assert.NotNull(modelBinder as ModelBinder);
-            Assert.Null((modelBinder as ModelBinder).ParseAdditionalParameters);
+            Assert.NotNull(modelBinder as DataTables.AspNet.AspNetCore.ModelBinder);
+            Assert.Null((modelBinder as DataTables.AspNet.AspNetCore.ModelBinder).ParseAdditionalParameters);
         }
         /// <summary>
         /// This test must be executed alone.
@@ -65,10 +65,10 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var options = TestHelper.MockOptions().UseHungarianNotation();
             var serviceCollection = new ServiceCollection();
-            DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection, options);
+            DataTables.AspNet.AspNetCore.Configuration.RegisterDataTables(serviceCollection, options);
 
             // Assert
-            Assert.Equal(options, DataTables.AspNet.AspNet5.Configuration.Options);
+            Assert.Equal(options, DataTables.AspNet.AspNetCore.Configuration.Options);
         }
         /// <summary>
         /// This test must be executed alone.
@@ -80,7 +80,7 @@ namespace DataTables.AspNet.AspNet5.Tests
             // Arrange
             var requestBinder = TestHelper.MockModelBinder();
             var serviceCollection = new ServiceCollection();
-            DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection, requestBinder);
+            DataTables.AspNet.AspNetCore.Configuration.RegisterDataTables(serviceCollection, requestBinder);
             serviceCollection.AddMvc();
             var provider = serviceCollection.BuildServiceProvider();
             var modelBinder = provider.GetServices<IModelBinder>().FirstOrDefault();
@@ -97,15 +97,15 @@ namespace DataTables.AspNet.AspNet5.Tests
         {
             // Arrange
             var serviceCollection = new ServiceCollection();
-            DataTables.AspNet.AspNet5.Configuration.RegisterDataTables(serviceCollection, TestHelper.ParseAdditionalParameters, true);
+            DataTables.AspNet.AspNetCore.Configuration.RegisterDataTables(serviceCollection, TestHelper.ParseAdditionalParameters, true);
             serviceCollection.AddMvc();
             var provider = serviceCollection.BuildServiceProvider();
             var modelBinder = provider.GetServices<IModelBinder>().FirstOrDefault();
 
             // Assert
-            Assert.Equal(true, DataTables.AspNet.AspNet5.Configuration.Options.IsRequestAdditionalParametersEnabled);
-            Assert.Equal(true, DataTables.AspNet.AspNet5.Configuration.Options.IsResponseAdditionalParametersEnabled);
-            Assert.NotNull((modelBinder as ModelBinder).ParseAdditionalParameters);
+            Assert.Equal(true, DataTables.AspNet.AspNetCore.Configuration.Options.IsRequestAdditionalParametersEnabled);
+            Assert.Equal(true, DataTables.AspNet.AspNetCore.Configuration.Options.IsResponseAdditionalParametersEnabled);
+            Assert.NotNull((modelBinder as DataTables.AspNet.AspNetCore.ModelBinder).ParseAdditionalParameters);
         }
     }
 }
