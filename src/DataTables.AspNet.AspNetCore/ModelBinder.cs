@@ -131,8 +131,8 @@ namespace DataTables.AspNet.AspNetCore
 
                 var start = (int?)jsonModel[options.RequestNameConvention.Start] ?? 0;
                 var length = (int?)jsonModel[options.RequestNameConvention.Length] ?? options.DefaultPageLength;
-                var searchValue = (string)jsonModel[options.RequestNameConvention.SearchValue];
-                var searchRegex = (bool?)jsonModel[options.RequestNameConvention.IsSearchRegex] ?? false;
+                var searchValue = (string)jsonModel.SelectToken(options.RequestNameConvention.SearchValue);
+                var searchRegex = (bool?)jsonModel.SelectToken(options.RequestNameConvention.IsSearchRegex) ?? false;
                 
                 var search = new Search(searchValue, searchRegex);
 
@@ -203,19 +203,19 @@ namespace DataTables.AspNet.AspNetCore
             while (true)
             {
                 // Parses Field value.
-                var columnField = (string) jsonModel[string.Format(names.ColumnField, counter)];
+                var columnField = (string) jsonModel.SelectToken(string.Format(names.ColumnField, counter));
                 if (columnField == null) break;
                 // Parses Name value.
-                var columnName = (string) jsonModel[string.Format(names.ColumnName, counter)];
+                var columnName = (string) jsonModel.SelectToken(string.Format(names.ColumnName, counter));
                 if (columnName == null) break;
                 // Parses Orderable value.
-                var columnSortable = (bool?) jsonModel[string.Format(names.IsColumnSortable, counter)] ?? true;
+                var columnSortable = (bool?) jsonModel.SelectToken(string.Format(names.IsColumnSortable, counter)) ?? true;
                 // Parses Searchable value.
-                var columnSearchable = (bool?) jsonModel[string.Format(names.IsColumnSearchable, counter)] ?? true;
+                var columnSearchable = (bool?) jsonModel.SelectToken(string.Format(names.IsColumnSearchable, counter)) ?? true;
                 // Parsed Search value.
-                var columnSearchValue = (string) jsonModel[string.Format(names.ColumnSearchValue, counter)];
+                var columnSearchValue = (string) jsonModel.SelectToken(string.Format(names.ColumnSearchValue, counter));
                 // Parses IsRegex value.
-                var columnSearchRegex = (bool?) jsonModel[string.Format(names.IsColumnSearchRegex, counter)] ?? false;
+                var columnSearchRegex = (bool?) jsonModel.SelectToken(string.Format(names.IsColumnSearchRegex, counter)) ?? false;
                 var search = new Search(columnSearchValue, columnSearchRegex);
                 // Instantiates a new column with parsed elements.
                 var column = new Column(columnName, columnField, columnSearchable, columnSortable, search);
@@ -242,11 +242,11 @@ namespace DataTables.AspNet.AspNetCore
 
             for (var i = 0; i < columns.Count; i++)
             {
-                var sortField = (int?) jsonModel[string.Format(names.SortField, i)];
+                var sortField = (int?) jsonModel.SelectToken(string.Format(names.SortField, i));
                 if (sortField == null) break;
                 var column = columns.ElementAt((int) sortField);
 
-                var sortDirection = (string)jsonModel[string.Format(names.SortDirection, i)];
+                var sortDirection = (string)jsonModel.SelectToken(string.Format(names.SortDirection, i));
 
                 if (column.SetSort(i, sortDirection))
                     sorting.Add(column.Sort);
