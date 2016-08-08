@@ -35,21 +35,23 @@ namespace DataTables.AspNet.AspNetCore
     {
         public IDictionary<string, object> AdditionalParameters { get; private set; }
         public IEnumerable<Core.IColumn> Columns { get; private set; }
+        public IEnumerable<Core.ISort> Sortings { get; private set; }
         public int Draw { get; private set; }
         public int Length { get; private set; }
-        public Core.ISearch Search { get; private set; }
+        public Core.ISearch Search { get; private set; }        
         public int Start { get; private set; }
 
-        public DataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns)
-            :this(draw, start, length, search, columns, null)
+        public DataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns, IEnumerable<Core.ISort> sortings)
+            :this(draw, start, length, search, columns, sortings, null)
         { }
-        public DataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns, IDictionary<string, object> additionalParameters)
+        public DataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns, IEnumerable<Core.ISort> sortings, IDictionary<string, object> additionalParameters)
         {
             Draw = draw;
             Start = start;
             Length = length;
             Search = search;
             Columns = columns;
+            Sortings = sortings;
             AdditionalParameters = additionalParameters;
         }
     }
