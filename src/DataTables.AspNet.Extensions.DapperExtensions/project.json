@@ -1,7 +1,7 @@
 ﻿{
     "id": "DataTables.AspNet.Extensions.DapperExtensions",
     "title": "DataTables.AspNet.Extensions.DapperExtensions",
-    "version": "2.0.0-beta3",
+    "version": "2.0.0",
     "description": "DataTables.AspNet extensions for DapperExtensions.",
     "authors": [ "Anderson Matos" ],
 
@@ -24,17 +24,13 @@
     "copyright": "",
 
     "dependencies": {
-        "DataTables.AspNet.Core": "2.0.0-beta3",
+        "DataTables.AspNet.Core": "2.0.0",
 
         "Dapper": "1.50.0-beta9",
         "DapperExtensions": "1.4.4"
     },
 
     "frameworks": {
-        "net45": { },
-        "net451": { },
-        "net452": { },
-        "net46": { },
-        "net461": { }
+        "net45": { }
     }
 }

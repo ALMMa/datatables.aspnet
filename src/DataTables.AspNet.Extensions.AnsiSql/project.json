@@ -1,7 +1,7 @@
 ﻿{
     "id": "DataTables.AspNet.Extensions.AnsiSql",
     "title": "DataTables.AspNet.Extensions.AnsiSql",
-    "version": "2.0.0-beta3",
+    "version": "2.0.0",
     "description": "DataTables.AspNet extensions for AnsiSql generation.",
     "authors": [ "Anderson Matos" ],
 
@@ -21,15 +21,11 @@
     },
 
     "dependencies": {
-        "DataTables.AspNet.Core": "2.0.0-beta3"
+        "DataTables.AspNet.Core": "2.0.0"
     },
 
   "frameworks" : {
     "net45": { },
-    "net451": { },
-    "net452": { },
-    "net46": { },
-    "net461": { },
     "netstandard1.1" : { }
   }
 }

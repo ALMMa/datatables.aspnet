@@ -51,10 +51,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Act
             //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
             binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
-            var model = modelBindingContext.Result.HasValue
-                ? modelBindingContext.Result.Value.IsModelSet
-                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
-                    : null
+            var model = modelBindingContext.Result.IsModelSet
+                ? (Core.IDataTablesRequest)modelBindingContext.Result.Model
                 : null;
 
             // Assert
@@ -81,10 +79,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Act
             //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
             binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
-            var model = modelBindingContext.Result.HasValue
-                ? modelBindingContext.Result.Value.IsModelSet
-                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
-                    : null
+            var model = modelBindingContext.Result.IsModelSet
+                ? (Core.IDataTablesRequest)modelBindingContext.Result.Model
                 : null;
 
             // Assert
@@ -108,10 +104,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Act
             //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
             binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
-            var model = modelBindingContext.Result.HasValue
-                ? modelBindingContext.Result.Value.IsModelSet
-                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
-                    : null
+            var model = modelBindingContext.Result.IsModelSet
+                ? (Core.IDataTablesRequest)modelBindingContext.Result.Model
                 : null;
 
             // Assert
@@ -131,10 +125,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Act
             //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
             binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
-            var model = modelBindingContext.Result.HasValue
-                ? modelBindingContext.Result.Value.IsModelSet
-                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
-                    : null
+            var model = modelBindingContext.Result.IsModelSet
+                ? (Core.IDataTablesRequest)modelBindingContext.Result.Model
                 : null;
 
             // Assert
@@ -156,10 +148,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Act
             //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
             binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
-            var model = modelBindingContext.Result.HasValue
-                ? modelBindingContext.Result.Value.IsModelSet
-                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
-                    : null
+            var model = modelBindingContext.Result.IsModelSet
+                ? (Core.IDataTablesRequest)modelBindingContext.Result.Model
                 : null;
 
             // Assert
@@ -185,10 +175,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Act
             //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
             binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
-            var model = modelBindingContext.Result.HasValue
-                ? modelBindingContext.Result.Value.IsModelSet
-                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
-                    : null
+            var model = modelBindingContext.Result.IsModelSet
+                ? (Core.IDataTablesRequest)modelBindingContext.Result.Model
                 : null;
 
             // Assert
@@ -215,10 +203,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Act
             //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
             binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
-            var model = modelBindingContext.Result.HasValue
-                ? modelBindingContext.Result.Value.IsModelSet
-                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
-                    : null
+            var model = modelBindingContext.Result.IsModelSet
+                ? (Core.IDataTablesRequest)modelBindingContext.Result.Model
                 : null;
 
             // Assert
@@ -242,10 +228,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Act
             //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
             binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
-            var model = modelBindingContext.Result.HasValue
-                ? modelBindingContext.Result.Value.IsModelSet
-                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
-                    : null
+            var model = modelBindingContext.Result.IsModelSet
+                ? (Core.IDataTablesRequest)modelBindingContext.Result.Model
                 : null;
 
             // Assert
@@ -265,10 +249,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Act
             //var model = (Core.IDataTablesRequest)binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters).Model;
             binder.BindModel(modelBindingContext, options, TestHelper.ParseAdditionalParameters);
-            var model = modelBindingContext.Result.HasValue
-                ? modelBindingContext.Result.Value.IsModelSet
-                    ? (Core.IDataTablesRequest)modelBindingContext.Result.Value.Model
-                    : null
+            var model = modelBindingContext.Result.IsModelSet
+                ? (Core.IDataTablesRequest)modelBindingContext.Result.Model
                 : null;
 
             // Assert

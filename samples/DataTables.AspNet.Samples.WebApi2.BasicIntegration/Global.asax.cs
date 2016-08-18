@@ -9,16 +9,17 @@ using System.Web.Routing;
 
 namespace DataTables.AspNet.Samples.WebApi2.BasicIntegration
 {
-	public class WebApiApplication : System.Web.HttpApplication
-	{
-		protected void Application_Start()
-		{
-			//DataTables.AspNet.WebApi2.Configuration.Register();
-			AreaRegistration.RegisterAllAreas();
-			GlobalConfiguration.Configure(WebApiConfig.Register);
-			//FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-			RouteConfig.RegisterRoutes(RouteTable.Routes);
-			BundleConfig.RegisterBundles(BundleTable.Bundles);
-		}
-	}
+    public class WebApiApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+            // Must be the first config to take place because other binders may cause conflict.
+            DataTables.AspNet.WebApi2.Configuration.RegisterDataTables(GlobalConfiguration.Configuration);
+
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+    }
 }

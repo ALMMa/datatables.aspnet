@@ -74,7 +74,7 @@ namespace DataTables.AspNet.AspNetCore
             if (options == null || options.RequestNameConvention == null)
             {
                 //return ModelBindingResult.Failed(bindingContext.ModelName);
-                bindingContext.Result = ModelBindingResult.Failed(bindingContext.ModelName);
+                bindingContext.Result = ModelBindingResult.Failed();
                 return;
             }
 
@@ -87,7 +87,7 @@ namespace DataTables.AspNet.AspNetCore
             if (options.IsDrawValidationEnabled && !Parse<Int32>(draw, out _draw))
             {
                 //return ModelBindingResult.Failed(bindingContext.ModelName); // Null model result (invalid request).
-                bindingContext.Result = ModelBindingResult.Failed(bindingContext.ModelName);
+                bindingContext.Result = ModelBindingResult.Failed();
                 return;
             }
 
@@ -119,7 +119,7 @@ namespace DataTables.AspNet.AspNetCore
                 var model = new DataTablesRequest(_draw, _start, _length, search, columns, aditionalParameters);
                 {
                     //return ModelBindingResult.Success(bindingContext.ModelName, model);
-                    bindingContext.Result = ModelBindingResult.Success(bindingContext.ModelName, model);
+                    bindingContext.Result = ModelBindingResult.Success(model);
                     return;
                 }
             }
@@ -128,7 +128,7 @@ namespace DataTables.AspNet.AspNetCore
                 var model = new DataTablesRequest(_draw, _start, _length, search, columns);
                 {
                     //return ModelBindingResult.Success(bindingContext.ModelName, model);
-                    bindingContext.Result = ModelBindingResult.Success(bindingContext.ModelName, model);
+                    bindingContext.Result = ModelBindingResult.Success(model);
                     return;
                 }
             }

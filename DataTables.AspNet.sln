@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7C40D7E9-8127-4204-918D-7126DF55D34E}"
 EndProject
@@ -31,8 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTables.AspNet.Samples.M
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Samples.AspNetCore.BasicIntegration", "samples\DataTables.AspNet.Samples.AspNetCore.BasicIntegration\DataTables.AspNet.Samples.AspNetCore.BasicIntegration.xproj", "{FDF558EF-39AC-4E6B-8055-07965399959E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTables.AspNet.Samples.WebApi2.BasicIntegration", "samples\DataTables.AspNet.Samples.WebApi2.BasicIntegration\DataTables.AspNet.Samples.WebApi2.BasicIntegration.csproj", "{6F6CD0EB-FF42-4724-B951-4CF898E7B780}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.WebApi2.Tests", "src\DataTables.AspNet.WebApi2.Tests\DataTables.AspNet.WebApi2.Tests.xproj", "{5D46B881-C683-4D86-B906-B7821DDE2056}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.WebApi2", "src\DataTables.AspNet.WebApi2\DataTables.AspNet.WebApi2.xproj", "{DA1469AD-F087-448F-8A27-5A0FED8442AD}"
@@ -55,6 +53,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{A6B96E7E
 		nuget\DataTables.AspNet.WebApi2.pack.bat = nuget\DataTables.AspNet.WebApi2.pack.bat
 		nuget\PACK_ALL.bat = nuget\PACK_ALL.bat
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTables.AspNet.Samples.WebApi2.BasicIntegration", "samples\DataTables.AspNet.Samples.WebApi2.BasicIntegration\DataTables.AspNet.Samples.WebApi2.BasicIntegration.csproj", "{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,10 +98,6 @@ Global
 		{FDF558EF-39AC-4E6B-8055-07965399959E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDF558EF-39AC-4E6B-8055-07965399959E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDF558EF-39AC-4E6B-8055-07965399959E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F6CD0EB-FF42-4724-B951-4CF898E7B780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F6CD0EB-FF42-4724-B951-4CF898E7B780}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F6CD0EB-FF42-4724-B951-4CF898E7B780}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F6CD0EB-FF42-4724-B951-4CF898E7B780}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5D46B881-C683-4D86-B906-B7821DDE2056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5D46B881-C683-4D86-B906-B7821DDE2056}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D46B881-C683-4D86-B906-B7821DDE2056}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -118,6 +114,10 @@ Global
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,10 +133,10 @@ Global
 		{84CA0740-F9F1-483C-B8CB-AF7EFBBC6874} = {E2CD3569-9291-46EE-874F-97617823990F}
 		{E5270B4D-D22B-46EF-BF40-E0478E930DFC} = {84CA0740-F9F1-483C-B8CB-AF7EFBBC6874}
 		{FDF558EF-39AC-4E6B-8055-07965399959E} = {84CA0740-F9F1-483C-B8CB-AF7EFBBC6874}
-		{6F6CD0EB-FF42-4724-B951-4CF898E7B780} = {84CA0740-F9F1-483C-B8CB-AF7EFBBC6874}
 		{5D46B881-C683-4D86-B906-B7821DDE2056} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
 		{DA1469AD-F087-448F-8A27-5A0FED8442AD} = {7C40D7E9-8127-4204-918D-7126DF55D34E}
 		{DB3FCEEC-0113-46D8-B9E6-587545406014} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9} = {1C3565DA-C7DF-4312-A394-ECBAE5D89365}
+		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4} = {84CA0740-F9F1-483C-B8CB-AF7EFBBC6874}
 	EndGlobalSection
 EndGlobal

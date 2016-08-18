@@ -1,7 +1,7 @@
 ﻿{
     "id": "DataTables.AspNet.AspNetCore",
     "title": "DataTables.AspNet.AspNetCore",
-    "version": "2.0.0-beta3",
+    "version": "2.0.0",
     "description": "AspNetCore implementation for DataTables.AspNet.",
     "authors": [ "Anderson Matos" ],
 
@@ -9,7 +9,7 @@
         "summary": "AspNetCore implementation for DataTables.AspNet.",
         "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "AspNet", "AspNet5" ],
         "owners": [ "Anderson Matos" ],
-        "releaseNotes": "Finished porting to .NET Core RC2. Renamed from AspNet5 to AspNetCore.",
+        "releaseNotes": "Ported to .NET Core, updated dependencies and released stable version.",
         "iconUrl": "",
         "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
         "licenseUrl": "",
@@ -24,17 +24,17 @@
     "copyright": "",
     
     "dependencies": {
-        "NETStandard.Library": "1.5.0-rc2-24027",
-        "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
+        "NETStandard.Library": "1.6.0",
+        "Microsoft.AspNetCore.Mvc": "1.0.0",
 
-        "DataTables.AspNet.Core": "2.0.0-beta3",
+        "DataTables.AspNet.Core": "2.0.0",
 
-        "Newtonsoft.Json": "8.0.3"
+        "Newtonsoft.Json": "9.0.1"
     },
 
     "frameworks": {
         "net451": { },
-        "netstandard1.5": {
+        "netstandard1.6": {
             "imports": "dnxcore50"
         }
     }

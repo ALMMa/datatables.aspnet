@@ -26,6 +26,9 @@ THE SOFTWARE.
 using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.Extensions.Primitives;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace DataTables.AspNet.AspNetCore.Tests
 {
@@ -74,7 +77,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
         public static ModelBindingContext MockModelBindingContext(string draw, string length, string start, string searchValue, string searchRegex, IDictionary<string, object> additionalParameters, Core.NameConvention.IRequestNameConvention requestNameConvention)
         {
             // Request properties.
-            var formCollection = new Dictionary<string, object>()
+            var formCollection = new Dictionary<string, StringValues>()
             {
                 { requestNameConvention.Length, length },
                 { requestNameConvention.Start, start },
@@ -93,15 +96,15 @@ namespace DataTables.AspNet.AspNetCore.Tests
             }
 
             // Value provider for request properties.
-            var valueProvider = new DictionaryBasedValueProvider(new BindingSource("a", "a", false, true), formCollection);
+            var valueProvider = new FormValueProvider(new BindingSource("a", "a", false, true), new FormCollection(formCollection), new System.Globalization.CultureInfo("en-US"));
 
 
             // Model metadata.
-            var x = new Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultCompositeMetadataDetailsProvider(null);
+            var x = new Microsoft.AspNetCore.Mvc.Internal.DefaultCompositeMetadataDetailsProvider(null);
             var modelMetadata = new Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider(x).GetMetadataForType(typeof(Core.IDataTablesRequest));
             //var modelMetadata = new Microsoft.AspNet.Mvc.ModelBinding.Metadata. ModelMetadataProviders.Current.GetMetadataForType(null, typeof(Core.IDataTablesRequest));
-
-            return new ModelBindingContext()
+            
+            return new DefaultModelBindingContext()
             {
                 ModelName = "moq",
                 ValueProvider = valueProvider,
@@ -111,17 +114,18 @@ namespace DataTables.AspNet.AspNetCore.Tests
         public static ModelBindingContext MockModelBindingContextWithInvalidRequest()
         {
             // Request properties.
-            var formCollection = new Dictionary<string, object>();
+            var formCollection = new Dictionary<string, StringValues>();
 
             // Value provider for request properties.
-            var valueProvider = new DictionaryBasedValueProvider(new BindingSource("a", "a", false, true), formCollection);
+            var valueProvider = new FormValueProvider(new BindingSource("a", "a", false, true), new FormCollection(formCollection), new System.Globalization.CultureInfo("en-US"));
 
             // Model metadata.
-            var x = new Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultCompositeMetadataDetailsProvider(null);
+            
+            var x = new Microsoft.AspNetCore.Mvc.Internal.DefaultCompositeMetadataDetailsProvider(null);
             var modelMetadata = new Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelMetadataProvider(x).GetMetadataForType(typeof(Core.IDataTablesRequest));
             //var modelMetadata = new Microsoft.AspNet.Mvc.ModelBinding.Metadata. ModelMetadataProviders.Current.GetMetadataForType(null, typeof(Core.IDataTablesRequest));
-
-            return new ModelBindingContext()
+            
+            return new DefaultModelBindingContext()
             {
                 ModelName = "moq",
                 ValueProvider = valueProvider,
