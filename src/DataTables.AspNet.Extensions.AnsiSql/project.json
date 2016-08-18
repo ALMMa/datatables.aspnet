@@ -1,7 +1,7 @@
 ﻿{
     "id": "DataTables.AspNet.Extensions.AnsiSql",
     "title": "DataTables.AspNet.Extensions.AnsiSql",
-    "version": "2.0.0",
+    "version": "2.0.0-alpha1",
     "description": "DataTables.AspNet extensions for AnsiSql generation.",
     "authors": [ "Anderson Matos" ],
 
@@ -9,16 +9,19 @@
         "summary": "",
         "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Sql", "Ansi" ],
         "owners": [ "Anderson Matos" ],
-        "releaseNotes": "",
+        "releaseNotes": "Initial release for DataTables.AspNet AnsiSQL parser extensions.",
         "iconUrl": "",
         "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
-        "licenseUrl": "",
-        "requireLicenseAcceptance": false,
+        "licenseUrl": "https://raw.githubusercontent.com/ALMMa/datatables.aspnet/master/LICENSE",
+        "requireLicenseAcceptance": true,
         "repository": {
             "type": "git",
             "url": "https://github.com/ALMMa/datatables.aspnet"
         }
     },
+
+    "language": "en-US",
+    "copyright": "2014-2016 Anderson Matos (MIT License)",
 
     "dependencies": {
         "DataTables.AspNet.Core": "2.0.0"
