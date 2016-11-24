@@ -48,8 +48,8 @@
       <HintPath>..\..\packages\DataTables.AspNet.Core.2.0.0\lib\net45\DataTables.AspNet.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataTables.AspNet.WebApi2, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DataTables.AspNet.WebApi2.2.0.0\lib\net45\DataTables.AspNet.WebApi2.dll</HintPath>
+    <Reference Include="DataTables.AspNet.WebApi2, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DataTables.AspNet.WebApi2.2.0.1\lib\net45\DataTables.AspNet.WebApi2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
