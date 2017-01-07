@@ -162,7 +162,7 @@ namespace DataTables.AspNet.AspNetCore
                 // Parses Name value.
                 var columnName = values.GetValue(String.Format(names.ColumnName, counter));
                 string _columnName = null;
-                if (!Parse<string>(columnName, out _columnName)) break;
+				Parse<string>(columnName, out _columnName);
 
                 // Parses Orderable value.
                 var columnSortable = values.GetValue(String.Format(names.IsColumnSortable, counter));
