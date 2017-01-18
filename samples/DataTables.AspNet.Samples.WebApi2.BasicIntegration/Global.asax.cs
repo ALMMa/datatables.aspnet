@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using DataTables.AspNet.WebApi2;
 
 namespace DataTables.AspNet.Samples.WebApi2.BasicIntegration
 {
@@ -14,7 +15,7 @@ namespace DataTables.AspNet.Samples.WebApi2.BasicIntegration
         protected void Application_Start()
         {
             // Must be the first config to take place because other binders may cause conflict.
-            DataTables.AspNet.WebApi2.Configuration.RegisterDataTables(GlobalConfiguration.Configuration);
+            GlobalConfiguration.Configuration.RegisterDataTables();
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

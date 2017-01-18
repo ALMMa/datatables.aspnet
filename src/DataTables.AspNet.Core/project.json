@@ -1,7 +1,7 @@
 ﻿{
     "id": "DataTables.AspNet.Core",
     "title": "DataTables.AspNet.Core",
-    "version": "2.0.0",
+    "version": "2.0.2",
     "description": "Core elements for DataTables.AspNet.",
     "authors": [ "Anderson Matos" ],
 
@@ -9,7 +9,7 @@
         "summary": "Core elements for DataTables.AspNet.",
         "tags": [ "DataTables", "DataTables.Mvc", "DataTables.AspNet", "Mvc", "AspNet", "WebApi" ],
         "owners": [ "Anderson Matos" ],
-        "releaseNotes": "Ported to .NET Core and released stable version.",
+        "releaseNotes": "Updated dependencies and framework.",
         "iconUrl": "",
         "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
         "licenseUrl": "https://raw.githubusercontent.com/ALMMa/datatables.aspnet/master/LICENSE",
@@ -25,10 +25,6 @@
     
     "frameworks": {
         "net45": { },
-        "netstandard1.1": {
-            "dependencies": {
-                "NETStandard.Library": "1.6.0"
-            }
-        }
+        "netstandard1.1": { "dependencies": { "NETStandard.Library": "1.6.1" } }
     }
 }

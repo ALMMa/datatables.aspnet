@@ -36,7 +36,7 @@
           "lib/net40/DapperExtensions.dll": {}
         }
       },
-      "DataTables.AspNet.Core/2.0.0": {
+      "DataTables.AspNet.Core/2.0.1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5",
         "compile": {
@@ -76,7 +76,7 @@
         "lib/net40/DapperExtensions.pdb"
       ]
     },
-    "DataTables.AspNet.Core/2.0.0": {
+    "DataTables.AspNet.Core/2.0.1": {
       "type": "project",
       "path": "../DataTables.AspNet.Core/project.json",
       "msbuildProject": "../DataTables.AspNet.Core/DataTables.AspNet.Core.xproj"

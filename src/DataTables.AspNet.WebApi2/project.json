@@ -1,7 +1,7 @@
 ﻿{
     "id": "DataTables.AspNet.WebApi2",
     "title": "DataTables.AspNet.WebApi2",
-    "version": "2.0.0",
+    "version": "2.0.2",
     "description": "WebApi2 implementation for DataTables.AspNet.",
     "authors": [ "Anderson Matos" ],
 
@@ -9,7 +9,7 @@
         "summary": "WebApi2 implementation for DataTables.AspNet.",
         "tags": [ "DataTables", "DataTables.Mvc", "DataTables.WebApi2", "WebApi", "WebApi2" ],
         "owners": [ "Anderson Matos" ],
-        "releaseNotes": "Ported to .NET Core, updated dependencies and released stable version.",
+        "releaseNotes": "Updated dependencies and framework.",
         "iconUrl": "",
         "projectUrl": "https://github.com/ALMMa/datatables.aspnet",
         "licenseUrl": "https://raw.githubusercontent.com/ALMMa/datatables.aspnet/master/LICENSE",
@@ -26,16 +26,12 @@
     "dependencies": {
         "Microsoft.AspNet.WebApi": "5.2.3",
 
-        "DataTables.AspNet.Core": "2.0.0",
+        "DataTables.AspNet.Core": "2.0.2",
 
         "Newtonsoft.Json": "9.0.1"
     },
 
     "frameworks": {
-        "net45": {
-            "frameworkAssemblies": {
-                "System.Web": "4.0.0.0"
-            }
-        }
+        "net45": { "frameworkAssemblies": { "System.Web": "4.0.0.0" } }
     }
 }

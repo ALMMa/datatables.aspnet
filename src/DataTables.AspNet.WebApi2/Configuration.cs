@@ -97,7 +97,7 @@ namespace DataTables.AspNet.WebApi2
 
             Options = options;
 
-			configuration.BindParameter(typeof(IDataTablesRequest), new ModelBinder());
+			configuration.BindParameter(typeof(IDataTablesRequest), requestModelBinder);
 
 			if (parseRequestAdditionalParameters != null)
             {

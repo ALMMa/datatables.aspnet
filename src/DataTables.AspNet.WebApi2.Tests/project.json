@@ -1,17 +1,17 @@
 ﻿{
     "id": "DataTables.AspNet.WebApi2.Tests",
     "title": "DataTables.AspNet.WebApi2.Tests",
-    "version": "2.0.0",
+    "version": "2.0.2",
     "description": "Test suite for DataTables.AspNet.WebApi2.",
 
     "dependencies": {
-        "DataTables.AspNet.Core": "2.0.0",
-        "DataTables.AspNet.WebApi2": "2.0.0",
+        "DataTables.AspNet.Core": "2.0.2",
+        "DataTables.AspNet.WebApi2": "2.0.2",
 
-        "xunit": "2.2.0-beta2-build3300",
+        "xunit": "2.2.0-beta5-build3474",
         "dotnet-test-xunit": "2.2.0-preview2-build1029",
 
-        "Moq": "4.2.1510.2205"
+        "Moq": "4.6.38-alpha"
     },
 
     "commands": {
