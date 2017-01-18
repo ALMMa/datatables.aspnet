@@ -62,7 +62,7 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "DataTables.AspNet.Core/2.0.0": {
+      "DataTables.AspNet.Core/2.0.2": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5",
         "compile": {
@@ -151,7 +151,7 @@
         "tools/install.ps1"
       ]
     },
-    "DataTables.AspNet.Core/2.0.0": {
+    "DataTables.AspNet.Core/2.0.2": {
       "type": "project",
       "path": "../DataTables.AspNet.Core/project.json",
       "msbuildProject": "../DataTables.AspNet.Core/DataTables.AspNet.Core.xproj"
@@ -159,7 +159,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "DataTables.AspNet.Core >= 2.0.0",
+      "DataTables.AspNet.Core >= 2.0.2",
       "Microsoft.AspNet.Mvc >= 5.2.3",
       "Newtonsoft.Json >= 9.0.1"
     ],

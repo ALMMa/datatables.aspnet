@@ -6,14 +6,14 @@
 	"projectUrl": "",
 	"licenseUrl": "",
 
-	"dependencies": {
-		"DataTables.AspNet.Core": "",
+    "dependencies": {
+        "DataTables.AspNet.Core": "2.0.2",
 
-		"xunit": "2.1.0",
-		"xunit.runner.dnx": "2.1.0-beta6-build191",
+        "xunit": "2.2.0-beta5-build3474",
+        "dotnet-test-xunit": "2.2.0-preview2-build1029",
 
-		"Moq": "4.2.1510.2205"
-	},
+        "Moq": "4.6.38-alpha"
+    },
 
 	"commands": {
 		"test": "xunit.runner.dnx"
