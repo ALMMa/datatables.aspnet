@@ -16,6 +16,7 @@ Check Microsoft website for that: http://www.asp.net/mvc/overview/getting-starte
 3) Understand that JsonResult derives from ActionResult and that DataTablesJsonResult derives from JsonResult and that's why
 returning is from our action works just fine.
 
+4) You need to register DataTables so that MVC can bind incoming requests to an object with interface IDataTablesRequest. This is shown in the samples in Global.asax.cs
 
 
 What you won't learn here:
