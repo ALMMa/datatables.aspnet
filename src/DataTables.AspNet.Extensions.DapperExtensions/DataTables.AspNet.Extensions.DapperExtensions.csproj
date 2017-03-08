@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>DataTables.AspNet extensions for DapperExtensions.</Description>
+    <Copyright>2014-2016 Anderson Matos (MIT License)</Copyright>
+    <AssemblyTitle>DataTables.AspNet.Extensions.DapperExtensions</AssemblyTitle>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <VersionPrefix>2.0.0-alpha1</VersionPrefix>
+    <Authors>Anderson Matos</Authors>
+    <TargetFramework>net45</TargetFramework>
+    <AssemblyName>DataTables.AspNet.Extensions.DapperExtensions</AssemblyName>
+    <PackageId>DataTables.AspNet.Extensions.DapperExtensions</PackageId>
+    <PackageTags>DataTables;DataTables.Mvc;DataTables.AspNet;Dapper;DapperExtensions</PackageTags>
+    <PackageReleaseNotes>Initial release for DataTables.AspNet DapperExtensions parser extensions.</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/ALMMa/datatables.aspnet</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/ALMMa/datatables.aspnet/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/ALMMa/datatables.aspnet</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataTables.AspNet.Core\DataTables.AspNet.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.0-beta9" />
+    <PackageReference Include="DapperExtensions" Version="1.4.4" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
