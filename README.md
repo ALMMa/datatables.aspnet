@@ -8,8 +8,11 @@ Unit-testing is a priority to avoid breaking <i>your</i> app and every stable re
 This is the first stable version for `DataTables.AspNet`. We dropped the full migration path because we made everything clean and simple and included some basic usage samples to guide you.
 
 <h3>Standard NuGet packages</h3>
+
 - [DataTables.AspNet.Mvc5](https://www.nuget.org/packages/DataTables.AspNet.Mvc5/) with support for Mvc5, registration and automatic binders
+
 - [DataTables.AspNet.WebApi2](https://www.nuget.org/packages/DataTables.AspNet.WebApi2/) with support for WebApi2, registration and automatic binders
+
 - [DataTables.AspNet.AspNetCore](https://www.nuget.org/packages/DataTables.AspNet.AspNetCore/) with support for AspNetCore, dependency injection and automatic binders
 
 <h3>IMPORTANT: Deprecated (unlisted) package</h3>
