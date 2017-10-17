@@ -16,16 +16,20 @@ This is the first stable version for `DataTables.AspNet`. We dropped the full mi
 - [DataTables.AspNet.AspNetCore](https://www.nuget.org/packages/DataTables.AspNet.AspNetCore/) with support for AspNetCore, dependency injection and automatic binders
 
 <h3>IMPORTANT: Deprecated (unlisted) package</h3>
+
 - [DataTables.AspNet.AspNet5](https://www.nuget.org/packages/DataTables.AspNet.AspNet5/)
 
 This package has been replaced by DataTables.AspNet.AspNetCore due to Microsoft renaming of the new platform.
 
 <h3>Write your own code!</h3>
+
 DataTables.AspNet ships with a core project called [DataTables.AspNet.Core](https://www.nuget.org/packages/DataTables.AspNet.Core/), which contains basic interfaces and core elements just the way DataTables needs.<br />
 Feel free to use it and implement your own classes, methods and extend DataTables.AspNet in <i>your</i> very own way.
 
 <h3>Helpers and extensions</h3>
+
 - [DataTables.AspNet.Extensions.AnsiSql](https://www.nuget.org/packages/DataTables.AspNet.Extensions.AnsiSql/) enables basic translation from sort and filter into ANSI-SQL `WHERE` and `ORDER BY`
+
 - [DataTables.AspNet.Extensions.DapperExtensions](https://www.nuget.org/packages/DataTables.AspNet.Extensions.DapperExtensions/) transforms filters into `IPredicate` and sort into `ISort`
 
 Those are still alpha1 releases but with nuget packages available. There are no tests yet, they are in a very initial phase and might change a bit in the near future.
