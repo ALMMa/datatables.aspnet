@@ -101,7 +101,7 @@ namespace DataTables.AspNet.AspNetCore
         /// Enables parsing response aditional parameters.
         /// </summary>
         /// <returns></returns>
-        public IOptions EnableResponseAdditionalParameters() { IsRequestAdditionalParametersEnabled = true; return this; }
+        public IOptions EnableResponseAdditionalParameters() { IsResponseAdditionalParametersEnabled = true; return this; }
         /// <summary>
         /// Disables parsing response aditional parameters.
         /// Response aditional parameters are not resolved by default for performance reasons.
