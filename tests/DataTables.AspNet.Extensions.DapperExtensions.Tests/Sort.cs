@@ -1,6 +1,6 @@
 ﻿using DataTables.AspNet.Core;
 
-namespace DataTables.AspNet.AspNetCore
+namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
 {
     /// <summary>
     /// Represents sort/ordering for columns.
@@ -28,7 +28,7 @@ namespace DataTables.AspNet.AspNetCore
         {
             Order = order;
             
-            Direction = (direction ?? "").ToLowerInvariant().Equals(Configuration.Options.RequestNameConvention.SortDescending)
+            Direction = (direction ?? "").ToLowerInvariant().Equals("desc")
                 ? SortDirection.Descending // Descending sort should be explicitly set.
                 : SortDirection.Ascending; // Default (when set or not) is ascending sort.
         }

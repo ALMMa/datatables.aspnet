@@ -1,6 +1,6 @@
 ﻿using DataTables.AspNet.Core.NameConvention;
 
-namespace DataTables.AspNet.AspNetCore.NameConvention
+namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
 {
     /// <summary>
     /// Represents CamelCase response naming convention for DataTables.AspNet.AspNetCore.

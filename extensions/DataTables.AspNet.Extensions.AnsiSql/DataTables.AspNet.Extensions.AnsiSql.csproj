@@ -1,22 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Core elements for DataTables.AspNet.</Description>
+    <Description>DataTables.AspNet extensions for AnsiSql generation.</Description>
     <Copyright>2014-2016 Anderson Matos (MIT License)</Copyright>
-    <AssemblyTitle>DataTables.AspNet.Core</AssemblyTitle>
+    <AssemblyTitle>DataTables.AspNet.Extensions.AnsiSql</AssemblyTitle>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <VersionPrefix>2.0.2</VersionPrefix>
+    <VersionPrefix>2.0.0-alpha1</VersionPrefix>
     <Authors>Anderson Matos</Authors>
     <TargetFrameworks>netstandard2.0;net5.0;net6.0</TargetFrameworks>
-    <AssemblyName>DataTables.AspNet.Core</AssemblyName>
-    <PackageId>DataTables.AspNet.Core</PackageId>
-    <PackageTags>DataTables;DataTables.Mvc;DataTables.AspNet;Mvc;AspNet;WebApi</PackageTags>
-    <PackageReleaseNotes>Updated dependencies and framework.</PackageReleaseNotes>
+    <AssemblyName>DataTables.AspNet.Extensions.AnsiSql</AssemblyName>
+    <PackageId>DataTables.AspNet.Extensions.AnsiSql</PackageId>
+    <PackageTags>DataTables;DataTables.Mvc;DataTables.AspNet;Sql;Ansi</PackageTags>
+    <PackageReleaseNotes>Initial release for DataTables.AspNet AnsiSQL parser extensions.</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/ALMMa/datatables.aspnet</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/ALMMa/datatables.aspnet/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/ALMMa/datatables.aspnet</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DataTables.AspNet.Core\DataTables.AspNet.Core.csproj" />
+  </ItemGroup>
 
 </Project>

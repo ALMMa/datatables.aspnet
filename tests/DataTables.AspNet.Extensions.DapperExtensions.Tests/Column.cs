@@ -1,6 +1,6 @@
 ﻿using DataTables.AspNet.Core;
 
-namespace DataTables.AspNet.AspNetCore
+namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
 {
     /// <summary>
     /// Represents a DataTables column.

@@ -1,7 +1,7 @@
 ﻿using System;
 using DataTables.AspNet.Core;
 
-namespace DataTables.AspNet.AspNetCore
+namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
 {
     /// <summary>
     /// Represents search/filter definition and value.

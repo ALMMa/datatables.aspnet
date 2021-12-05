@@ -1,8 +1,7 @@
 ﻿using DataTables.AspNet.Core;
 using DataTables.AspNet.Core.NameConvention;
-using DataTables.AspNet.AspNetCore.NameConvention;
 
-namespace DataTables.AspNet.AspNetCore
+namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
 {
     /// <summary>
     /// Represents a configuration object for DataTables.AspNet.

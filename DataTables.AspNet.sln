@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7C40D7E9-8127-4204-918D-7126DF55D34E}"
 EndProject
@@ -11,53 +11,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "extensions", "extensions", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E2CD3569-9291-46EE-874F-97617823990F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "basic integration", "basic integration", "{84CA0740-F9F1-483C-B8CB-AF7EFBBC6874}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D6EDF2E2-8746-4DE6-88D2-89978D23B4F5}"
-	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{A6B96E7E-A26C-4AF8-A309-58ED2531C9E4}"
-	ProjectSection(SolutionItems) = preProject
-		nuget\DataTables.AspNet.AspNetCore.pack.bat = nuget\DataTables.AspNet.AspNetCore.pack.bat
-		nuget\DataTables.AspNet.Core.pack.bat = nuget\DataTables.AspNet.Core.pack.bat
-		nuget\DataTables.AspNet.Extensions.AnsiSql.pack.bat = nuget\DataTables.AspNet.Extensions.AnsiSql.pack.bat
-		nuget\DataTables.AspNet.Extensions.DapperExtensions.pack.bat = nuget\DataTables.AspNet.Extensions.DapperExtensions.pack.bat
-		nuget\DataTables.AspNet.Mvc5.pack.bat = nuget\DataTables.AspNet.Mvc5.pack.bat
-		nuget\DataTables.AspNet.WebApi2.pack.bat = nuget\DataTables.AspNet.WebApi2.pack.bat
-		nuget\PACK_ALL.bat = nuget\PACK_ALL.bat
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.Core", "src\DataTables.AspNet.Core\DataTables.AspNet.Core.csproj", "{489F1F8C-ABDE-4FB2-AD6D-5463E1F067E0}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.Mvc5", "src\DataTables.AspNet.Mvc5\DataTables.AspNet.Mvc5.csproj", "{3006616C-1DA6-4BF6-B331-C7083192C12C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.Extensions.DapperExtensions", "src\DataTables.AspNet.Extensions.DapperExtensions\DataTables.AspNet.Extensions.DapperExtensions.csproj", "{1458F8A6-EA99-4A3A-B877-A8B761F7749B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.Mvc5.Tests", "src\DataTables.AspNet.Mvc5.Tests\DataTables.AspNet.Mvc5.Tests.csproj", "{01A39383-2AD7-45F2-AF00-287C4DE8F1B9}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Extensions.DapperExtensions.Tests", "src\DataTables.AspNet.Extensions.DapperExtensions.Tests\DataTables.AspNet.Extensions.DapperExtensions.Tests.xproj", "{C033DD3D-CDA1-4997-84B4-2B7541DE46E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.AspNetCore", "src\DataTables.AspNet.AspNetCore\DataTables.AspNet.AspNetCore.csproj", "{A99E62EC-9FA2-4564-A4E1-92BDF40B9752}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.AspNetCore.Tests", "src\DataTables.AspNet.AspNetCore.Tests\DataTables.AspNet.AspNetCore.Tests.csproj", "{C83A8298-6186-4372-A763-C17961F3C98E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.Extensions.AnsiSql", "extensions\DataTables.AspNet.Extensions.AnsiSql\DataTables.AspNet.Extensions.AnsiSql.csproj", "{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTables.AspNet.Samples.Mvc5.BasicIntegration", "samples\DataTables.AspNet.Samples.Mvc5.BasicIntegration\DataTables.AspNet.Samples.Mvc5.BasicIntegration.csproj", "{E5270B4D-D22B-46EF-BF40-E0478E930DFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.Extensions.DapperExtensions", "extensions\DataTables.AspNet.Extensions.DapperExtensions\DataTables.AspNet.Extensions.DapperExtensions.csproj", "{1458F8A6-EA99-4A3A-B877-A8B761F7749B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.Samples.AspNetCore.BasicIntegration", "samples\DataTables.AspNet.Samples.AspNetCore.BasicIntegration\DataTables.AspNet.Samples.AspNetCore.BasicIntegration.csproj", "{FDF558EF-39AC-4E6B-8055-07965399959E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.AspNetCore.Tests", "tests\DataTables.AspNet.AspNetCore.Tests\DataTables.AspNet.AspNetCore.Tests.csproj", "{C83A8298-6186-4372-A763-C17961F3C98E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.WebApi2.Tests", "src\DataTables.AspNet.WebApi2.Tests\DataTables.AspNet.WebApi2.Tests.csproj", "{5D46B881-C683-4D86-B906-B7821DDE2056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.Extensions.DapperExtensions.Tests", "tests\DataTables.AspNet.Extensions.DapperExtensions.Tests\DataTables.AspNet.Extensions.DapperExtensions.Tests.csproj", "{5B40F60E-EDAA-49C6-9850-F2C606847C93}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.WebApi2", "src\DataTables.AspNet.WebApi2\DataTables.AspNet.WebApi2.csproj", "{DA1469AD-F087-448F-8A27-5A0FED8442AD}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DataTables.AspNet.Extensions.AnsiSql.Tests", "src\DataTables.AspNet.Extensions.AnsiSql.Tests\DataTables.AspNet.Extensions.AnsiSql.Tests.xproj", "{DB3FCEEC-0113-46D8-B9E6-587545406014}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTables.AspNet.Extensions.AnsiSql", "src\DataTables.AspNet.Extensions.AnsiSql\DataTables.AspNet.Extensions.AnsiSql.csproj", "{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTables.AspNet.Samples.WebApi2.BasicIntegration", "samples\DataTables.AspNet.Samples.WebApi2.BasicIntegration\DataTables.AspNet.Samples.WebApi2.BasicIntegration.csproj", "{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTables.AspNet.Samples.Mvc5.AdditionalParameters", "samples\DataTables.AspNet.Samples.Mvc5.AdditionalParameters\DataTables.AspNet.Samples.Mvc5.AdditionalParameters.csproj", "{17DB0D10-993E-4C92-966D-CC115404319D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{B4AB7D94-A13B-4F8B-8AC6-7041CCDFC985}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,82 +41,39 @@ Global
 		{489F1F8C-ABDE-4FB2-AD6D-5463E1F067E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{489F1F8C-ABDE-4FB2-AD6D-5463E1F067E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{489F1F8C-ABDE-4FB2-AD6D-5463E1F067E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3006616C-1DA6-4BF6-B331-C7083192C12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3006616C-1DA6-4BF6-B331-C7083192C12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3006616C-1DA6-4BF6-B331-C7083192C12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3006616C-1DA6-4BF6-B331-C7083192C12C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1458F8A6-EA99-4A3A-B877-A8B761F7749B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1458F8A6-EA99-4A3A-B877-A8B761F7749B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1458F8A6-EA99-4A3A-B877-A8B761F7749B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1458F8A6-EA99-4A3A-B877-A8B761F7749B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01A39383-2AD7-45F2-AF00-287C4DE8F1B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01A39383-2AD7-45F2-AF00-287C4DE8F1B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01A39383-2AD7-45F2-AF00-287C4DE8F1B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01A39383-2AD7-45F2-AF00-287C4DE8F1B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C033DD3D-CDA1-4997-84B4-2B7541DE46E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C033DD3D-CDA1-4997-84B4-2B7541DE46E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C033DD3D-CDA1-4997-84B4-2B7541DE46E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C033DD3D-CDA1-4997-84B4-2B7541DE46E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A99E62EC-9FA2-4564-A4E1-92BDF40B9752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A99E62EC-9FA2-4564-A4E1-92BDF40B9752}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A99E62EC-9FA2-4564-A4E1-92BDF40B9752}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A99E62EC-9FA2-4564-A4E1-92BDF40B9752}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C83A8298-6186-4372-A763-C17961F3C98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C83A8298-6186-4372-A763-C17961F3C98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C83A8298-6186-4372-A763-C17961F3C98E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C83A8298-6186-4372-A763-C17961F3C98E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5270B4D-D22B-46EF-BF40-E0478E930DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5270B4D-D22B-46EF-BF40-E0478E930DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5270B4D-D22B-46EF-BF40-E0478E930DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5270B4D-D22B-46EF-BF40-E0478E930DFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDF558EF-39AC-4E6B-8055-07965399959E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDF558EF-39AC-4E6B-8055-07965399959E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDF558EF-39AC-4E6B-8055-07965399959E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDF558EF-39AC-4E6B-8055-07965399959E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D46B881-C683-4D86-B906-B7821DDE2056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D46B881-C683-4D86-B906-B7821DDE2056}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D46B881-C683-4D86-B906-B7821DDE2056}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D46B881-C683-4D86-B906-B7821DDE2056}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DA1469AD-F087-448F-8A27-5A0FED8442AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DA1469AD-F087-448F-8A27-5A0FED8442AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DA1469AD-F087-448F-8A27-5A0FED8442AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DA1469AD-F087-448F-8A27-5A0FED8442AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DB3FCEEC-0113-46D8-B9E6-587545406014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DB3FCEEC-0113-46D8-B9E6-587545406014}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DB3FCEEC-0113-46D8-B9E6-587545406014}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DB3FCEEC-0113-46D8-B9E6-587545406014}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{17DB0D10-993E-4C92-966D-CC115404319D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17DB0D10-993E-4C92-966D-CC115404319D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17DB0D10-993E-4C92-966D-CC115404319D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{17DB0D10-993E-4C92-966D-CC115404319D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83A8298-6186-4372-A763-C17961F3C98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83A8298-6186-4372-A763-C17961F3C98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83A8298-6186-4372-A763-C17961F3C98E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83A8298-6186-4372-A763-C17961F3C98E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B40F60E-EDAA-49C6-9850-F2C606847C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B40F60E-EDAA-49C6-9850-F2C606847C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B40F60E-EDAA-49C6-9850-F2C606847C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B40F60E-EDAA-49C6-9850-F2C606847C93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{84CA0740-F9F1-483C-B8CB-AF7EFBBC6874} = {E2CD3569-9291-46EE-874F-97617823990F}
 		{489F1F8C-ABDE-4FB2-AD6D-5463E1F067E0} = {7C40D7E9-8127-4204-918D-7126DF55D34E}
-		{3006616C-1DA6-4BF6-B331-C7083192C12C} = {7C40D7E9-8127-4204-918D-7126DF55D34E}
 		{1458F8A6-EA99-4A3A-B877-A8B761F7749B} = {1C3565DA-C7DF-4312-A394-ECBAE5D89365}
-		{01A39383-2AD7-45F2-AF00-287C4DE8F1B9} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
-		{C033DD3D-CDA1-4997-84B4-2B7541DE46E7} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
 		{A99E62EC-9FA2-4564-A4E1-92BDF40B9752} = {7C40D7E9-8127-4204-918D-7126DF55D34E}
-		{C83A8298-6186-4372-A763-C17961F3C98E} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
-		{E5270B4D-D22B-46EF-BF40-E0478E930DFC} = {84CA0740-F9F1-483C-B8CB-AF7EFBBC6874}
-		{FDF558EF-39AC-4E6B-8055-07965399959E} = {84CA0740-F9F1-483C-B8CB-AF7EFBBC6874}
-		{5D46B881-C683-4D86-B906-B7821DDE2056} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
-		{DA1469AD-F087-448F-8A27-5A0FED8442AD} = {7C40D7E9-8127-4204-918D-7126DF55D34E}
-		{DB3FCEEC-0113-46D8-B9E6-587545406014} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
 		{28978ACF-EB4D-4F8E-AF07-2A94124D16C9} = {1C3565DA-C7DF-4312-A394-ECBAE5D89365}
-		{532C8D5D-0FDF-462F-B2A3-BC1FE0BF09F4} = {84CA0740-F9F1-483C-B8CB-AF7EFBBC6874}
-		{17DB0D10-993E-4C92-966D-CC115404319D} = {84CA0740-F9F1-483C-B8CB-AF7EFBBC6874}
+		{C83A8298-6186-4372-A763-C17961F3C98E} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
+		{5B40F60E-EDAA-49C6-9850-F2C606847C93} = {505A3DE7-8AA9-416B-8356-DD2A38714F5D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEF11293-AFA9-4699-869A-776341116E7F}
 	EndGlobalSection
 EndGlobal
