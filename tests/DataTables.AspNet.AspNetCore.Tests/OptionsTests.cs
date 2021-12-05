@@ -19,9 +19,9 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Assert
             Assert.NotNull(options);
             Assert.Equal(10, options.DefaultPageLength);
-            Assert.Equal(false, options.IsRequestAdditionalParametersEnabled);
-            Assert.Equal(false, options.IsResponseAdditionalParametersEnabled);
-            Assert.Equal(true, options.IsDrawValidationEnabled);
+            Assert.False(options.IsRequestAdditionalParametersEnabled);
+            Assert.False(options.IsResponseAdditionalParametersEnabled);
+            Assert.True(options.IsDrawValidationEnabled);
             Assert.Equal(new NameConvention.CamelCaseRequestNameConvention().Draw, options.RequestNameConvention.Draw);
             Assert.Equal(new NameConvention.CamelCaseResponseNameConvention().Draw, options.ResponseNameConvention.Draw);
             Assert.Equal("asc", options.RequestNameConvention.SortAscending);
@@ -72,7 +72,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             options.DisableDrawValidation();
 
             // Assert
-            Assert.Equal(false, options.IsDrawValidationEnabled);
+            Assert.False(options.IsDrawValidationEnabled);
         }
         /// <summary>
         /// Validates enabling request draw validation.
@@ -87,7 +87,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             options.DisableDrawValidation().EnableDrawValidation();
 
             // Assert
-            Assert.Equal(true, options.IsDrawValidationEnabled);
+            Assert.True(options.IsDrawValidationEnabled);
         }
         /// <summary>
         /// Validates enabling aditional parameters verification.
@@ -103,8 +103,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             options.EnableResponseAdditionalParameters();
 
             // Assert
-            Assert.Equal(true, options.IsRequestAdditionalParametersEnabled);
-            Assert.Equal(true, options.IsResponseAdditionalParametersEnabled);
+            Assert.True(options.IsRequestAdditionalParametersEnabled);
+            Assert.True(options.IsResponseAdditionalParametersEnabled);
         }
         /// <summary>
         /// Validates disabling aditional parameters verification.
@@ -120,8 +120,8 @@ namespace DataTables.AspNet.AspNetCore.Tests
             options.EnableResponseAdditionalParameters().DisableResponseAdditionalParameters();
 
             // Assert
-            Assert.Equal(false, options.IsRequestAdditionalParametersEnabled);
-            Assert.Equal(false, options.IsResponseAdditionalParametersEnabled);
+            Assert.False(options.IsRequestAdditionalParametersEnabled);
+            Assert.False(options.IsResponseAdditionalParametersEnabled);
         }
         /// <summary>
         /// Validates changing default page length.

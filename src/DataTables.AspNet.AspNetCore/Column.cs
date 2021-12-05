@@ -7,12 +7,12 @@ namespace DataTables.AspNet.AspNetCore
     /// </summary>
     public class Column : IColumn
     {
-        public string Field { get; private set; }
-        public string Name { get; private set; }
-        public ISearch Search { get; private set; }
-        public bool IsSearchable { get; private set; }
+        public string Field { get; }
+        public string Name { get; }
+        public ISearch Search { get; }
+        public bool IsSearchable { get; }
         public ISort Sort { get; private set; }
-        public bool IsSortable { get; private set; }
+        public bool IsSortable { get; }
 
 
         public Column(string name, string field, bool searchable, bool sortable, ISearch search)

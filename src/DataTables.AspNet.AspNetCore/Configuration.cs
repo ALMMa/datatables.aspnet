@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using DataTables.AspNet.Core;
+﻿using DataTables.AspNet.Core;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-using System.Linq;
+using System;
+using System.Collections.Generic;
 
 namespace DataTables.AspNet.AspNetCore
 {
@@ -72,10 +70,9 @@ namespace DataTables.AspNet.AspNetCore
         /// <param name="enableResponseAdditionalParameters">Indicates whether response aditional parameters parsing is enabled or not.</param>
         public static void RegisterDataTables(this IServiceCollection services, IOptions options, ModelBinder requestModelBinder, Func<ModelBindingContext, IDictionary<string, object>> parseRequestAdditionalParameters, bool enableResponseAdditionalParameters)
         {
-            if (options == null) throw new ArgumentNullException("options", "Options for DataTables.AspNet cannot be null.");
-            if (requestModelBinder == null) throw new ArgumentNullException("requestModelBinder", "Request model binder for DataTables.AspNet cannot be null.");
+            if (requestModelBinder == null) throw new ArgumentNullException(nameof(requestModelBinder), "Request model binder for DataTables.AspNet cannot be null.");
 
-            Options = options;
+            Options = options ?? throw new ArgumentNullException(nameof(options), "Options for DataTables.AspNet cannot be null.");
 
             if (parseRequestAdditionalParameters != null)
             {
@@ -108,7 +105,7 @@ namespace DataTables.AspNet.AspNetCore
                 }
                 else return null;
             }
-            private bool IsBindable(Type type) { return type.Equals(typeof(DataTables.AspNet.Core.IDataTablesRequest)); }
+            private static bool IsBindable(Type type) { return type.Equals(typeof(IDataTablesRequest)); }
         }
     }
 }

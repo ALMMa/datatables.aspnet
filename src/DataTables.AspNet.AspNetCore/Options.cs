@@ -1,6 +1,6 @@
-﻿using DataTables.AspNet.Core;
+﻿using DataTables.AspNet.AspNetCore.NameConvention;
+using DataTables.AspNet.Core;
 using DataTables.AspNet.Core.NameConvention;
-using DataTables.AspNet.AspNetCore.NameConvention;
 
 namespace DataTables.AspNet.AspNetCore
 {

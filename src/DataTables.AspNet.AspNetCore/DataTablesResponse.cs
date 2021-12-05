@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DataTables.AspNet.Core;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 
 namespace DataTables.AspNet.AspNetCore
 {
     /// <summary>
     /// Represents a response for DataTables.
     /// </summary>
-    public class DataTablesResponse : Core.IDataTablesResponse
+    public class DataTablesResponse<TDataType> : IDataTablesResponse<TDataType>
     {
         /// <summary>
         /// Gets draw count for validation and async ordering.
@@ -29,7 +30,7 @@ namespace DataTables.AspNet.AspNetCore
         /// <summary>
         /// Gets data object (collection).
         /// </summary>
-        public object Data { get; protected set; }
+        public IEnumerable<TDataType> Data { get; protected set; }
         /// <summary>
         /// Gets aditional parameters for response.
         /// </summary>
@@ -45,74 +46,73 @@ namespace DataTables.AspNet.AspNetCore
         /// <returns></returns>
         public override string ToString()
         {
-            using (var stringWriter = new System.IO.StringWriter())
-            using (var jsonWriter = new JsonTextWriter(stringWriter))
-            {                 
-                if (IsSuccessResponse())
+            using var stringWriter = new System.IO.StringWriter();
+            using var jsonWriter = new JsonTextWriter(stringWriter);
+
+            if (IsSuccessResponse())
+            {
+                // Start json object.
+                jsonWriter.WriteStartObject();
+
+                // Draw
+                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Draw, true);
+                jsonWriter.WriteValue(Draw);
+
+                // TotalRecords
+                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.TotalRecords, true);
+                jsonWriter.WriteValue(TotalRecords);
+
+                // TotalRecordsFiltered
+                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.TotalRecordsFiltered, true);
+                jsonWriter.WriteValue(TotalRecordsFiltered);
+
+                // Data
+                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Data, true);
+                jsonWriter.WriteRawValue(SerializeData(Data));
+
+                // AdditionalParameters
+                if (Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
                 {
-                    // Start json object.
-                    jsonWriter.WriteStartObject();
-
-                    // Draw
-                    jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Draw, true);
-                    jsonWriter.WriteValue(Draw);
-
-                    // TotalRecords
-                    jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.TotalRecords, true);
-                    jsonWriter.WriteValue(TotalRecords);
-
-                    // TotalRecordsFiltered
-                    jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.TotalRecordsFiltered, true);
-                    jsonWriter.WriteValue(TotalRecordsFiltered);
-
-                    // Data
-                    jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Data, true);
-                    jsonWriter.WriteRawValue(SerializeData(Data));
-
-                    // AdditionalParameters
-                    if (DataTables.AspNet.AspNetCore.Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
+                    foreach (var keypair in AdditionalParameters)
                     {
-                        foreach(var keypair in AdditionalParameters)
-                        {
-                            jsonWriter.WritePropertyName(keypair.Key, true);
-                            jsonWriter.WriteValue(keypair.Value);
-                        }
+                        jsonWriter.WritePropertyName(keypair.Key, true);
+                        jsonWriter.WriteValue(keypair.Value);
                     }
-
-                    // End json object
-                    jsonWriter.WriteEndObject();
-                }
-                else
-                {
-                    // Start json object.
-                    jsonWriter.WriteStartObject();
-
-                    // Draw
-                    jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Draw, true);
-                    jsonWriter.WriteValue(Draw);
-
-                    // Error
-                    jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Error, true);
-                    jsonWriter.WriteValue(Error);
-
-                    // AdditionalParameters
-                    if (DataTables.AspNet.AspNetCore.Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
-                    {
-                        foreach (var keypair in AdditionalParameters)
-                        {
-                            jsonWriter.WritePropertyName(keypair.Key, true);
-                            jsonWriter.WriteValue(keypair.Value);
-                        }
-                    }
-
-                    // End json object
-                    jsonWriter.WriteEndObject();
                 }
 
-                jsonWriter.Flush();
-
-                return stringWriter.ToString();
+                // End json object
+                jsonWriter.WriteEndObject();
             }
+            else
+            {
+                // Start json object.
+                jsonWriter.WriteStartObject();
+
+                // Draw
+                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Draw, true);
+                jsonWriter.WriteValue(Draw);
+
+                // Error
+                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Error, true);
+                jsonWriter.WriteValue(Error);
+
+                // AdditionalParameters
+                if (DataTables.AspNet.AspNetCore.Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
+                {
+                    foreach (var keypair in AdditionalParameters)
+                    {
+                        jsonWriter.WritePropertyName(keypair.Key, true);
+                        jsonWriter.WriteValue(keypair.Value);
+                    }
+                }
+
+                // End json object
+                jsonWriter.WriteEndObject();
+            }
+
+            jsonWriter.Flush();
+
+            return stringWriter.ToString();
         }
         /// <summary>
         /// For private use only.
@@ -170,7 +170,7 @@ namespace DataTables.AspNet.AspNetCore
         /// <param name="totalRecords">Total record count (total records available on database).</param>
         /// <param name="totalRecordsFiltered">Filtered record count (total records available after filtering).</param>
         /// <param name="data">Data object (collection).</param>
-        protected DataTablesResponse(int draw, int totalRecords, int totalRecordsFiltered, object data)
+        protected DataTablesResponse(int draw, int totalRecords, int totalRecordsFiltered, IEnumerable<TDataType> data)
             : this(draw, totalRecords, totalRecordsFiltered, data, null)
         { }
         /// <summary>
@@ -182,7 +182,7 @@ namespace DataTables.AspNet.AspNetCore
         /// <param name="totalRecordsFiltered">Filtered record count (total records available after filtering).</param>
         /// <param name="additionalParameters">Aditional parameters for response.</param>
         /// <param name="data">Data object (collection).</param>
-        protected DataTablesResponse(int draw, int totalRecords, int totalRecordsFiltered, object data, IDictionary<string, object> additionalParameters)
+        protected DataTablesResponse(int draw, int totalRecords, int totalRecordsFiltered, IEnumerable<TDataType> data, IDictionary<string, object> additionalParameters)
         {
             Draw = draw;
             TotalRecords = totalRecords;
@@ -203,9 +203,9 @@ namespace DataTables.AspNet.AspNetCore
         /// <param name="totalRecordsFiltered">Filtered record count (total records available after filtering).</param>
         /// <param name="data">Data object (collection).</param>
         /// <returns>The response object.</returns>
-        public static DataTablesResponse Create(Core.IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, object data)
+        public static DataTablesResponse<TDataType> Create(IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, IEnumerable<TDataType> data)
         {
-            return DataTablesResponse.Create(request, totalRecords, totalRecordsFiltered, data, null);
+            return Create(request, totalRecords, totalRecordsFiltered, data, null);
         }
         /// <summary>
         /// Creates a new response instance.
@@ -216,7 +216,38 @@ namespace DataTables.AspNet.AspNetCore
         /// <param name="data">Data object (collection).</param>
         /// <param name="additionalParameters">Aditional parameters for response.</param>
         /// <returns>The response object.</returns>
-        public static DataTablesResponse Create(Core.IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, object data, IDictionary<string, object> additionalParameters)
+        public static DataTablesResponse<TDataType> Create(IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, IEnumerable<TDataType> data, IDictionary<string, object> additionalParameters)
+        {
+            // When request is null, there should be no response (null response).
+            if (request == null) return null;
+
+            if (Configuration.Options.IsDrawValidationEnabled)
+            {
+                // When draw validation is in place, response must have a draw value equals to or greater than 1.
+                // Any other value besides that represents an invalid draw request and response should be null.
+
+                if (request.Draw < 1) return null;
+            }
+
+            return new DataTablesResponse<TDataType>(request.Draw, totalRecords, totalRecordsFiltered, data, additionalParameters);
+        }
+        /// <summary>
+        /// Creates a new response instance.
+        /// </summary>
+        /// <param name="request">The request object.</param>
+        /// <param name="errorMessage">Error message.</param>
+        /// <returns>The response object.</returns>
+        public static DataTablesResponse<TDataType> Create(Core.IDataTablesRequest request, string errorMessage)
+        {
+            return Create(request, errorMessage, null);
+        }
+        /// <summary>
+        /// Creates a new response instance.
+        /// </summary>
+        /// <param name="request">The request object.</param>
+        /// <param name="errorMessage">Error message.</param>
+        /// <returns>The response object.</returns>
+        public static DataTablesResponse<TDataType> Create(Core.IDataTablesRequest request, string errorMessage, IDictionary<string, object> additionalParameters)
         {
             // When request is null, there should be no response (null response).
             if (request == null) return null;
@@ -229,38 +260,7 @@ namespace DataTables.AspNet.AspNetCore
                 if (request.Draw < 1) return null;
             }
 
-            return new DataTablesResponse(request.Draw, totalRecords, totalRecordsFiltered, data, additionalParameters);
-        }
-        /// <summary>
-        /// Creates a new response instance.
-        /// </summary>
-        /// <param name="request">The request object.</param>
-        /// <param name="errorMessage">Error message.</param>
-        /// <returns>The response object.</returns>
-        public static DataTablesResponse Create(Core.IDataTablesRequest request, string errorMessage)
-        {
-            return DataTablesResponse.Create(request, errorMessage, null);
-        }
-        /// <summary>
-        /// Creates a new response instance.
-        /// </summary>
-        /// <param name="request">The request object.</param>
-        /// <param name="errorMessage">Error message.</param>
-        /// <returns>The response object.</returns>
-        public static DataTablesResponse Create(Core.IDataTablesRequest request, string errorMessage, IDictionary<string, object> additionalParameters)
-        {
-            // When request is null, there should be no response (null response).
-            if (request == null) return null;
-
-            if (DataTables.AspNet.AspNetCore.Configuration.Options.IsDrawValidationEnabled)
-            {
-                // When draw validation is in place, response must have a draw value equals to or greater than 1.
-                // Any other value besides that represents an invalid draw request and response should be null.
-
-                if (request.Draw < 1) return null;
-            }
-
-            return new DataTablesResponse(request.Draw, errorMessage, additionalParameters);
+            return new DataTablesResponse<TDataType>(request.Draw, errorMessage, additionalParameters);
         }
     }
 }

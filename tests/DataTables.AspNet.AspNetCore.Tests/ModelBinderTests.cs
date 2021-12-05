@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Xunit;
-using Moq;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DataTables.AspNet.AspNetCore.Tests
 {

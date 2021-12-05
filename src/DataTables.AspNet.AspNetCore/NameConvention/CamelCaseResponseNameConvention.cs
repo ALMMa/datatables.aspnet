@@ -7,10 +7,10 @@ namespace DataTables.AspNet.AspNetCore.NameConvention
     /// </summary>
     public class CamelCaseResponseNameConvention : IResponseNameConvention
     {
-        public string Draw { get { return "draw"; } }
-        public string TotalRecords { get { return "recordsTotal"; } }
-        public string TotalRecordsFiltered { get { return "recordsFiltered"; } }
-        public string Data { get { return "data"; } }
-        public string Error { get { return "error"; } }
+        public string Draw => "draw";
+        public string TotalRecords => "recordsTotal";
+        public string TotalRecordsFiltered => "recordsFiltered";
+        public string Data => "data";
+        public string Error => "error";
     }
 }

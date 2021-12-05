@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using DataTables.AspNet.Core;
 using Moq;
+using DataTables.AspNet.AspNetCore.Tests.Mocks;
 
 namespace DataTables.AspNet.AspNetCore.Tests
 {
@@ -14,27 +15,27 @@ namespace DataTables.AspNet.AspNetCore.Tests
     /// </summary>
     public static class TestHelper
     {
-        public static Core.IColumn MockColumn(string columnName, string columnField, bool searchable, bool sortable)
+        public static IColumn MockColumn(string columnName, string columnField, bool searchable, bool sortable)
         { return new Column(columnName, columnField, searchable, sortable, null); }
-        public static Core.IColumn MockColumn(string columnName, string columnField, bool searchable, bool sortable, string searchValue, bool searchRegex)
+        public static IColumn MockColumn(string columnName, string columnField, bool searchable, bool sortable, string searchValue, bool searchRegex)
         { return new Column(columnName, columnField, searchable, sortable, new Search(searchValue, searchRegex)); }
-        public static Core.IOptions MockOptions()
+        public static IOptions MockOptions()
         { return new Options(); }
         public static ModelBinder MockModelBinder()
         { return new ModelBinder(); }
-        public static Core.IDataTablesRequest MockDataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns)
+        public static IDataTablesRequest MockDataTablesRequest(int draw, int start, int length, ISearch search, IEnumerable<IColumn> columns)
         { return MockDataTablesRequest(draw, start, length, search, columns, null); }
-        public static Core.IDataTablesRequest MockDataTablesRequest(int draw, int start, int length, Core.ISearch search, IEnumerable<Core.IColumn> columns, IDictionary<string, object> additionalParameters)
+        public static IDataTablesRequest MockDataTablesRequest(int draw, int start, int length, ISearch search, IEnumerable<IColumn> columns, IDictionary<string, object> additionalParameters)
         { return new DataTablesRequest(draw, start, length, search, columns, additionalParameters); }
-        public static System.Collections.IEnumerable MockData()
-        { return new string[] { "firstElement", "secondElement", "thirdElement" }; }
+        public static IEnumerable<MockData> MockData()
+        { return new [] { new MockData("FirstElement"), new MockData("SecondElement"), new MockData("ThirdElement") }; }
         public static IDictionary<string, object> MockAdditionalParameters()
         { return new Dictionary<string, object>() { { "firstParameter", "firstValue" }, { "secondParameter", 7 } }; }
         public static Core.ISearch MockSearch(string searchValue, bool isRegex)
         { return new Search(searchValue, isRegex); }
         public static Core.ISort MockSort(int order, string direction)
         { return new Sort(order, direction); }
-        public static IEnumerable<Core.IColumn> MockColumns()
+        public static IEnumerable<IColumn> MockColumns()
         { 
             return new Column[]
             {

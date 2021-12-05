@@ -9,28 +9,31 @@
         /// Gets column name.
         /// </summary>
         string Name { get; }
+
         /// <summary>
         /// Gets column field.
         /// </summary>
         string Field { get; }
+
         /// <summary>
         /// Gets column searchable indicator.
         /// </summary>
         bool IsSearchable { get; }
+
         /// <summary>
         /// Gets column search definition or null if column is not searchable.
         /// </summary>
         ISearch Search { get; }
+
         /// <summary>
         /// Gets column sortable indicator.
         /// </summary>
         bool IsSortable { get; }
+
         /// <summary>
         /// Gets column sort definition or null if column is not sortable.
         /// </summary>
         ISort Sort { get; }
-
-
 
         /// <summary>
         /// Sets column sort definition.

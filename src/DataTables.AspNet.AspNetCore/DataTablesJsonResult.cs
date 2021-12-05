@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using DataTables.AspNet.Core;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +9,7 @@ namespace DataTables.AspNet.AspNetCore
     /// <summary>
     /// Represents a custom JsonResult that can process IDataTablesResponse accordingly to settings.
     /// </summary>
-    public class DataTablesJsonResult : IActionResult
+    public class DataTablesJsonResult<TDataType> : IActionResult
     {
         /// <summary>
         /// Defines the default result content type.
@@ -24,25 +25,25 @@ namespace DataTables.AspNet.AspNetCore
         private static readonly bool AllowJsonThroughHttpGet = false;
 
 
-        private string ContentType;
-        private System.Text.Encoding ContentEncoding;
-        private bool AllowGet;
-        private object Data;
+        private readonly string ContentType;
+        private readonly System.Text.Encoding ContentEncoding;
+        private readonly bool AllowGet;
+        private readonly IDataTablesResponse<TDataType> Data;
 
 
-        public DataTablesJsonResult(IDataTablesResponse response)
+        public DataTablesJsonResult(IDataTablesResponse<TDataType> response)
             : this(response, DefaultContentType, DefaultContentEncoding, AllowJsonThroughHttpGet)
         { }
 
-        public DataTablesJsonResult(IDataTablesResponse response, bool allowJsonThroughHttpGet)
+        public DataTablesJsonResult(IDataTablesResponse<TDataType> response, bool allowJsonThroughHttpGet)
             : this(response, DefaultContentType, DefaultContentEncoding, allowJsonThroughHttpGet)
         { }
 
-        public DataTablesJsonResult(IDataTablesResponse response, string contentType, System.Text.Encoding contentEncoding, bool allowJsonThroughHttpGet)
+        public DataTablesJsonResult(IDataTablesResponse<TDataType> response, string contentType, System.Text.Encoding contentEncoding, bool allowJsonThroughHttpGet)
         {
             Data = response;
             ContentEncoding = contentEncoding ?? System.Text.Encoding.UTF8;
-            ContentType = String.Format(contentType ?? DefaultContentType, contentEncoding.WebName);
+            ContentType = string.Format(contentType ?? DefaultContentType, contentEncoding.WebName);
             AllowGet = allowJsonThroughHttpGet;
         }
 
@@ -59,7 +60,7 @@ namespace DataTables.AspNet.AspNetCore
             {
                 var content = Data.ToString();
                 var contentBytes = ContentEncoding.GetBytes(content);
-                await response.Body.WriteAsync(contentBytes, 0, contentBytes.Length);
+                await response.Body.WriteAsync(contentBytes, context.HttpContext.RequestAborted);
             }
         }
     }

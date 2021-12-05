@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using DataTables.AspNet.AspNetCore.Tests.Mocks;
 using Xunit;
 
 namespace DataTables.AspNet.AspNetCore.Tests
@@ -15,7 +15,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
 
             // Act
-            var response = request.CreateResponse("just_some_error_message");
+            var response = request.CreateResponse<MockData>("just_some_error_message");
 
             // Assert
             Assert.NotNull(response);
@@ -31,7 +31,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var aditionalParameters = TestHelper.MockAdditionalParameters();
 
             // Act
-            var response = request.CreateResponse("just_some_error_message", aditionalParameters);
+            var response = request.CreateResponse<MockData>("just_some_error_message", aditionalParameters);
 
             // Assert
             Assert.NotNull(response);
@@ -47,7 +47,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var data = TestHelper.MockData();
 
             // Act
-            var response = request.CreateResponse(2000, 1000, data);
+            var response = request.CreateResponse<MockData>(2000, 1000, data);
 
             // Assert
             Assert.NotNull(response);
@@ -64,7 +64,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var aditionalParameters = TestHelper.MockAdditionalParameters();
 
             // Act
-            var response = request.CreateResponse(2000, 1000, data, aditionalParameters);
+            var response = request.CreateResponse<MockData>(2000, 1000, data, aditionalParameters);
 
             // Assert
             Assert.NotNull(response);
@@ -79,7 +79,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             Core.IDataTablesRequest request = null;
 
             // Act
-            var response = request.CreateResponse("just_some_error_message");
+            var response = request.CreateResponse<MockData>("just_some_error_message");
 
             // Assert
             Assert.Null(response);
@@ -94,10 +94,10 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Arrange
             var request = TestHelper.MockDataTablesRequest(0, 13, 99, null, null);
             var data = TestHelper.MockData();
-            DataTables.AspNet.AspNetCore.Configuration.Options.EnableDrawValidation();
+            Configuration.Options.EnableDrawValidation();
 
             // Act
-            var response = request.CreateResponse(2000, 1000, data);
+            var response = request.CreateResponse<MockData>(2000, 1000, data);
 
             // Assert
             Assert.Null(response);
@@ -112,10 +112,10 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Arrange
             var request = TestHelper.MockDataTablesRequest(0, 13, 99, null, null);
             var data = TestHelper.MockData();
-            DataTables.AspNet.AspNetCore.Configuration.Options.DisableDrawValidation();
+            Configuration.Options.DisableDrawValidation();
 
             // Act
-            var response = request.CreateResponse(2000, 1000, data);
+            var response = request.CreateResponse<MockData>(2000, 1000, data);
 
             // Assert
             Assert.NotNull(response);

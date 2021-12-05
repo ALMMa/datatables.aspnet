@@ -1,5 +1,5 @@
-﻿using System;
-using DataTables.AspNet.Core;
+﻿using DataTables.AspNet.Core;
+using System;
 
 namespace DataTables.AspNet.AspNetCore
 {

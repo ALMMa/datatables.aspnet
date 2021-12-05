@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DataTables.AspNet.AspNetCore.Tests.Mocks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Xunit;
 
 namespace DataTables.AspNet.AspNetCore.Tests
@@ -19,7 +20,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
 
             // Act
-            var response = DataTablesResponse.Create(request, "just_an_error_message");
+            var response = DataTablesResponse<MockData>.Create(request, "just_an_error_message");
 
             // Assert
             Assert.Equal(request.Draw, response.Draw);
@@ -40,7 +41,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var data = TestHelper.MockData();
 
             // Act
-            var response = DataTablesResponse.Create(request, 2000, 1000, data);
+            var response = DataTablesResponse<MockData>.Create(request, 2000, 1000, data);
 
             // Assert
             Assert.Equal(request.Draw, response.Draw);
@@ -62,7 +63,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var aditionalParameters = TestHelper.MockAdditionalParameters();
 
             // Act
-            var response = DataTablesResponse.Create(request, 2000, 1000, data, aditionalParameters);
+            var response = DataTablesResponse<MockData>.Create(request, 2000, 1000, data, aditionalParameters);
 
             // Assert
             Assert.Equal(request.Draw, response.Draw);
@@ -117,15 +118,15 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
             var data = TestHelper.MockData();
             var names = new NameConvention.CamelCaseResponseNameConvention();
-            var expectedJson = String.Format("{{\"{0}\":3,\"{1}\":2000,\"{2}\":1000,\"{3}\":{4}}}",
+            var expectedJson = string.Format("{{\"{0}\":3,\"{1}\":2000,\"{2}\":1000,\"{3}\":{4}}}",
                 names.Draw,
                 names.TotalRecords,
                 names.TotalRecordsFiltered,
                 names.Data,
-                Newtonsoft.Json.JsonConvert.SerializeObject(data));
+                JsonConvert.SerializeObject(data, new JsonSerializerSettings {  ContractResolver = new CamelCasePropertyNamesContractResolver() }));
 
             // Act
-            var response = DataTablesResponse.Create(request, 2000, 1000, data);
+            var response = DataTablesResponse<MockData>.Create(request, 2000, 1000, data);
 
             // Assert
             Assert.Equal(expectedJson, response.ToString());

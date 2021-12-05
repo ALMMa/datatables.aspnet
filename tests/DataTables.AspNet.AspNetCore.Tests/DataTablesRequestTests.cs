@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Xunit;
 
 namespace DataTables.AspNet.AspNetCore.Tests
@@ -26,7 +25,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             Assert.Equal(99, request.Length);
 
             Assert.Equal("searchValue", request.Search.Value);
-            Assert.Equal(true, request.Search.IsRegex);
+            Assert.True(request.Search.IsRegex);
 
             Assert.Equal(3, request.Columns.Count());
             foreach (var column in request.Columns) Assert.NotNull(column);

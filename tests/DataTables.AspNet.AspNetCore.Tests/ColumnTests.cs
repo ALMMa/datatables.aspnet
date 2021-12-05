@@ -1,5 +1,4 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
 namespace DataTables.AspNet.AspNetCore.Tests
 {
@@ -20,9 +19,9 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Assert
             Assert.Equal("mockName", column.Name);
             Assert.Equal("mockField", column.Field);
-            Assert.Equal(false, column.IsSearchable);
-            Assert.Equal(true, column.IsSortable);
-            Assert.Equal(null, column.Search);
+            Assert.False(column.IsSearchable);
+            Assert.True(column.IsSortable);
+            Assert.Null(column.Search);
         }
         /// <summary>
         /// Validates searchable column creation with sarch values.
@@ -36,10 +35,10 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Assert
             Assert.Equal("mockName", column.Name);
             Assert.Equal("mockField", column.Field);
-            Assert.Equal(true, column.IsSearchable);
-            Assert.Equal(true, column.IsSortable);
+            Assert.True(column.IsSearchable);
+            Assert.True(column.IsSortable);
             Assert.Equal("searchValue", column.Search.Value);
-            Assert.Equal(true, column.Search.IsRegex);
+            Assert.True(column.Search.IsRegex);
         }
         /// <summary>
         /// Validate searchable column creation without search values.
@@ -53,10 +52,10 @@ namespace DataTables.AspNet.AspNetCore.Tests
             // Assert
             Assert.Equal("mockName", column.Name);
             Assert.Equal("mockField", column.Field);
-            Assert.Equal(true, column.IsSearchable);
-            Assert.Equal(true, column.IsSortable);
-            Assert.Equal(String.Empty, column.Search.Value);
-            Assert.Equal(false, column.Search.IsRegex);
+            Assert.True(column.IsSearchable);
+            Assert.True(column.IsSortable);
+            Assert.Empty(column.Search.Value);
+            Assert.False(column.Search.IsRegex);
         }
         /// <summary>
         /// Validates setting sort into sortable column.
@@ -71,7 +70,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var orderSet = column.SetSort(3, "desc");
 
             // Assert
-            Assert.Equal(true, orderSet);
+            Assert.True(orderSet);
             Assert.Equal(3, column.Sort.Order);
             Assert.Equal(Core.SortDirection.Descending, column.Sort.Direction);
         }
@@ -88,7 +87,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var orderSet = column.SetSort(3, "desc");
 
             // Assert
-            Assert.Equal(false, orderSet);
+            Assert.False(orderSet);
             Assert.Null(column.Sort);
         }
     }

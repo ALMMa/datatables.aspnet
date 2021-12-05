@@ -1,6 +1,7 @@
 ﻿using Xunit;
 using DataTables.AspNet.Core;
 using DapperExtensions.Predicate;
+using System;
 
 namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
 {
@@ -51,7 +52,7 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
             var column = TestHelper.MockColumn("columnName", "Name", true, true, "searchValue", false);
 
             // Act
-            var predicate = column.GetFilterPredicate<SampleEntity>(true);
+            var predicate = column.GetFilterPredicate<SampleEntity>(column.Search?.Value, true);
 
             // Assert
             Assert.Equal(Operator.Eq, ((IFieldPredicate)predicate).Operator);
@@ -123,7 +124,7 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
             var predicate = column.GetSortPredicate<SampleEntity>();
 
             // Assert
-            Assert.Equal(false, predicate.Ascending);
+            Assert.False(predicate.Ascending);
         }
         /// <summary>
         /// Validates sort translation of a valid collection.
@@ -152,7 +153,7 @@ namespace DataTables.AspNet.Extensions.DapperExtensions.Tests
         public void SortEmptyCollection()
         {
             // Arrange
-            var columnCollection = new IColumn[0];
+            var columnCollection = Array.Empty<IColumn>();
 
             // Act
             var collection = columnCollection.GetSortPredicate<SampleEntity>();

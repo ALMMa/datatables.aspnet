@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using DapperExtensions;
 using DapperExtensions.Predicate;
 
 namespace DataTables.AspNet.Extensions.DapperExtensions
@@ -11,6 +12,36 @@ namespace DataTables.AspNet.Extensions.DapperExtensions
     /// </summary>
     public static class DapperExtensions_Extensions
     {
+        public static IPredicate GetFilterPredicate<TElement>(this Core.IDataTablesRequest request)
+            where TElement : class
+        {
+            return request.Columns.GetFilterPredicate<TElement>(request.Search.Value);
+        }
+
+        public static IPredicate GetFilterPredicate<TElement>(this IEnumerable<Core.IColumn> columns, string searchValue)
+             where TElement : class
+        {
+            var searchableColumns = columns.Where(x => x.IsSearchable).ToArray();
+            var searchPredicates = new List<IPredicate>();
+
+            foreach (var searchableColumn in searchableColumns)
+            {
+                var columnPredicate = searchableColumn.GetFilterPredicate<TElement>(searchValue);
+                if (columnPredicate != null) searchPredicates.Add(columnPredicate);
+            }
+
+            if (searchPredicates.Any())
+            {
+                return Predicates.Group(
+                    GroupOperator.Or,
+                    searchPredicates.ToArray());
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         /// <summary>
         /// Gets the DapperExtensions filter predicate for a given column, if any search is set.
         /// Important: regex search is not supported.
@@ -18,10 +49,26 @@ namespace DataTables.AspNet.Extensions.DapperExtensions
         /// <typeparam name="TElement">The type of corresponding entity.</typeparam>
         /// <param name="column">The column to get search information.</param>
         /// <returns>The field predicate for the specified type or null.</returns>
-        public static IPredicate GetFilterPredicate<TElement>(this Core.IColumn column) where TElement : class
+        public static IPredicate GetFilterPredicate<TElement>(this Core.IColumn column)
+            where TElement : class
         {
-            return column.GetFilterPredicate<TElement>(false);
+            return column.GetFilterPredicate<TElement>(column.Search?.Value, false);
         }
+
+        /// <summary>
+        /// Gets the DapperExtensions filter predicate for a given column, if any search is set.
+        /// Important: regex search is not supported.
+        /// </summary>
+        /// <typeparam name="TElement">The type of corresponding entity.</typeparam>
+        /// <param name="column">The column to get search information.</param>
+        /// <param name="searchValue">The value to be searched.</param>
+        /// <returns>The field predicate for the specified type or null.</returns>
+        public static IPredicate GetFilterPredicate<TElement>(this Core.IColumn column, string searchValue)
+            where TElement : class
+        {
+            return column.GetFilterPredicate<TElement>(searchValue, false);
+        }
+
         /// <summary>
         /// Gets the DapperExtensions filter predicate for a given column, if any search is set.
         /// Important: regex search is not supported.
@@ -30,7 +77,8 @@ namespace DataTables.AspNet.Extensions.DapperExtensions
         /// <param name="column">The column to get search information.</param>
         /// <param name="forceEqualsOperator">Forces '==' operator for string properties.</param>
         /// <returns>The field predicate for the specified type or null.</returns>
-        public static IPredicate GetFilterPredicate<TElement>(this Core.IColumn column, bool forceEqualsOperator) where TElement : class
+        public static IPredicate GetFilterPredicate<TElement>(this Core.IColumn column, string searchValue, bool forceEqualsOperator)
+            where TElement : class
         {
             if (column == null) return null;
             if (!column.IsSearchable) return null;
@@ -53,7 +101,7 @@ namespace DataTables.AspNet.Extensions.DapperExtensions
                     ? Operator.Like
                     : Operator.Eq;
 
-            return new FieldPredicate<TElement>() { PropertyName = column.Field, Operator = _operator, Value = column.Search.Value };
+            return new FieldPredicate<TElement>() { PropertyName = column.Field, Operator = _operator, Value = searchValue };
         }
         /// <summary>
         /// Transforms a DataTables sort object into a DapperExtensions sort element.
@@ -102,9 +150,11 @@ namespace DataTables.AspNet.Extensions.DapperExtensions
 
             public static TypeSearchResult Scaffold<TElement>(string propertyName)
             {
-                var result = new TypeSearchResult();
-                result.ContainsMember = false;
-                result.IsStringProperty = false;
+                var result = new TypeSearchResult
+                {
+                    ContainsMember = false,
+                    IsStringProperty = false
+                };
 
                 try
                 {

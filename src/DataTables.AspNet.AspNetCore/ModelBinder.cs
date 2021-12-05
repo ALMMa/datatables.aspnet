@@ -1,10 +1,10 @@
-﻿using System;
+﻿using DataTables.AspNet.Core;
+using DataTables.AspNet.Core.NameConvention;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DataTables.AspNet.Core;
-using DataTables.AspNet.Core.NameConvention;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DataTables.AspNet.AspNetCore
 {
@@ -67,26 +67,22 @@ namespace DataTables.AspNet.AspNetCore
             }
 
             var start = values.GetValue(options.RequestNameConvention.Start);
-            int _start = 0;
-            Parse<int>(start, out _start);
+            Parse<int>(start, out int _start);
 
             var length = values.GetValue(options.RequestNameConvention.Length);
-            int _length = options.DefaultPageLength;
-            Parse<int>(length, out _length);
+            Parse<int>(length, out int _length);
 
             var searchValue = values.GetValue(options.RequestNameConvention.SearchValue);
-            string _searchValue = null;
-            Parse<string>(searchValue, out _searchValue);
+            Parse<string>(searchValue, out string _searchValue);
 
             var searchRegex = values.GetValue(options.RequestNameConvention.IsSearchRegex);
-            bool _searchRegex = false;
-            Parse<bool>(searchRegex, out _searchRegex);
+            Parse<bool>(searchRegex, out bool _searchRegex);
 
             var search = new Search(_searchValue, _searchRegex);
 
             // Parse columns & column sorting.
             var columns = ParseColumns(values, options.RequestNameConvention);
-            var sorting = ParseSorting(columns, values, options.RequestNameConvention);
+            //var sorting = ParseSorting(columns, values, options.RequestNameConvention);
 
             if (options.IsRequestAdditionalParametersEnabled && parseAditionalParameters != null)
             {
@@ -130,34 +126,28 @@ namespace DataTables.AspNet.AspNetCore
             while (true)
             {
                 // Parses Field value.
-                var columnField = values.GetValue(String.Format(names.ColumnField, counter));
-                string _columnField = null;
-                if (!Parse<string>(columnField, out _columnField)) break;
+                var columnField = values.GetValue(string.Format(names.ColumnField, counter));
+                if (!Parse<string>(columnField, out string _columnField)) break;
 
                 // Parses Name value.
-                var columnName = values.GetValue(String.Format(names.ColumnName, counter));
-                string _columnName = null;
-                Parse<string>(columnName, out _columnName);
+                var columnName = values.GetValue(string.Format(names.ColumnName, counter));
+                Parse<string>(columnName, out string _columnName);
 
                 // Parses Orderable value.
-                var columnSortable = values.GetValue(String.Format(names.IsColumnSortable, counter));
-                bool _columnSortable = true;
-                Parse<bool>(columnSortable, out _columnSortable);
+                var columnSortable = values.GetValue(string.Format(names.IsColumnSortable, counter));
+                Parse<bool>(columnSortable, out bool _columnSortable);
 
                 // Parses Searchable value.
-                var columnSearchable = values.GetValue(String.Format(names.IsColumnSearchable, counter));
-                bool _columnSearchable = true;
-                Parse<bool>(columnSearchable, out _columnSearchable);
+                var columnSearchable = values.GetValue(string.Format(names.IsColumnSearchable, counter));
+                Parse<bool>(columnSearchable, out bool _columnSearchable);
 
                 // Parsed Search value.
-                var columnSearchValue = values.GetValue(String.Format(names.ColumnSearchValue, counter));
-                string _columnSearchValue = null;
-                Parse<string>(columnSearchValue, out _columnSearchValue);
+                var columnSearchValue = values.GetValue(string.Format(names.ColumnSearchValue, counter));
+                Parse<string>(columnSearchValue, out string _columnSearchValue);
 
                 // Parses IsRegex value.
-                var columnSearchRegex = values.GetValue(String.Format(names.IsColumnSearchRegex, counter));
-                bool _columnSearchRegex = false;
-                Parse<bool>(columnSearchRegex, out _columnSearchRegex);
+                var columnSearchRegex = values.GetValue(string.Format(names.IsColumnSearchRegex, counter));
+                Parse<bool>(columnSearchRegex, out bool _columnSearchRegex);
 
                 var search = new Search(_columnSearchValue, _columnSearchRegex);
 
@@ -182,28 +172,26 @@ namespace DataTables.AspNet.AspNetCore
         /// <param name="values">Request parameters.</param>
         /// <param name="names">Name convention for request parameters.</param>
         /// <returns></returns>
-        private static IEnumerable<ISort> ParseSorting(IEnumerable<IColumn> columns, IValueProvider values, IRequestNameConvention names)
-        {
-            var sorting = new List<ISort>();
+        //private static IEnumerable<ISort> ParseSorting(IEnumerable<IColumn> columns, IValueProvider values, IRequestNameConvention names)
+        //{
+        //    var sorting = new List<ISort>();
 
-            for (int i = 0; i < columns.Count(); i++)
-            {
-                var sortField = values.GetValue(String.Format(names.SortField, i));
-                int _sortField = 0;
-                if (!Parse<int>(sortField, out _sortField)) break;
+        //    for (int i = 0; i < columns.Count(); i++)
+        //    {
+        //        var sortField = values.GetValue(string.Format(names.SortField, i));
+        //        if (!Parse<int>(sortField, out int _sortField)) break;
 
-                var column = columns.ElementAt(_sortField);
+        //        var column = columns.ElementAt(_sortField);
 
-                var sortDirection = values.GetValue(String.Format(names.SortDirection, i));
-                string _sortDirection = null;
-                Parse<string>(sortDirection, out _sortDirection);
+        //        var sortDirection = values.GetValue(string.Format(names.SortDirection, i));
+        //        Parse<string>(sortDirection, out string _sortDirection);
 
-                if (column.SetSort(i, _sortDirection))
-                    sorting.Add(column.Sort);
-            }
+        //        if (column.SetSort(i, _sortDirection))
+        //            sorting.Add(column.Sort);
+        //    }
 
-            return sorting;
-        }
+        //    return sorting;
+        //}
 
         /// <summary>
         /// Parses a possible raw value and transforms into a strongly-typed result.
@@ -214,9 +202,8 @@ namespace DataTables.AspNet.AspNetCore
         /// <returns>True if parsing succeeded, False otherwise.</returns>
         private static bool Parse<ElementType>(ValueProviderResult value, out ElementType result)
         {
-            result = default(ElementType);
+            result = default;
 
-            if (value == null) return false;
             if (string.IsNullOrWhiteSpace(value.FirstValue)) return false;
 
             try

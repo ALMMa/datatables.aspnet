@@ -16,7 +16,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var search = TestHelper.MockSearch("searchValue", true);
 
             Assert.Equal("searchValue", search.Value);
-            Assert.Equal(true, search.IsRegex);
+            Assert.True(search.IsRegex);
         }
         /// <summary>
         /// Validates search creation with data field.
@@ -27,7 +27,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var search = TestHelper.MockSearch("searchValue", true);
 
             Assert.Equal("searchValue", search.Value);
-            Assert.Equal(true, search.IsRegex);
+            Assert.True(search.IsRegex);
         }
     }
 }
