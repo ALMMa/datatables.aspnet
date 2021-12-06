@@ -1,6 +1,6 @@
 # Datatables.AspNet
 
-Simplified opinionated model binding and mapping from jQuery DataTables into .NET typed models with support for `NETStandard 2.0`, `.NET 5.0` and `.NET 6.0`.
+Simplified opinionated model binding and mapping from jQuery DataTables into .NET typed models with support for `AspNet Core 3.1` and `.NET 6.0`.
 
 ## Compatibility
 
