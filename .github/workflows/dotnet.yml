@@ -11,10 +11,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET
+    - name: Setup .NET 6
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.100
+    - name: Setup .NET 5
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.403
+    - name: Setup .NET 3.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.415
+    name: .net SxS
+      run: |
+        rsync -a ${DOTNET_ROOT/6.0.100/5.0.403/3.1.415}/* $DOTNET_ROOT/
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
