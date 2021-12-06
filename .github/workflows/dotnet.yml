@@ -8,11 +8,7 @@ jobs:
 
   build-preview:
     runs-on: ubuntu-latest
-    if: 
-        contains('
-            dev
-            v3
-        ', github.ref)
+    if: success() && github.ref == 'refs/heads/v3'
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET 6
@@ -35,10 +31,7 @@ jobs:
       
   build-stable:
     runs-on: ubuntu-latest
-    if: 
-        contains('
-            master
-        ', github.ref)
+    if: success() && github.ref == 'refs/heads/master'
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET 6
