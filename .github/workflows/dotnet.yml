@@ -33,7 +33,5 @@ jobs:
       run: dotnet pack src/DataTables.AspNet.Core/DataTables.AspNet.Core.csproj --output nuget-packages --configuration Debug
       
     - name: Nuget push
-      env:
-        NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
-      run: dotnet nuget push nuget-packages/*.nupkg --api-key %NUGET_KEY% --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push nuget-packages/*.nupkg --api-key oy2iaaouqjutgrg22ypq2h7y7y3gcvpu5nfyg7bblyveum --source https://api.nuget.org/v3/index.json
 
