@@ -11,28 +11,27 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Setup .NET 6
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.100
-    - name: Setup .NET 5
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.403
-    - name: Setup .NET 3.1
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.415
-    name: .net SxS
-      run: |
-        rsync -a ${DOTNET_ROOT/6.0.100/5.0.403/3.1.415}/* $DOTNET_ROOT/
+        dotnet-version: |
+            6.0.100
+            5.0.403
+            3.1.415
+        
     - name: Restore dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --no-restore
+      
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      
     - name: Nuget pack
       run: dotnet pack src/DataTables.AspNet.Core/DataTables.AspNet.Core.csproj --output nuget-packages --configuration Debug
+      
     - name: Nuget push
       run: dotnet nuget push nuget-packages/*.nupkg --api-key %{{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+
