@@ -6,22 +6,6 @@ on:
 
 jobs:
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET 6
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: |
-            6.0.100
-            5.0.403
-            3.1.415
-    - name: Build
-      run: dotnet build -c Release
-    - name: Test
-      run: dotnet test --no-build -v n
-
   build-preview:
     runs-on: ubuntu-latest
     if: 
