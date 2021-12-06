@@ -30,8 +30,8 @@ jobs:
       run: dotnet test --no-build --verbosity normal
       
     - name: Nuget pack
-      run: dotnet pack src/DataTables.AspNet.Core/DataTables.AspNet.Core.csproj --output nuget-packages --configuration Debug
+      run: dotnet pack src/DataTables.AspNet.Core/DataTables.AspNet.Core.csproj -c Release -o nuget-packages
       
     - name: Nuget push
-      run: dotnet nuget push nuget-packages/*.nupkg --api-key oy2iaaouqjutgrg22ypq2h7y7y3gcvpu5nfyg7bblyveum --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
 

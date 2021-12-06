@@ -5,7 +5,7 @@
     <Copyright>2014-2016 Anderson Matos (MIT License)</Copyright>
     <AssemblyTitle>DataTables.AspNet.AspNetCore</AssemblyTitle>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>3.0.0-preview.1</Version>
+    <Version>3.0.0-preview.2</Version>
     <Authors>Anderson Matos</Authors>
     <TargetFrameworks>netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <AssemblyName>DataTables.AspNet.AspNetCore</AssemblyName>
