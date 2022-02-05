@@ -15,7 +15,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
 
             // Act
-            var response = request.CreateResponse<MockData>("just_some_error_message");
+            var response = request.GetActionResult<MockData>("just_some_error_message");
 
             // Assert
             Assert.NotNull(response);
@@ -31,7 +31,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var aditionalParameters = TestHelper.MockAdditionalParameters();
 
             // Act
-            var response = request.CreateResponse<MockData>("just_some_error_message", aditionalParameters);
+            var response = request.GetActionResult<MockData>("just_some_error_message", aditionalParameters);
 
             // Assert
             Assert.NotNull(response);
@@ -47,7 +47,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var data = TestHelper.MockData();
 
             // Act
-            var response = request.CreateResponse<MockData>(2000, 1000, data);
+            var response = request.GetActionResult<MockData>(2000, 1000, data);
 
             // Assert
             Assert.NotNull(response);
@@ -64,7 +64,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             var aditionalParameters = TestHelper.MockAdditionalParameters();
 
             // Act
-            var response = request.CreateResponse<MockData>(2000, 1000, data, aditionalParameters);
+            var response = request.GetActionResult<MockData>(2000, 1000, data, aditionalParameters);
 
             // Assert
             Assert.NotNull(response);
@@ -79,7 +79,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             Core.IDataTablesRequest request = null;
 
             // Act
-            var response = request.CreateResponse<MockData>("just_some_error_message");
+            var response = request.GetActionResult<MockData>("just_some_error_message");
 
             // Assert
             Assert.Null(response);
@@ -97,7 +97,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             Configuration.Options.EnableDrawValidation();
 
             // Act
-            var response = request.CreateResponse<MockData>(2000, 1000, data);
+            var response = request.GetActionResult<MockData>(2000, 1000, data);
 
             // Assert
             Assert.Null(response);
@@ -115,7 +115,7 @@ namespace DataTables.AspNet.AspNetCore.Tests
             Configuration.Options.DisableDrawValidation();
 
             // Act
-            var response = request.CreateResponse<MockData>(2000, 1000, data);
+            var response = request.GetActionResult<MockData>(2000, 1000, data);
 
             // Assert
             Assert.NotNull(response);

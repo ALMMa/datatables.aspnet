@@ -1,6 +1,10 @@
 ﻿using DataTables.AspNet.AspNetCore.Tests.Mocks;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace DataTables.AspNet.AspNetCore.Tests
@@ -14,13 +18,39 @@ namespace DataTables.AspNet.AspNetCore.Tests
         /// Validates error response creation.
         /// </summary>
         [Fact]
-        public void ErrorResponse()
+        public async Task ErrorResponse()
         {
             // Arrange
             var request = TestHelper.MockDataTablesRequest(3, 13, 99, null, null);
+            var actionContext = new Microsoft.AspNetCore.Mvc.ActionContext
+            {
+                HttpContext = new Microsoft.AspNetCore.Http.DefaultHttpContext()
+            };
+
+            var collection = new Microsoft.Extensions.DependencyInjection.ServiceCollection();
+            collection.AddMvc();
+            collection.AddLogging();
+
+            actionContext.HttpContext.RequestServices = collection.BuildServiceProvider();
+            actionContext.HttpContext.Response.Body = new MemoryStream();
 
             // Act
-            var response = DataTablesResponse<MockData>.Create(request, "just_an_error_message");
+            var dataTablesResponse = DataTablesResponse<MockData>.Create(request, "just_an_error_message");
+            var dataTablesJsonResponse = new DataTablesJsonResponse<MockData>(dataTablesResponse);
+            await dataTablesJsonResponse.ExecuteResultAsync(actionContext);
+
+
+            actionContext.HttpContext.Response.Body.Seek(0, System.IO.SeekOrigin.Begin);
+            var responseContents = await (new System.IO.StreamReader(actionContext.HttpContext.Response.Body)).ReadToEndAsync();
+            var response = JsonConvert.DeserializeAnonymousType(responseContents, new
+            {
+                Draw = 0,
+                Error = "",
+                TotalRecords = 0,
+                TotalRecordsFiltered = 0,
+                Data = new List<MockData>(),
+                AdditionalParameters = new Dictionary<string, string>()
+            });
 
             // Assert
             Assert.Equal(request.Draw, response.Draw);

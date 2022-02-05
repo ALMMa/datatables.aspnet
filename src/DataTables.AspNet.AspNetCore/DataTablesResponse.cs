@@ -1,10 +1,19 @@
 ﻿using DataTables.AspNet.Core;
-using Newtonsoft.Json;
-using System;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace DataTables.AspNet.AspNetCore
 {
+    // FIXME: TESTING DELEGATE JSON SERIALIZATION TO ASP NET INTERNALS
+    public class DataTablesJsonResponse<TDataType> : JsonResult
+    {
+        public DataTablesJsonResponse(IDataTablesResponse<TDataType> value) : base(value)
+        { }
+
+        public DataTablesJsonResponse(IDataTablesResponse<TDataType> value, object serializerSettings) : base(value, serializerSettings)
+        { }
+    }
+
     /// <summary>
     /// Represents a response for DataTables.
     /// </summary>
@@ -40,103 +49,103 @@ namespace DataTables.AspNet.AspNetCore
         
         
 
-        /// <summary>
-        /// Converts this object to a Json compatible response using global naming convention for parameters.
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            using var stringWriter = new System.IO.StringWriter();
-            using var jsonWriter = new JsonTextWriter(stringWriter);
+        ///// <summary>
+        ///// Converts this object to a Json compatible response using global naming convention for parameters.
+        ///// </summary>
+        ///// <returns></returns>
+        //public override string ToString()
+        //{
+        //    using var stringWriter = new System.IO.StringWriter();
+        //    using var jsonWriter = new JsonTextWriter(stringWriter);
 
-            if (IsSuccessResponse())
-            {
-                // Start json object.
-                jsonWriter.WriteStartObject();
+        //    if (IsSuccessResponse())
+        //    {
+        //        // Start json object.
+        //        jsonWriter.WriteStartObject();
 
-                // Draw
-                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Draw, true);
-                jsonWriter.WriteValue(Draw);
+        //        // Draw
+        //        jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Draw, true);
+        //        jsonWriter.WriteValue(Draw);
 
-                // TotalRecords
-                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.TotalRecords, true);
-                jsonWriter.WriteValue(TotalRecords);
+        //        // TotalRecords
+        //        jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.TotalRecords, true);
+        //        jsonWriter.WriteValue(TotalRecords);
 
-                // TotalRecordsFiltered
-                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.TotalRecordsFiltered, true);
-                jsonWriter.WriteValue(TotalRecordsFiltered);
+        //        // TotalRecordsFiltered
+        //        jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.TotalRecordsFiltered, true);
+        //        jsonWriter.WriteValue(TotalRecordsFiltered);
 
-                // Data
-                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Data, true);
-                jsonWriter.WriteRawValue(SerializeData(Data));
+        //        // Data
+        //        jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Data, true);
+        //        jsonWriter.WriteRawValue(SerializeData(Data));
 
-                // AdditionalParameters
-                if (Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
-                {
-                    foreach (var keypair in AdditionalParameters)
-                    {
-                        jsonWriter.WritePropertyName(keypair.Key, true);
-                        jsonWriter.WriteValue(keypair.Value);
-                    }
-                }
+        //        // AdditionalParameters
+        //        if (Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
+        //        {
+        //            foreach (var keypair in AdditionalParameters)
+        //            {
+        //                jsonWriter.WritePropertyName(keypair.Key, true);
+        //                jsonWriter.WriteValue(keypair.Value);
+        //            }
+        //        }
 
-                // End json object
-                jsonWriter.WriteEndObject();
-            }
-            else
-            {
-                // Start json object.
-                jsonWriter.WriteStartObject();
+        //        // End json object
+        //        jsonWriter.WriteEndObject();
+        //    }
+        //    else
+        //    {
+        //        // Start json object.
+        //        jsonWriter.WriteStartObject();
 
-                // Draw
-                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Draw, true);
-                jsonWriter.WriteValue(Draw);
+        //        // Draw
+        //        jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Draw, true);
+        //        jsonWriter.WriteValue(Draw);
 
-                // Error
-                jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Error, true);
-                jsonWriter.WriteValue(Error);
+        //        // Error
+        //        jsonWriter.WritePropertyName(Configuration.Options.ResponseNameConvention.Error, true);
+        //        jsonWriter.WriteValue(Error);
 
-                // AdditionalParameters
-                if (DataTables.AspNet.AspNetCore.Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
-                {
-                    foreach (var keypair in AdditionalParameters)
-                    {
-                        jsonWriter.WritePropertyName(keypair.Key, true);
-                        jsonWriter.WriteValue(keypair.Value);
-                    }
-                }
+        //        // AdditionalParameters
+        //        if (DataTables.AspNet.AspNetCore.Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
+        //        {
+        //            foreach (var keypair in AdditionalParameters)
+        //            {
+        //                jsonWriter.WritePropertyName(keypair.Key, true);
+        //                jsonWriter.WriteValue(keypair.Value);
+        //            }
+        //        }
 
-                // End json object
-                jsonWriter.WriteEndObject();
-            }
+        //        // End json object
+        //        jsonWriter.WriteEndObject();
+        //    }
 
-            jsonWriter.Flush();
+        //    jsonWriter.Flush();
 
-            return stringWriter.ToString();
-        }
-        /// <summary>
-        /// For private use only.
-        /// Gets an indicator if this is a success response or an error response.
-        /// </summary>
-        /// <returns>True if it's a success response, False if it's an error response.</returns>
-        private bool IsSuccessResponse()
-        {
-            return Data != null && String.IsNullOrWhiteSpace(Error);
-        }
-        /// <summary>
-        /// Transforms a data object into a json element using Json.Net library.
-        /// Can be overriten when needed.
-        /// 
-        /// Data will be serialized with camelCase convention by default, since it's a JavaScript standard.
-        /// This should not interfere with DataTables' CamelCase X HungarianNotation issue.
-        /// </summary>
-        /// <param name="data">Data object to be transformed to json.</param>
-        /// <returns>A json representation of your data.</returns>
-        public virtual string SerializeData(object data)
-        {
-            var settings = new JsonSerializerSettings() { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() };
-            return JsonConvert.SerializeObject(data, settings);
-        }
+        //    return stringWriter.ToString();
+        //}
+        ///// <summary>
+        ///// For private use only.
+        ///// Gets an indicator if this is a success response or an error response.
+        ///// </summary>
+        ///// <returns>True if it's a success response, False if it's an error response.</returns>
+        //private bool IsSuccessResponse()
+        //{
+        //    return Data != null && String.IsNullOrWhiteSpace(Error);
+        //}
+        ///// <summary>
+        ///// Transforms a data object into a json element using Json.Net library.
+        ///// Can be overriten when needed.
+        ///// 
+        ///// Data will be serialized with camelCase convention by default, since it's a JavaScript standard.
+        ///// This should not interfere with DataTables' CamelCase X HungarianNotation issue.
+        ///// </summary>
+        ///// <param name="data">Data object to be transformed to json.</param>
+        ///// <returns>A json representation of your data.</returns>
+        //public virtual string SerializeData(object data)
+        //{
+        //    var settings = new JsonSerializerSettings() { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() };
+        //    return JsonConvert.SerializeObject(data, settings);
+        //}
 
 
 
@@ -150,6 +159,7 @@ namespace DataTables.AspNet.AspNetCore
         protected DataTablesResponse(int draw, string errorMessage)
             : this(draw, errorMessage, null)
         { }
+
         /// <summary>
         /// For internal use only.
         /// Creates a new response instance.
@@ -162,6 +172,7 @@ namespace DataTables.AspNet.AspNetCore
             Error = errorMessage;
             AdditionalParameters = additionalParameters;
         }
+
         /// <summary>
         /// For internal use only.
         /// Creates a new response instance.
@@ -173,6 +184,7 @@ namespace DataTables.AspNet.AspNetCore
         protected DataTablesResponse(int draw, int totalRecords, int totalRecordsFiltered, IEnumerable<TDataType> data)
             : this(draw, totalRecords, totalRecordsFiltered, data, null)
         { }
+
         /// <summary>
         /// For internal use only.
         /// Creates a new response instance.
