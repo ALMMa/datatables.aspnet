@@ -24,8 +24,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Nuget pack
+    - name: Nuget pack core
       run: dotnet pack src/DataTables.AspNet.Core/DataTables.AspNet.Core.csproj -c Release -o nuget-packages --version-suffix "preview.${GITHUB_RUN_NUMBER}"
+    - name: Nuget pack aspnet
+      run: dotnet pack src/DataTables.AspNet.AspNetCore/DataTables.AspNet.AspNetCore.csproj -c Release -o nuget-packages --version-suffix "preview.${GITHUB_RUN_NUMBER}"
     - name: Nuget push
       run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
       
@@ -47,8 +49,10 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Nuget pack
+    - name: Nuget pack core
       run: dotnet pack src/DataTables.AspNet.Core/DataTables.AspNet.Core.csproj -c Release -o nuget-packages
+    - name: Nuget pack aspnet
+      run: dotnet pack src/DataTables.AspNet.AspNetCore/DataTables.AspNet.AspNetCore.csproj -c Release -o nuget-packages
     - name: Nuget push
       run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
 
