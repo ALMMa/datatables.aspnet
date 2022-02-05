@@ -29,5 +29,10 @@
         /// Gets template for error.
         /// </summary>
         string Error { get; }
+
+        /// <summary>
+        /// Gets template for additional parameters.
+        /// </summary>
+        string AdditionalParameters { get; }
     }
 }

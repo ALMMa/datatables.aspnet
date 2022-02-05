@@ -31,10 +31,14 @@ namespace DataTables.AspNet.AspNetCore
         /// <summary>
         /// Gets total record count (total records available on database).
         /// </summary>
+        [Newtonsoft.Json.JsonProperty("recordsTotal")]
+        [System.Text.Json.Serialization.JsonPropertyName("recordsTotal")]
         public int TotalRecords { get; protected set; }
         /// <summary>
         /// Gets filtered record count (total records available after filtering).
         /// </summary>
+        [Newtonsoft.Json.JsonProperty("recordsFiltered")]
+        [System.Text.Json.Serialization.JsonPropertyName("recordsFiltered")]
         public int TotalRecordsFiltered { get; protected set; }
         /// <summary>
         /// Gets data object (collection).

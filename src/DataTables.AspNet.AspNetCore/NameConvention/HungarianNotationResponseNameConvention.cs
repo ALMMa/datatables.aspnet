@@ -12,5 +12,6 @@ namespace DataTables.AspNet.AspNetCore.NameConvention
         public string TotalRecordsFiltered => "iTotalDisplayRecords";
         public string Data => "aaData";
         public string Error => string.Empty;
+        public string AdditionalParameters => string.Empty;
     }
 }

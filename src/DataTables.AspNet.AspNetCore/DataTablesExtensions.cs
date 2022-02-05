@@ -25,8 +25,12 @@ namespace DataTables.AspNet.AspNetCore
         /// <param name="errorMessage">Error message to send back to client-side.</param>
         /// <param name="additionalParameters">Aditional parameters dictionary.</param>
         /// <returns>A DataTables response object.</returns>
-        public static IActionResult GetActionResult<TDataType>(this IDataTablesRequest request, string errorMessage, IDictionary<string, object> additionalParameters) =>
-            new DataTablesJsonResponse<TDataType>(DataTablesResponse<TDataType>.Create(request, errorMessage, additionalParameters));
+        public static IActionResult GetActionResult<TDataType>(this IDataTablesRequest request, string errorMessage, IDictionary<string, object> additionalParameters)
+        {
+            var response = DataTablesResponse<TDataType>.Create(request, errorMessage, additionalParameters);
+            if (response == null) return null;
+            return new DataTablesJsonResponse<TDataType>(response);
+        }
 
         /// <summary>
         /// Creates a DataTables response object.
@@ -48,7 +52,11 @@ namespace DataTables.AspNet.AspNetCore
         /// <param name="data">Data object (collection).</param>
         /// <param name="additionalParameters">Adicional parameters dictionary.</param>
         /// <returns>A DataTables response object.</returns>
-        public static IActionResult GetActionResult<TDataType>(this IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, IEnumerable<TDataType> data, IDictionary<string, object> additionalParameters) =>
-            new DataTablesJsonResult<TDataType>(DataTablesResponse<TDataType>.Create(request, totalRecords, totalRecordsFiltered, data, additionalParameters));
+        public static IActionResult GetActionResult<TDataType>(this IDataTablesRequest request, int totalRecords, int totalRecordsFiltered, IEnumerable<TDataType> data, IDictionary<string, object> additionalParameters)
+        {
+            var response = DataTablesResponse<TDataType>.Create(request, totalRecords, totalRecordsFiltered, data, additionalParameters);
+            if (response == null) return null;
+            return new DataTablesJsonResult<TDataType>(response);
+        }
     }
 }

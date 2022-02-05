@@ -64,8 +64,22 @@ namespace DataTables.AspNet.Samples.Net60.Controllers
         [Route("page-data")]
         public IActionResult PageData(IDataTablesRequest dataTablesRequest)
         {
-            var data = _sampleData.Skip(dataTablesRequest.Start).Take(dataTablesRequest.Length);
-            var response = DataTablesResponse<SampleData>.Create(dataTablesRequest, 100, 10, data);
+            var data = _sampleData;
+            var totalRecords = _sampleData.Count;
+            
+            if (!string.IsNullOrWhiteSpace(dataTablesRequest.Search?.Value))
+            {
+                data = data.Where(x =>
+                    x.FirstName.Contains(dataTablesRequest.Search.Value)
+                    || x.LastName.Contains(dataTablesRequest.Search.Value)
+                    || x.Office.Contains(dataTablesRequest.Search.Value)
+                    || x.Position.Contains(dataTablesRequest.Search.Value))
+                    .ToList();
+            }
+
+            var slice = data.OrderBy(x => x.Id).Skip(dataTablesRequest.Start).Take(dataTablesRequest.Length);
+
+            var response = DataTablesResponse<SampleData>.Create(dataTablesRequest, _sampleData.Count, data.Count, slice);
             return Json(response);
         }
     }
