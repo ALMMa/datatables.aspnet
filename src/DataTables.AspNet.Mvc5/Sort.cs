@@ -1,4 +1,5 @@
 ﻿#region Copyright
+
 /* The MIT License (MIT)
 
 Copyright (c) 2014 Anderson Luiz Mendes Matos (Brazil)
@@ -21,6 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 #endregion Copyright
 
 using DataTables.AspNet.Core;
@@ -35,17 +37,17 @@ namespace DataTables.AspNet.Mvc5
         /// <summary>
         /// Gets sort direction.
         /// </summary>
-        public SortDirection Direction { get; private set; }
+        public SortDirection Direction { get; }
+
         /// <summary>
         /// Gets data field bound.
         /// </summary>
-        public string Field { get; private set; }
+        public string Field { get; }
+
         /// <summary>
         /// Gets sort order.
         /// </summary>
-        public int Order { get; private set; }
-        
-
+        public int Order { get; }
 
         /// <summary>
         /// Creates a new sort instance.
@@ -57,7 +59,7 @@ namespace DataTables.AspNet.Mvc5
         {
             Field = field ?? "";
             Order = order;
-            
+
             Direction = (direction ?? "").ToLowerInvariant().Equals(DataTables.AspNet.Mvc5.Configuration.Options.RequestNameConvention.SortDescending)
                 ? SortDirection.Descending // Descending sort should be explicitly set.
                 : SortDirection.Ascending; // Default (when set or not) is ascending sort.

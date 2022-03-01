@@ -1,4 +1,5 @@
 ﻿#region Copyright
+
 /* The MIT License (MIT)
 
 Copyright (c) 2014 Anderson Luiz Mendes Matos (Brazil)
@@ -21,11 +22,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 #endregion Copyright
 
+using DataTables.AspNet.Core;
 using System;
 using System.Web.Mvc;
-using DataTables.AspNet.Core;
 
 namespace DataTables.AspNet.Mvc5
 {
@@ -37,16 +39,17 @@ namespace DataTables.AspNet.Mvc5
         /// <summary>
         /// Defines the default result content type.
         /// </summary>
-        private static readonly string DefaultContentType = "application/json; charset={0}";
+        private const string DefaultContentType = "application/json; charset={0}";
+
         /// <summary>
         /// Defines the default result enconding.
         /// </summary>
         private static readonly System.Text.Encoding DefaultContentEncoding = System.Text.Encoding.UTF8;
+
         /// <summary>
         /// Defines the default json request behavior.
         /// </summary>
-        private static readonly JsonRequestBehavior DefaultRequestBehavior = JsonRequestBehavior.DenyGet;
-
+        private const JsonRequestBehavior DefaultRequestBehavior = JsonRequestBehavior.DenyGet;
 
         public DataTablesJsonResult(IDataTablesResponse response)
             : this(response, DefaultContentType, DefaultContentEncoding, DefaultRequestBehavior)
@@ -70,11 +73,11 @@ namespace DataTables.AspNet.Mvc5
         /// <param name="context"></param>
         public override void ExecuteResult(ControllerContext context)
         {
-            if (JsonRequestBehavior == JsonRequestBehavior.DenyGet && context.HttpContext.Request.HttpMethod.ToUpperInvariant().Equals("GET"))
+            if (JsonRequestBehavior == JsonRequestBehavior.DenyGet && context.HttpContext.Request.HttpMethod.Equals("GET", StringComparison.InvariantCultureIgnoreCase))
                 throw new NotSupportedException("This request has been blocked because sensitive information could be disclosed to third party web sites when this is used in a GET request. To allow GET requests, set JsonRequestBehavior to AllowGet.");
 
             var response = context.HttpContext.Response;
-            
+
             response.ContentType = ContentType;
             response.ContentEncoding = ContentEncoding;
 

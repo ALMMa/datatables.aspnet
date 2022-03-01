@@ -6,18 +6,17 @@
     <AssemblyTitle>DataTables.AspNet.AspNetCore</AssemblyTitle>
     <NeutralLanguage>en-US</NeutralLanguage>
     <VersionPrefix>2.0.2</VersionPrefix>
-    <Authors>Anderson Matos</Authors>
-    <TargetFrameworks>net451;netstandard1.6</TargetFrameworks>
+    <Authors>Anderson Matos</Authors>    
     <AssemblyName>DataTables.AspNet.AspNetCore</AssemblyName>
     <PackageId>DataTables.AspNet.AspNetCore</PackageId>
     <PackageTags>DataTables;DataTables.Mvc;DataTables.AspNet;AspNet;AspNet5</PackageTags>
     <PackageReleaseNotes>Updated model binder to not break on missing column name. Updated dependencies and framework.</PackageReleaseNotes>
-    <PackageProjectUrl>https://github.com/ALMMa/datatables.aspnet</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Avaruz/datatables.aspnet</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/ALMMa/datatables.aspnet/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/ALMMa/datatables.aspnet</RepositoryUrl>
-    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">1.6.1</NetStandardImplicitPackageVersion>
+    <RepositoryUrl>https://github.com/Avaruz/datatables.aspnet</RepositoryUrl>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,8 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">

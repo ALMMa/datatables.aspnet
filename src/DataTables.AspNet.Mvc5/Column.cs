@@ -1,4 +1,5 @@
 ﻿#region Copyright
+
 /* The MIT License (MIT)
 
 Copyright (c) 2014 Anderson Luiz Mendes Matos (Brazil)
@@ -21,6 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 #endregion Copyright
 
 using DataTables.AspNet.Core;
@@ -32,25 +34,23 @@ namespace DataTables.AspNet.Mvc5
     /// </summary>
     public class Column : IColumn
     {
-        public string Field { get; private set; }
-        public string Name { get; private set; }
-        public ISearch Search { get; private set; }
-        public bool IsSearchable { get; private set; }
+        public string Field { get; }
+        public string Name { get; }
+        public ISearch Search { get; }
+        public bool IsSearchable { get; }
         public ISort Sort { get; private set; }
-        public bool IsSortable { get; private set; }
-
+        public bool IsSortable { get; }
 
         public Column(string name, string field, bool searchable, bool sortable, ISearch search)
         {
             Name = name;
             Field = field;
             IsSortable = sortable;
-                        
+
             IsSearchable = searchable;
             if (!IsSearchable) Search = null;
             else Search = search ?? new Search(field);
         }
-
 
         public bool SetSort(int order, string direction)
         {

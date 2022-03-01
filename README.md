@@ -41,7 +41,7 @@ There is no wiki yet. I will start writing a very gorgeous wiki, just don't know
 I am open to contributors :)
 
 <h3>Eager for some new code?</h3>
-If you are, check out [dev](https://github.com/ALMMa/datatables.aspnet/tree/dev) branch. It has the latest code for DataTables.AspNet, including samples and more.<br />
+If you are, check out [dev](https://github.com/Avaruz/datatables.aspnet/tree/dev) branch. It has the latest code for DataTables.AspNet, including samples and more.<br />
 For every release (even unstable ones) there should be a nuget package.
 
 <h3>Stable code?</h3>
