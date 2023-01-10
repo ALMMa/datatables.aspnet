@@ -1,4 +1,5 @@
 ﻿#region Copyright
+
 /* The MIT License (MIT)
 
 Copyright (c) 2014 Anderson Luiz Mendes Matos (Brazil)
@@ -21,12 +22,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 #endregion Copyright
 
-using System;
-using System.Linq;
 using DataTables.AspNet.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
 
 namespace DataTables.AspNet.Samples.AspNetCore.BasicIntegration.Controllers
 {
@@ -39,8 +41,6 @@ namespace DataTables.AspNet.Samples.AspNetCore.BasicIntegration.Controllers
             return View();
         }
 
-
-
         /// <summary>
         /// This is your data method.
         /// DataTables will query this (HTTP GET) to fetch data to display.
@@ -48,7 +48,7 @@ namespace DataTables.AspNet.Samples.AspNetCore.BasicIntegration.Controllers
         /// <param name="request">
         /// This represents your DataTables request.
         /// It's automatically binded using the default binder and settings.
-        /// 
+        ///
         /// You should use IDataTablesRequest as your model, to avoid unexpected behavior and allow
         /// custom binders to be attached whenever necessary.
         /// </param>
@@ -64,8 +64,8 @@ namespace DataTables.AspNet.Samples.AspNetCore.BasicIntegration.Controllers
             // Filter is being manually applied due to in-memmory (IEnumerable) data.
             // If you want something rather easier, check IEnumerableExtensions Sample.
             var filteredData = String.IsNullOrWhiteSpace(request.Search.Value)
-				? data
-				: data.Where(_item => _item.Name.Contains(request.Search.Value));
+                ? data
+                : data.Where(_item => _item.Name.Contains(request.Search.Value));
 
             // Paging filtered data.
             // Paging is rather manual due to in-memmory (IEnumerable) data.

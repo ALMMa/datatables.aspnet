@@ -5,18 +5,17 @@
     <Copyright>2014-2016 Anderson Matos (MIT License)</Copyright>
     <AssemblyTitle>DataTables.AspNet.WebApi2</AssemblyTitle>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <VersionPrefix>2.0.2</VersionPrefix>
-    <Authors>Anderson Matos</Authors>
-    <TargetFramework>net45</TargetFramework>
+    <VersionPrefix>2.0.3</VersionPrefix>
+    <Authors>Anderson Matos/Adhemar Soria Galvarro</Authors>
+    <TargetFramework>net48</TargetFramework>
     <AssemblyName>DataTables.AspNet.WebApi2</AssemblyName>
-    <PackageId>DataTables.AspNet.WebApi2</PackageId>
+    <PackageId>DataTables.AspNet.WebApi2V2</PackageId>
     <PackageTags>DataTables;DataTables.Mvc;DataTables.WebApi2;WebApi;WebApi2</PackageTags>
     <PackageReleaseNotes>Updated dependencies and framework.</PackageReleaseNotes>
-    <PackageProjectUrl>https://github.com/ALMMa/datatables.aspnet</PackageProjectUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/ALMMa/datatables.aspnet/master/LICENSE</PackageLicenseUrl>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/Avaruz/datatables.aspnet</PackageProjectUrl>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/ALMMa/datatables.aspnet</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Avaruz/datatables.aspnet</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.3" />
+    <PackageReference Include="Microsoft.AspNet.WebApi" Version="5.2.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 

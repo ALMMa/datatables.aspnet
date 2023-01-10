@@ -34,31 +34,31 @@ namespace DataTables.AspNet.Samples.AspNetCore.BasicIntegration
     {
         public void ConfigureServices(IServiceCollection services)
         {
-			services.AddMvc();
+            services.AddRazorPages();
+            services.AddControllersWithViews();
 
 			// DataTables.AspNet registration with default options.
 			services.RegisterDataTables();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Add static files to the request pipeline.
             app.UseStaticFiles();
 
-			// Adds dev exception page for better debug experience.
-			app.UseDeveloperExceptionPage();
+            // Adds dev exception page for better debug experience.
+            app.UseDeveloperExceptionPage();
 
-			// Add MVC to the request pipeline.
-			app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" });
 
-                // Uncomment the following line to add a route for porting Web API 2 controllers.
-                // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
-            });
+            // Add MVC to the request pipeline.
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+             {
+                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+             }
+            );
+                
+
         }
     }
 }

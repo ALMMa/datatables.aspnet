@@ -1,4 +1,5 @@
 ﻿#region Copyright
+
 /* The MIT License (MIT)
 
 Copyright (c) 2014 Anderson Luiz Mendes Matos (Brazil)
@@ -21,10 +22,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 #endregion Copyright
 
-using System;
 using DataTables.AspNet.Core;
+using System;
 
 namespace DataTables.AspNet.Mvc5
 {
@@ -37,17 +39,17 @@ namespace DataTables.AspNet.Mvc5
         /// Gets the search data field if bound to a column.
         /// Field for global search is null.
         /// </summary>
-        public string Field { get; private set; }
+        public string Field { get; }
+
         /// <summary>
         /// Gets an indicator if search value is regex or plain text.
         /// </summary>
-        public bool IsRegex { get; private set; }
+        public bool IsRegex { get; }
+
         /// <summary>
         /// Gets search value.
         /// </summary>
-        public string Value { get; private set; }
-
-
+        public string Value { get; }
 
         /// <summary>
         /// Creates a new search instance.
@@ -55,6 +57,7 @@ namespace DataTables.AspNet.Mvc5
         public Search()
             : this(String.Empty, false, null)
         { }
+
         /// <summary>
         /// Creates a new search instance.
         /// </summary>
@@ -62,14 +65,16 @@ namespace DataTables.AspNet.Mvc5
         public Search(string field)
             : this(String.Empty, false, field)
         { }
+
         /// <summary>
         /// Creates a new search instance.
         /// </summary>
         /// <param name="value">Search value.</param>
         /// <param name="isRegex">True if search value is regex, False if search value is plain text.</param>
         public Search(string value, bool isRegex)
-            : this (value, isRegex, null)
+            : this(value, isRegex, null)
         { }
+
         /// <summary>
         /// Creates a new search instance.
         /// </summary>

@@ -1,4 +1,5 @@
 ﻿#region Copyright
+
 /* The MIT License (MIT)
 
 Copyright (c) 2014 Anderson Luiz Mendes Matos (Brazil)
@@ -21,6 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 #endregion Copyright
 
 using DataTables.AspNet.Core.NameConvention;
@@ -32,10 +34,15 @@ namespace DataTables.AspNet.Mvc5.NameConvention
     /// </summary>
     public class CamelCaseResponseNameConvention : IResponseNameConvention
     {
-        public string Draw { get { return "draw"; } }
-        public string TotalRecords { get { return "recordsTotal"; } }
-        public string TotalRecordsFiltered { get { return "recordsFiltered"; } }
-        public string Data { get { return "data"; } }
-        public string Error { get { return "error"; } }
+        public string Draw
+        { get { return "draw"; } }
+        public string TotalRecords
+        { get { return "recordsTotal"; } }
+        public string TotalRecordsFiltered
+        { get { return "recordsFiltered"; } }
+        public string Data
+        { get { return "data"; } }
+        public string Error
+        { get { return "error"; } }
     }
 }

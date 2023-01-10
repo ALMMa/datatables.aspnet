@@ -1,4 +1,5 @@
 ﻿#region Copyright
+
 /* The MIT License (MIT)
 
 Copyright (c) 2014 Anderson Luiz Mendes Matos (Brazil)
@@ -21,12 +22,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 #endregion Copyright
 
+using DataTables.AspNet.Core;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using DataTables.AspNet.Core;
 
 namespace DataTables.AspNet.Mvc5
 {
@@ -52,33 +54,38 @@ namespace DataTables.AspNet.Mvc5
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
-        public static void RegisterDataTables() { RegisterDataTables(new Options()); }
+        public static void RegisterDataTables()
+        { RegisterDataTables(new Options()); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
         /// <param name="options">DataTables.AspNet options.</param>
-        public static void RegisterDataTables(IOptions options) { RegisterDataTables(options, new ModelBinder()); }
+        public static void RegisterDataTables(IOptions options)
+        { RegisterDataTables(options, new ModelBinder()); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
         /// <param name="requestModelBinder">Request model binder to use when resolving 'IDataTablesRequest' models.</param>
-        public static void RegisterDataTables(ModelBinder requestModelBinder) { RegisterDataTables(new Options(), requestModelBinder); }
+        public static void RegisterDataTables(ModelBinder requestModelBinder)
+        { RegisterDataTables(new Options(), requestModelBinder); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
 		/// <param name="parseRequestAdditionalParameters">Function to evaluate request additional parameters sent to the server.</param>
 		/// <param name="parseResponseAdditionalParameters">Indicates if additional parameters will be sent to the response.</param>
-        public static void RegisterDataTables(Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> parseRequestAdditionalParameters, bool parseResponseAdditionalParameters) { RegisterDataTables(new Options(), new ModelBinder(), parseRequestAdditionalParameters, parseResponseAdditionalParameters); }
+        public static void RegisterDataTables(Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> parseRequestAdditionalParameters, bool parseResponseAdditionalParameters)
+        { RegisterDataTables(new Options(), new ModelBinder(), parseRequestAdditionalParameters, parseResponseAdditionalParameters); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
         /// </summary>
         /// <param name="options">DataTables.AspNet options.</param>
         /// <param name="requestModelBinder">Model binder to use when resolving 'IDataTablesRequest' model.</param>
-        public static void RegisterDataTables(IOptions options, ModelBinder requestModelBinder) { RegisterDataTables(options, requestModelBinder, null, false); }
+        public static void RegisterDataTables(IOptions options, ModelBinder requestModelBinder)
+        { RegisterDataTables(options, requestModelBinder, null, false); }
 
         /// <summary>
         /// Provides DataTables.AspNet registration for Asp.Net MVC 5 projects.
@@ -89,8 +96,8 @@ namespace DataTables.AspNet.Mvc5
 		/// <param name="parseResponseAdditionalParameters">Indicates if additional parameters will be sent to the response.</param>
         public static void RegisterDataTables(IOptions options, ModelBinder requestModelBinder, Func<ControllerContext, ModelBindingContext, IDictionary<string, object>> parseRequestAdditionalParameters, bool parseResponseAdditionalParameters)
         {
-            if (options == null) throw new ArgumentNullException("options", "Options for DataTables.AspNet cannot be null.");
-            if (requestModelBinder == null) throw new ArgumentNullException("requestModelBinder", "Request model binder for DataTables.AspNet cannot be null.");
+            if (options == null) throw new ArgumentNullException(nameof(options), "Options for DataTables.AspNet cannot be null.");
+            if (requestModelBinder == null) throw new ArgumentNullException(nameof(requestModelBinder), "Request model binder for DataTables.AspNet cannot be null.");
 
             Options = options;
             ModelBinders.Binders.Add(typeof(IDataTablesRequest), requestModelBinder);
