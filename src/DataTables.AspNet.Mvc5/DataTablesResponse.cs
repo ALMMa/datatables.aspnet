@@ -1,4 +1,5 @@
 ﻿#region Copyright
+
 /* The MIT License (MIT)
 
 Copyright (c) 2014 Anderson Luiz Mendes Matos (Brazil)
@@ -21,11 +22,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 #endregion Copyright
 
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace DataTables.AspNet.Mvc5
 {
@@ -38,41 +40,43 @@ namespace DataTables.AspNet.Mvc5
         /// Gets draw count for validation and async ordering.
         /// </summary>
         public int Draw { get; protected set; }
+
         /// <summary>
         /// Gets error message, if not successful.
         /// Should only be available for DataTables 1.10 and above.
         /// </summary>
         public string Error { get; protected set; }
+
         /// <summary>
         /// Gets total record count (total records available on database).
         /// </summary>
         public int TotalRecords { get; protected set; }
+
         /// <summary>
         /// Gets filtered record count (total records available after filtering).
         /// </summary>
         public int TotalRecordsFiltered { get; protected set; }
+
         /// <summary>
         /// Gets data object (collection).
         /// </summary>
         public object Data { get; protected set; }
+
         /// <summary>
         /// Gets aditional parameters for response.
         /// </summary>
         public IDictionary<string, object> AdditionalParameters { get; protected set; }
-        
-        
-        
-        
 
         /// <summary>
         /// Converts this object to a Json compatible response using global naming convention for parameters.
         /// </summary>
+        /// 
         /// <returns></returns>
         public override string ToString()
         {
             using (var stringWriter = new System.IO.StringWriter())
             using (var jsonWriter = new JsonTextWriter(stringWriter))
-            {                 
+            {
                 if (IsSuccessResponse())
                 {
                     // Start json object.
@@ -97,7 +101,7 @@ namespace DataTables.AspNet.Mvc5
                     // AdditionalParameters
                     if (DataTables.AspNet.Mvc5.Configuration.Options.IsResponseAdditionalParametersEnabled && AdditionalParameters != null)
                     {
-                        foreach(var keypair in AdditionalParameters)
+                        foreach (var keypair in AdditionalParameters)
                         {
                             jsonWriter.WritePropertyName(keypair.Key, true);
                             jsonWriter.WriteValue(keypair.Value);
@@ -139,6 +143,7 @@ namespace DataTables.AspNet.Mvc5
                 return stringWriter.ToString();
             }
         }
+
         /// <summary>
         /// For private use only.
         /// Gets an indicator if this is a success response or an error response.
@@ -148,10 +153,11 @@ namespace DataTables.AspNet.Mvc5
         {
             return Data != null && String.IsNullOrWhiteSpace(Error);
         }
+
         /// <summary>
         /// Transforms a data object into a json element using Json.Net library.
         /// Can be overriten when needed.
-        /// 
+        ///
         /// Data will be serialized with camelCase convention by default, since it's a JavaScript standard.
         /// This should not interfere with DataTables' CamelCase X HungarianNotation issue.
         /// </summary>
@@ -163,9 +169,6 @@ namespace DataTables.AspNet.Mvc5
             return JsonConvert.SerializeObject(data, settings);
         }
 
-
-
-
         /// <summary>
         /// For internal use only.
         /// Creates a new response instance.
@@ -175,6 +178,7 @@ namespace DataTables.AspNet.Mvc5
         private DataTablesResponse(int draw, string errorMessage)
             : this(draw, errorMessage, null)
         { }
+
         /// <summary>
         /// For internal use only.
         /// Creates a new response instance.
@@ -187,6 +191,7 @@ namespace DataTables.AspNet.Mvc5
             Error = errorMessage;
             AdditionalParameters = additionalParameters;
         }
+
         /// <summary>
         /// For internal use only.
         /// Creates a new response instance.
@@ -198,6 +203,7 @@ namespace DataTables.AspNet.Mvc5
         private DataTablesResponse(int draw, int totalRecords, int totalRecordsFiltered, object data)
             : this(draw, totalRecords, totalRecordsFiltered, data, null)
         { }
+
         /// <summary>
         /// For internal use only.
         /// Creates a new response instance.
@@ -217,9 +223,6 @@ namespace DataTables.AspNet.Mvc5
             AdditionalParameters = additionalParameters;
         }
 
-
-
-
         /// <summary>
         /// Creates a new response instance.
         /// </summary>
@@ -232,6 +235,7 @@ namespace DataTables.AspNet.Mvc5
         {
             return DataTablesResponse.Create(request, totalRecords, totalRecordsFiltered, data, null);
         }
+
         /// <summary>
         /// Creates a new response instance.
         /// </summary>
@@ -256,6 +260,7 @@ namespace DataTables.AspNet.Mvc5
 
             return new DataTablesResponse(request.Draw, totalRecords, totalRecordsFiltered, data, additionalParameters);
         }
+
         /// <summary>
         /// Creates a new response instance.
         /// </summary>
@@ -266,6 +271,7 @@ namespace DataTables.AspNet.Mvc5
         {
             return DataTablesResponse.Create(request, errorMessage, null);
         }
+
         /// <summary>
         /// Creates a new response instance.
         /// </summary>

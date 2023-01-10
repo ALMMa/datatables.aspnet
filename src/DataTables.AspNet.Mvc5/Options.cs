@@ -1,4 +1,5 @@
 ﻿#region Copyright
+
 /* The MIT License (MIT)
 
 Copyright (c) 2014 Anderson Luiz Mendes Matos (Brazil)
@@ -21,6 +22,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 #endregion Copyright
 
 using DataTables.AspNet.Core;
@@ -38,32 +40,31 @@ namespace DataTables.AspNet.Mvc5
         /// Gets default page length when parameter is not set.
         /// </summary>
         public int DefaultPageLength { get; private set; }
+
         /// <summary>
         /// Gets an indicator if draw parameter should be validated.
         /// </summary>
         public bool IsDrawValidationEnabled { get; private set; }
+
         /// <summary>
         /// Gets an indicator whether request parameters parsing is enabled or not.
         /// </summary>
         public bool IsRequestAdditionalParametersEnabled { get; private set; }
+
         /// <summary>
         /// Gets an indicator whether response parameters parsing is enabled or not.
         /// </summary>
         public bool IsResponseAdditionalParametersEnabled { get; private set; }
 
-
         /// <summary>
         /// Gets the request name convention to be used when resolving request parameters.
         /// </summary>
         public IRequestNameConvention RequestNameConvention { get; private set; }
+
         /// <summary>
         /// Gets the response name convention to be used when serializing response elements.
         /// </summary>
         public IResponseNameConvention ResponseNameConvention { get; private set; }
-
-
-
-
 
         /// <summary>
         /// Sets the default page length to be used when request parameter is not set.
@@ -71,65 +72,79 @@ namespace DataTables.AspNet.Mvc5
         /// </summary>
         /// <param name="defaultPageLength">The new default page length to be used.</param>
         /// <returns></returns>
-        public IOptions SetDefaultPageLength(int defaultPageLength) { DefaultPageLength = defaultPageLength; return this; }
+        public IOptions SetDefaultPageLength(int defaultPageLength)
+        { DefaultPageLength = defaultPageLength; return this; }
+
         /// <summary>
         /// Enables draw validation.
         /// Draw validation is enabled by default.
         /// </summary>
         /// <returns></returns>
-        public IOptions EnableDrawValidation() { IsDrawValidationEnabled = true; return this; }
+        public IOptions EnableDrawValidation()
+        { IsDrawValidationEnabled = true; return this; }
+
         /// <summary>
         /// Disables draw validation.
         /// As stated by jQuery DataTables, draw validation should not be disabled unless explicitly required.
         /// </summary>
         /// <returns></returns>
-        public IOptions DisableDrawValidation() { IsDrawValidationEnabled = false; return this; }
+        public IOptions DisableDrawValidation()
+        { IsDrawValidationEnabled = false; return this; }
+
         /// <summary>
         /// Enables parsing request aditional parameters.
         /// You must provide your own function for parameter resolution on DataTables.AspNet registration.
         /// </summary>
         /// <returns></returns>
-        public IOptions EnableRequestAdditionalParameters() { IsRequestAdditionalParametersEnabled = true; return this; }
+        public IOptions EnableRequestAdditionalParameters()
+        { IsRequestAdditionalParametersEnabled = true; return this; }
+
         /// <summary>
         /// Disables parsing request aditional parameters.
         /// Aditional parameters are not resolved by default for security reasons.
         /// </summary>
         /// <returns></returns>
-        public IOptions DisableRequestAdditionalParameters() { IsRequestAdditionalParametersEnabled = false; return this; }
+        public IOptions DisableRequestAdditionalParameters()
+        { IsRequestAdditionalParametersEnabled = false; return this; }
+
         /// <summary>
         /// Enables parsing response aditional parameters.
         /// </summary>
         /// <returns></returns>
-        public IOptions EnableResponseAdditionalParameters() { IsResponseAdditionalParametersEnabled = true; return this; }
+        public IOptions EnableResponseAdditionalParameters()
+        { IsResponseAdditionalParametersEnabled = true; return this; }
+
         /// <summary>
         /// Disables parsing response aditional parameters.
         /// Aditional parameters are not resolved by default for security reasons.
         /// </summary>
         /// <returns></returns>
-        public IOptions DisableResponseAdditionalParameters() { IsResponseAdditionalParametersEnabled = false; return this; }
+        public IOptions DisableResponseAdditionalParameters()
+        { IsResponseAdditionalParametersEnabled = false; return this; }
+
         /// <summary>
         /// Forces DataTables to use CamelCase on request/respose parameter names.
         /// CamelCase is enabled by default and is available for DataTables 1.10 and above.
         /// </summary>
         /// <returns></returns>
-        public IOptions UseCamelCase() { RequestNameConvention = new CamelCaseRequestNameConvention(); ResponseNameConvention = new CamelCaseResponseNameConvention(); return this; }
+        public IOptions UseCamelCase()
+        { RequestNameConvention = new CamelCaseRequestNameConvention(); ResponseNameConvention = new CamelCaseResponseNameConvention(); return this; }
+
         /// <summary>
         /// Forces DataTables to use HungarianNotation on request/response parameter names.
         /// HungarianNotation is available for compatibility with older/legacy DataTables (prior to 1.10).
         /// </summary>
         /// <returns></returns>
-        public IOptions UseHungarianNotation() { RequestNameConvention = new HungarianNotationRequestNameConvention(); ResponseNameConvention = new HungarianNotationResponseNameConvention(); return this; }
-
-
-
-
+        public IOptions UseHungarianNotation()
+        { RequestNameConvention = new HungarianNotationRequestNameConvention(); ResponseNameConvention = new HungarianNotationResponseNameConvention(); return this; }
 
         /// <summary>
         /// Creates a new 'Option' instance.
         /// </summary>
         public Options()
-            : this (10, true, false, false, new CamelCaseRequestNameConvention(), new CamelCaseResponseNameConvention())
+            : this(10, true, false, false, new CamelCaseRequestNameConvention(), new CamelCaseResponseNameConvention())
         { }
+
         /// <summary>
         /// Creates a new 'Option' instance.
         /// </summary>
